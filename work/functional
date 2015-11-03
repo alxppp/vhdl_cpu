@@ -2,10 +2,8 @@ architecture functional of System is
 begin
 	process
 		use WORK.cpu_defs_pack.all;
-		variable Memory : mem_type :=
-			( 0 => code_nop * (2**reg_addr_width)**3,
-			  1 => code_stop * (2**reg_addr_width)**3,
-			  others => 0 );
+		use WORK.mem_defs_pack.all;
+		variable Memory : mem_type := memory_content;
 		variable Reg 	: reg_type;
 		variable Instr 	: data_type;
 		variable OP	: opcode_type;

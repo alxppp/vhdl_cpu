@@ -9,7 +9,7 @@ begin
 		use WORK.cpu_defs_pack.all;
 		--use WORK.mem_defs_pack.all;
 
-		variable Memory : mem_type := memory_content;
+		variable Memory : mem_type;
 		variable Reg 	: reg_type;
 		variable Instr 	: data_type;
 		variable OP	: opcode_type;

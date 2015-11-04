@@ -26,8 +26,15 @@ begin
 		Z := Instr mod 2**reg_addr_width; 
 		-- execute
 		case OP is
-			when code_nop 	=> null;
-			when code_stop 	=> wait;
+			when code_nop	=> 	null;
+			when code_stop 	=> 	wait;
+			when code_str	=>	data := Reg(X);
+						Memory(Reg(Y)) := data;
+			when code_ldpc	=>	data := PC;
+						Reg(X) := PC;
+			when code_stpc	=>	data := Reg(X);
+						PC := Reg(X);
+			when code_jmp	=>	PC := Memory(PC);	
 			when others	=>
 				assert FALSE
 				report "Illegal Operation"

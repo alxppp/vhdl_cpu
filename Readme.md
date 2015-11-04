@@ -27,3 +27,5 @@
 | ROLC | @maxcpu
 | ROR  | @maxcpu
 | RORC | @maxcpu
+| SUB  | @RobMa
+| SUBC | @RobMa

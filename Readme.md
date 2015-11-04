@@ -23,3 +23,7 @@
 | JNC  |@OrestisAlpos|        |
 | JNN  |@OrestisAlpos|        |
 | JNO  |@OrestisAlpos|        |
+| ROL  | @maxcpu
+| ROLC | @maxcpu
+| ROR  | @maxcpu
+| RORC | @maxcpu

@@ -1,4 +1,22 @@
-package body cpu_defs_pack is
+package cpu_subprogram_pack_orestis is
+
+	use WORK.cpu_defs_pack.all;
+
+	function INC(constant PC :in addr_type) return addr_type;
+	procedure EXEC_ADDC (   constant A,B	: in data_type;
+				variable R	: out data_type;
+				variable Z	: out Boolean;
+				variable C	: inout Boolean;
+				variable N,O	: out Boolean );
+
+
+end cpu_subprogram_pack_orestis;
+
+
+
+
+
+package body cpu_subprogram_pack_orestis is
 
 	function INC(constant PC :in addr_type) return addr_type is
 	begin
@@ -56,4 +74,4 @@ package body cpu_defs_pack is
 		end if;
 	end EXEC_ADDC;	
 
-end cpu_defs_pack;
+end cpu_subprogram_pack_orestis;

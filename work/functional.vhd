@@ -7,6 +7,7 @@ architecture functional of System is --Orestis
 begin
 	process
 		use WORK.cpu_defs_pack.all;
+		use WORK.cpu_subprogram_pack_orestis.all;
 		--use WORK.mem_defs_pack.all;
 
 		variable Memory : mem_type;
@@ -16,6 +17,7 @@ begin
 		variable X,Y,Z	: reg_addr_type;
 		variable PC	: addr_type := 0;
 		variable data	: data_type; --Max
+		variable Carry, Zero, Negative, Overflow : boolean;
 	begin
 		-- fetch
 		Instr := Memory(PC);
@@ -36,10 +38,9 @@ begin
 			when code_stpc	=>	data := Reg(X); --Max
 						PC := Reg(X);
 			when code_jmp	=>	PC := Memory(PC); --Max	
-			when code_add	=> Carry := FALSE;
-					   EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow); -- EXEC_ADDC also works for ADD, if we give assign FLASE to Carry parameter.
-			when code_addc	=> EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow);
-			when code_jmp	=> PC := Memory(PC);
+			when code_add	=> 	Carry := FALSE;
+					   	EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow); -- EXEC_ADDC also works for ADD, if we give assign FLASE to Carry parameter.
+			when code_addc	=> 	EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow);
 			when code_jz	=> if Zero then
 						PC := Memory(PC);
 					    else

@@ -3,7 +3,7 @@ end System;
 
 
 
-architecture functional of System is --Ortesis
+architecture functional of System is --Orestis
 begin
 	process
 		use WORK.cpu_defs_pack.all;
@@ -36,7 +36,51 @@ begin
 			when code_stpc	=>	data := Reg(X); --Max
 						PC := Reg(X);
 			when code_jmp	=>	PC := Memory(PC); --Max	
-			when others	=> -- Ortesis
+			when code_add	=> Carry := FALSE;
+					   EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow); -- EXEC_ADDC also works for ADD, if we give assign FLASE to Carry parameter.
+			when code_addc	=> EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow);
+			when code_jmp	=> PC := Memory(PC);
+			when code_jz	=> if Zero then
+						PC := Memory(PC);
+					    else
+						PC := INC(PC);
+					    end if;
+			when code_jnz	=> if not Zero then
+						PC := Memory(PC);
+					    else
+						PC := INC(PC);
+					    end if;
+			when code_jc	=>  if Carry then
+						PC := Memory(PC);
+					    else
+						PC := INC(PC);
+					    end if;
+			when code_jnc	=>  if not Carry then
+						PC := Memory(PC);
+					    else
+						PC := INC(PC);
+					    end if;
+			when code_jn	=>  if Negative then
+						PC := Memory(PC);
+					    else
+						PC := INC(PC);
+					    end if;
+			when code_jnn	=>  if not Negative then
+						PC := Memory(PC);
+					    else
+						PC := INC(PC);
+					    end if;
+			when code_jo	=>  if Overflow then
+						PC := Memory(PC);
+					    else
+						PC := INC(PC);
+					    end if;
+			when code_jno	=>  if not Overflow then
+						PC := Memory(PC);
+					    else
+						PC := INC(PC);
+					    end if;
+			when others	=> -- Orestis
 				assert FALSE
 				report "Illegal Operation"
 				severity error;

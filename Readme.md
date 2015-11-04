@@ -12,10 +12,10 @@
 | LDPC | @maxcpu   |        |
 | STPC | @maxcpu   |        |
 | JMP  | @maxcpu   |        |
-| JZ   |           |        |
-| JC   |           |        |
-| JN   |           |        |
-| JO   |           |        |
+| JZ   | @RobMa    |        |
+| JC   | @RobMa    |        |
+| JN   | @RobMa    |        |
+| JO   | @RobMa    |        |
 | JNZ  |           |        |
 | JNC  |           |        |
 | JNN  |           |        |

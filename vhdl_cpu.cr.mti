@@ -1,1 +1,13 @@
+C:/Users/Max/Documents/GitHub/vhdl_cpu/work/functional.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Max/Documents/GitHub/vhdl_cpu/work/functional.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Compiling entity System
+-- Compiling architecture functional of System
+-- Loading package cpu_defs_pack
 
+} {} {}} C:/Users/Max/Documents/GitHub/vhdl_cpu/work/cpu_defs_pack.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Max/Documents/GitHub/vhdl_cpu/work/cpu_defs_pack.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Compiling package cpu_defs_pack
+
+} {} {}}

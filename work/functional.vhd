@@ -1,9 +1,9 @@
-entity System is
+entity System is --Max
 end System;
 
 
 
-architecture functional of System is
+architecture functional of System is --Ortesis
 begin
 	process
 		use WORK.cpu_defs_pack.all;
@@ -14,7 +14,8 @@ begin
 		variable Instr 	: data_type;
 		variable OP	: opcode_type;
 		variable X,Y,Z	: reg_addr_type;
-		variable PC	:addr_type := 0;
+		variable PC	: addr_type := 0;
+		variable data	: data_type; --Max
 	begin
 		-- fetch
 		Instr := Memory(PC);
@@ -28,14 +29,14 @@ begin
 		case OP is
 			when code_nop	=> 	null;
 			when code_stop 	=> 	wait;
-			when code_str	=>	data := Reg(X);
-						Memory(Reg(Y)) := data;
-			when code_ldpc	=>	data := PC;
+			when code_str	=>	data := Reg(X); --Max
+						Memory(Reg(Y)) := data; 
+			when code_ldpc	=>	data := PC; --Max
 						Reg(X) := PC;
-			when code_stpc	=>	data := Reg(X);
+			when code_stpc	=>	data := Reg(X); --Max
 						PC := Reg(X);
-			when code_jmp	=>	PC := Memory(PC);	
-			when others	=>
+			when code_jmp	=>	PC := Memory(PC); --Max	
+			when others	=> -- Ortesis
 				assert FALSE
 				report "Illegal Operation"
 				severity error;

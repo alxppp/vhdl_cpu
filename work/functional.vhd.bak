@@ -14,7 +14,8 @@ begin
 		variable Instr 	: data_type;
 		variable OP	: opcode_type;
 		variable X,Y,Z	: reg_addr_type;
-		variable PC	:addr_type := 0;
+		variable PC	: addr_type := 0;
+		variable data	: data_type;
 	begin
 		-- fetch
 		Instr := Memory(PC);
@@ -26,8 +27,15 @@ begin
 		Z := Instr mod 2**reg_addr_width; 
 		-- execute
 		case OP is
-			when code_nop 	=> null;
-			when code_stop 	=> wait;
+			when code_nop	=> 	null;
+			when code_stop 	=> 	wait;
+			when code_str	=>	data := Reg(X); --Max
+						Memory(Reg(Y)) := data; 
+			when code_ldpc	=>	data := PC; --Max
+						Reg(X) := PC;
+			when code_stpc	=>	data := Reg(X); --Max
+						PC := Reg(X);
+			when code_jmp	=>	PC := Memory(PC); --Max	
 			when others	=>
 				assert FALSE
 				report "Illegal Operation"

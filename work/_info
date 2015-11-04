@@ -19,47 +19,47 @@ Vc831@gRWBRUbUb^5VP:^=0
 !s100 @WA]J8e4J2X:Wa]Fi6@EG3
 Z1 OP;C;10.4a;61
 32
-Z2 !s110 1446640646
+!s110 1446640646
 !i10b 1
-Z3 !s108 1446640646.000000
+!s108 1446640646.000000
 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Max/Documents/GitHub/vhdl_cpu/work/cpu_defs_pack.vhd|
 !s107 C:/Users/Max/Documents/GitHub/vhdl_cpu/work/cpu_defs_pack.vhd|
 !i113 1
-Z4 o-work work -2002 -explicit -O0
-Z5 tExplicit 1
+Z2 o-work work -2002 -explicit -O0
+Z3 tExplicit 1
 Esystem
-Z6 w1446640645
+Z4 w1446641293
 R0
-Z7 8C:/Users/Max/Documents/GitHub/vhdl_cpu/work/functional.vhd
-Z8 FC:/Users/Max/Documents/GitHub/vhdl_cpu/work/functional.vhd
+Z5 8C:/Users/Max/Documents/GitHub/vhdl_cpu/work/functional.vhd
+Z6 FC:/Users/Max/Documents/GitHub/vhdl_cpu/work/functional.vhd
 l0
 L1
 V8a<Vok`2RJMS=6VPMWRaZ2
 !s100 NC32=M[ePeAzN1bf1L<;F0
 R1
 32
-R2
+Z7 !s110 1446641320
 !i10b 1
-R3
+Z8 !s108 1446641320.000000
 Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Max/Documents/GitHub/vhdl_cpu/work/functional.vhd|
 Z10 !s107 C:/Users/Max/Documents/GitHub/vhdl_cpu/work/functional.vhd|
 !i113 1
-R4
-R5
+R2
+R3
 Afunctional
-DPx4 work 13 cpu_defs_pack 0 22 c831@gRWBRUbUb^5VP:^=0
-DEx4 work 6 system 0 22 8a<Vok`2RJMS=6VPMWRaZ2
+Z11 DPx4 work 13 cpu_defs_pack 0 22 c831@gRWBRUbUb^5VP:^=0
+Z12 DEx4 work 6 system 0 22 8a<Vok`2RJMS=6VPMWRaZ2
 l7
 L6
-VZifH0ckm?fCmIQK3ZN`VK0
-!s100 M6kCc>QH6P;FA`g5NeiQf2
+Z13 VVB]EFIUcWn?f^E^afQ[cA0
+Z14 !s100 <?YooUdf;;`F;K?S=z_bA1
 R1
 32
-R2
+R7
 !i10b 1
-R3
+R8
 R9
 R10
 !i113 1
-R4
-R5
+R2
+R3

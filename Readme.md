@@ -31,3 +31,9 @@
 | EXEC_SUBC | @RobMa
 | set_flags_logic | @RobMa
 | set_flags_load  | @RobMa
+| REA | @OrestisAlpos |	|
+| REO | @OrestisAlpos |	|
+| REX | @OrestisAlpos |	|
+| SLL | @OrestisAlpos |	|
+| SRL | @OrestisAlpos |	|
+| SRA | @OrestisAlpos |	|

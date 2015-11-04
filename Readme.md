@@ -8,11 +8,10 @@
 | LDD  | @alxppp   |        |
 | LDR  | @alxppp   |        |
 | STD  | @alxppp   |        |
-| In   |           |        |
-| Out  |           |        |
-| LDPC |           |        |
-| STPC |           |        |
-| JMP  |           |        |
+| STR  | @maxcpu   |        |
+| LDPC | @maxcpu   |        |
+| STPC | @maxcpu   |        |
+| JMP  | @maxcpu   |        |
 | JZ   | @RobMa    |        |
 | JC   | @RobMa    |        |
 | JN   | @RobMa    |        |

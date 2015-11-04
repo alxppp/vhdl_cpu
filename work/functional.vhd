@@ -8,6 +8,7 @@ begin
 	process
 		use WORK.cpu_defs_pack.all;
 		use WORK.cpu_subprogram_pack_orestis.all;
+		use WORK.cpu_subprogram_pack_max.all;
 		--use WORK.mem_defs_pack.all;
 
 		variable Memory : mem_type;

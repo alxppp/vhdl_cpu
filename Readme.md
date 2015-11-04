@@ -19,7 +19,7 @@
 | JC   | @RobMa    |        |
 | JN   | @RobMa    |        |
 | JO   | @RobMa    |        |
-| JNZ  |           |        |
-| JNC  |           |        |
-| JNN  |           |        |
-| JNO  |           |        |
+| JNZ  |@OrestisALpos|        |
+| JNC  |@OrestisALpos|        |
+| JNN  |@OrestisALpos|        |
+| JNO  |@OrestisALpos|        |

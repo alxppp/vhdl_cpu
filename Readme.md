@@ -1,5 +1,8 @@
 # VHDL CPU
 
+## Spec
+[Link](https://github.com/alxppp/vhdl_cpu/blob/master/spec.pdf)
+
 ## Aufteilung Befehle
 
 | OP   | Ersteller | Tester |

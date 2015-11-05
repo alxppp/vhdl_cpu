@@ -68,6 +68,8 @@ begin
 
 			when code_sll	=>	EXEC_SLL(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
 
+			when code_srl	=>	EXEC_SRL(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
+
 			when code_rol	=>	EXEC_ROL(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
 
 			when code_rolc	=>	EXEC_ROLC(Reg(X), Reg(Y), Zero, Carry, Carry, Negative, Overflow);

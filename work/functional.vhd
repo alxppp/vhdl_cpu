@@ -68,6 +68,18 @@ begin
 			when code_rorc	=>	EXEC_RORC(Reg(X), Reg(Y), Carry, Carry, Zero, Negative, Overflow);
 
 			-- memory access instructions (LDC, LDD, LDR, STD, STR)
+			when code_ldc	=>	Reg(X) := Memory(PC); -- Alex
+						PC := Inc(PC);
+
+			when code_ldd	=>	Reg(X) := Memory(Memory(PC)); -- Alex
+						PC := Inc(PC);
+
+			when code_ldr	=>	Reg(X) := Memory(Reg(Y)); -- Alex
+
+			when code_std	=>	data := Reg(X); -- Alex
+						Memory(Memory(PC)) := data;
+						PC := Inc(PC);
+
 			when code_str	=>	data := Reg(X); --Max
 						Memory(Reg(Y)) := data; 
 

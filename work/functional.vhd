@@ -43,7 +43,7 @@ begin
 						EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow); -- EXEC_ADDC also works for ADD, if we give assign FLASE to Carry parameter.
 			when code_addc	=> 	EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow);
 			
-			-- logical instructions (NOT, AND, OR, XOR, REA, REO, REX)
+			-- logical instructions (NOT, AND, OR, XOR, REA, REO, REX) --Robert
 
 			when code_not	=>	data := not Reg(Y); Reg(X) := data;
 						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);
@@ -55,7 +55,7 @@ begin
 						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);
 
 			when code_xor	=>	data := Reg(Y) xor Reg(Z); Reg(x) := data;
-						Set_Flags_Logic(Data, Zero, Carry, Negative, Overflow);				
+						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);				
 
 			-- shift / rotate instructions (SLL, SRL, SRA, ROL, ROLC, ROR, RORC)
 

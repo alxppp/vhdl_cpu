@@ -59,13 +59,13 @@ begin
 
 			-- shift / rotate instructions (SLL, SRL, SRA, ROL, ROLC, ROR, RORC)
 
-			when code_rol	=>	EXEC_ROL(Reg(X), Reg(Y), Carry, Zero, Negative, Overflow);
+			when code_rol	=>	EXEC_ROL(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
 
-			when code_rolc	=>	EXEC_ROLC(Reg(X), Reg(Y), Carry, Carry, Zero, Negative, Overflow);
+			when code_rolc	=>	EXEC_ROLC(Reg(X), Reg(Y), Zero, Carry, Carry, Negative, Overflow);
 
-			when code_ror	=>	EXEC_ROR(Reg(X), Reg(Y), Carry, Zero, Negative, Overflow);
+			when code_ror	=>	EXEC_ROR(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
 
-			when code_rorc	=>	EXEC_RORC(Reg(X), Reg(Y), Carry, Carry, Zero, Negative, Overflow);
+			when code_rorc	=>	EXEC_RORC(Reg(X), Reg(Y), Zero, Carry, Carry, Negative, Overflow);
 
 			-- memory access instructions (LDC, LDD, LDR, STD, STR)
 			when code_str	=>	data := Reg(X); --Max

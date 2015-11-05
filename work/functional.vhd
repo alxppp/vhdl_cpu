@@ -9,6 +9,7 @@ begin
 		use WORK.cpu_defs_pack.all;
 		use WORK.cpu_subprogram_pack_orestis.all;
 		use WORK.cpu_subprogram_pack_max.all;
+		use WORK.cpu_subprogram_pack_robert.all;
 		use WORK.mem_defs_pack.all;
 
 		variable Memory : mem_type := memory_content;
@@ -19,6 +20,7 @@ begin
 		variable PC	: addr_type := 0;
 		variable data	: data_type; --Max
 		variable Carry, Zero, Negative, Overflow : boolean; --Max
+		
 	begin
 		-- fetch
 		Instr := Memory(PC);
@@ -27,7 +29,7 @@ begin
 		OP := Instr / (2**reg_addr_width)**3;
 		X := ( Instr / (2**reg_addr_width)**2 ) mod 2**reg_addr_width;
 		Y := ( Instr / 2**reg_addr_width ) mod 2**reg_addr_width;
-		Z := Instr mod 2**reg_addr_width; 
+		Z := Instr mod 2**reg_addr_width;
 		-- execute
 		case OP is
 			-- miscellaneous instructions (NOP, STOP)
@@ -42,6 +44,18 @@ begin
 			when code_addc	=> 	EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow);
 			
 			-- logical instructions (NOT, AND, OR, XOR, REA, REO, REX)
+
+			when code_not	=>	data := not Reg(Y); Reg(X) := data;
+						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);
+
+			when code_and	=>	data := Reg(Y) and Reg(Z); Reg(X) := data;
+						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);
+
+			when code_or	=>	data := Reg(Y) or Reg(Z); Reg(X) := data;
+						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);
+
+			when code_xor	=>	data := Reg(Y) xor Reg(Z); Reg(x) := data;
+						Set_Flags_Logic(Data, Zero, Carry, Negative, Overflow);				
 
 			-- shift / rotate instructions (SLL, SRL, SRA, ROL, ROLC, ROR, RORC)
 

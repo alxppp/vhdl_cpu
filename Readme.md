@@ -27,10 +27,10 @@
 | EXEC_ROLC | @maxcpu
 | EXEC_ROR  | @maxcpu
 | EXEC_RORC | @maxcpu
-| EXEC_SUB  | @RobMa
-| EXEC_SUBC | @RobMa
-| set_flags_logic | @RobMa
-| set_flags_load  | @RobMa
+| EXEC_SUB  | @RobMa | |    |
+| EXEC_SUBC | @RobMa | |    |
+| set_flags_logic | @RobMa [x]| |    |
+| set_flags_load  | @RobMa | |    |
 | EXEC_REA | @OrestisAlpos |	|
 | EXEC_REO | @OrestisAlpos |	|
 | EXEC_REX | @OrestisAlpos |	|
@@ -41,3 +41,4 @@
 
 Hello! just a notice. It would be good if we all write the flag parameters always in the following order: Zero, Carry, Negative, Overflow. 
 I think this would be very useful in order to avoid mistakes later when calling the EXEC_functions. Do you agree?
+	->Yes, good idea! (@RobMa)

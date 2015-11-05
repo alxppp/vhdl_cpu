@@ -42,3 +42,4 @@
 Hello! just a notice. It would be good if we all write the flag parameters always in the following order: Zero, Carry, Negative, Overflow. 
 I think this would be very useful in order to avoid mistakes later when calling the EXEC_functions. Do you agree?
 	->Yes, good idea! (@RobMa)
+	-> Good idea! changed my procedures (@maxcpu)

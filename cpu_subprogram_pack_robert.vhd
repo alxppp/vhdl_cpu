@@ -58,7 +58,6 @@ end "XOR";
 --                                                (REA, REO, REX, ROL, ROR)
 procedure Set_Flags_Logic(constant Data : in data_type;
                           variable Zero, Carry, Negative, Overflow : out boolean) is
-variable MSB : data_type;
 begin
 	--Zero Flag
 	--If Data equals 0x0, the zero flag is set, otherwise it is cleared.
@@ -74,12 +73,7 @@ begin
 
 	--Negative Flag
 	--The most significant bit of Data is assigned to the negative flag
-	MSB := Data / 2**(data_width-1);
-	if MSB = 1 then
-		Overflow := TRUE;
-	else
-		Overflow := FALSE;
-	end if;
+	Negative := boolean'val(Data / 2**(data_width-1));
 
 	--Overflow Flag
 	--The overflow flag is cleared, when executing other instructions than specified in Spec 3.2.3.

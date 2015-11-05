@@ -15,10 +15,10 @@
 | LDPC | @maxcpu   |        |
 | STPC | @maxcpu   |        |
 | JMP  | @maxcpu   |        |
-| JZ   | @RobMa    |        |
-| JC   | @RobMa    |        |
-| JN   | @RobMa    |        |
-| JO   | @RobMa    |        |
+| JZ   | @RobMa [x] |        |
+| JC   | @RobMa [x] |        |
+| JN   | @RobMa [x] |        |
+| JO   | @RobMa [x] |        |
 | JNZ  |@OrestisAlpos|        |
 | JNC  |@OrestisAlpos|        |
 | JNN  |@OrestisAlpos|        |
@@ -30,7 +30,7 @@
 | EXEC_SUB  | @RobMa | |    |
 | EXEC_SUBC | @RobMa | |    |
 | set_flags_logic | @RobMa [x]| |    |
-| set_flags_load  | @RobMa | |    |
+| set_flags_load  | @RobMa [x]| |    |
 | EXEC_REA | @OrestisAlpos |	|
 | EXEC_REO | @OrestisAlpos |	|
 | EXEC_REX | @OrestisAlpos |	|

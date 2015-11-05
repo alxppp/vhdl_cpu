@@ -18,6 +18,9 @@ function "XOR" (constant A, B : data_type)
 procedure Set_Flags_Logic(constant Data : in data_type;
                           variable Zero, Carry, Negative, Overflow : out boolean);
 
+procedure Set_Flags_Load(constant Data : in data_type;
+                         variable Zero, Carry, Negative, Overflow : out boolean);
+
 end cpu_subprogram_pack_robert;
 
 package body cpu_subprogram_pack_robert is
@@ -60,7 +63,7 @@ procedure Set_Flags_Logic(constant Data : in data_type;
                           variable Zero, Carry, Negative, Overflow : out boolean) is
 begin
 	--Zero Flag
-	--If Data equals 0x0, the zero flag is set, otherwise it is cleared.
+	--If Data equals 0x0, the zero flag is set, otherwise it is cleared. (Spec 3.2.4.1.)
 	if Data = 0 then
 		Zero := TRUE;
 	else
@@ -72,12 +75,37 @@ begin
 	Carry := FALSE;
 
 	--Negative Flag
-	--The most significant bit of Data is assigned to the negative flag
+	--The most significant bit of Data is assigned to the negative flag. (Spec 3.2.6.2.)
 	Negative := boolean'val(Data / 2**(data_width-1));
 
 	--Overflow Flag
-	--The overflow flag is cleared, when executing other instructions than specified in Spec 3.2.3.
+	--The overflow flag is cleared, when executing logical instructions. (Spec 3.2.7.3.)
 	Overflow := false;
 end Set_Flags_Logic;
 
+--The Set_Flags_Load procedure updates the Flags and should be called after
+--processing every of the following instructions: LDC, LDD, LDR
+procedure Set_Flags_Load( constant Data : in data_type;
+                          variable Zero, Carry, Negative, Overflow : out boolean) is
+begin
+	--Zero Flag
+	--If Data equals 0x0, the zero flag is set, otherwise it is cleared. (Spec 3.2.4.1.)
+	if Data = 0 then
+		Zero := TRUE;
+	else
+		Zero := FALSE;
+	end if;
+
+	--Carry Flag
+	--is not affected. (Spec 3.2.5.6.)
+
+	--Negative Flag
+	--The most significant bit of Data is assigned to the negative flag. (Spec 3.2.6.2.)
+	Negative := boolean'val(Data / 2**(data_width-1));
+	
+	--Overflow Flag
+	--The overflow flag is cleared, when executing logical instructions. (Spec 3.2.7.3.)
+	Overflow := false;
+
+end Set_Flags_Load;
 end cpu_subprogram_pack_robert;

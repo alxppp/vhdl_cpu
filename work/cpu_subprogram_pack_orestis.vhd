@@ -96,17 +96,15 @@ package body cpu_subprogram_pack_orestis is
 	procedure EXEC_REA (variable A		: out data_type;
 			    constant B		: in data_type;
 			    variable Z,C,N,O	: out Boolean ) is
+		variable result : natural;
 	begin
 		if B = 2**data_width - 1 then --result is 1 iff all bits of Y are 1
-			A := 1;
-			Z := FALSE;
+			result := 1;
 		else
-			A := 0;
-			Z := TRUE;
+			result := 0;
 		end if;
-		C := FALSE;
-		N := FALSE;
-		O := FALSE;
+		A := result;
+		WORK.cpu_subprogram_pack_robert.set_flags_logic(result, Z, C, N, O);
 	end EXEC_REA;
 
 
@@ -114,17 +112,15 @@ package body cpu_subprogram_pack_orestis is
 	procedure EXEC_REO (variable A		: out data_type;
 			    constant B		: in data_type;
 			    variable Z,C,N,O	: out Boolean ) is
+		variable result	: natural;
 	begin
 		if B > 0 then --result is 1 if at least one bit in Y is 1
-			A := 1;
-			Z := FALSE;
+			result := 1;
 		else
-			A := 0;
-			Z := TRUE;
+			result := 0;
 		end if;
-		C := FALSE;
-		N := FALSE;
-		O := FALSE;
+		A := result;
+		WORK.cpu_subprogram_pack_robert.set_flags_logic(result, Z, C, N, O);
 	end EXEC_REO;
 
 
@@ -132,22 +128,20 @@ package body cpu_subprogram_pack_orestis is
 	procedure EXEC_REX (variable A		: out data_type;
 			    constant B		: in data_type;
 			    variable Z,C,N,O	: out Boolean ) is
-		variable B_bv	: bit_vector(data_width-1 downto 0) := natural2bit_vector(B, data_width);
-		variable result	: bit := B_bv(data_width-1) ;
+		variable B_bv		: bit_vector(data_width-1 downto 0) := natural2bit_vector(B, data_width);
+		variable total_xor	: bit := B_bv(data_width-1);
+		variable result		: natural;
 	begin
 		for i in data_width-2 downto 0 loop
-			result := result XOR B_bv(i);
+			total_xor := total_xor XOR B_bv(i);
 		end loop;
-		if  result = '1' then 
-			A := 1;
-			Z := FALSE;
+		if  total_xor = '1' then 
+			result := 1;
 		else
-			A := 0;
-			Z := TRUE;
+			result := 0;
 		end if;
-		C := FALSE;
-		N := FALSE;
-		O := FALSE;
+		A := result;
+		WORK.cpu_subprogram_pack_robert.set_flags_logic(result, Z, C, N, O);
 	end EXEC_REX;
 
 

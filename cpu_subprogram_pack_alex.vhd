@@ -1,10 +1,11 @@
 package cpu_subprogram_pack_alex is
 
-use WORK.cpu_defs_pack.all;
-use WORK.bit_vector_natural_pack.all;
-use WORK.casts_pack.all;
+	use WORK.cpu_defs_pack.all;
+	use WORK.bit_vector_natural_pack.all;
+	use WORK.casts_pack.all;
 
 	procedure EXEC_SLL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
+	procedure EXEC_SRL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
 
 end cpu_subprogram_pack_alex;
 
@@ -27,5 +28,17 @@ package body cpu_subprogram_pack_alex is
 		B := R;
 
 	end EXEC_SLL;
+
+	procedure EXEC_SRL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean) is
+		variable T : bit_vector(data_width - 1 downto 0);
+		variable R : data_type;
+
+	begin
+		C := bit2boolean(T(T'right));
+		T := '0' & T(T'left downto 1);
+		R := bit_vector2natural(T);
+		B := R;
+
+	end EXEC_SRL;
 
 end cpu_subprogram_pack_alex;

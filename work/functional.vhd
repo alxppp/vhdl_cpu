@@ -10,6 +10,7 @@ begin
 		use WORK.cpu_subprogram_pack_orestis.all;
 		use WORK.cpu_subprogram_pack_max.all;
 		use WORK.cpu_subprogram_pack_robert.all;
+		use WORK.cpu_subprogram_pack_alex.all;
 		use WORK.mem_defs_pack.all;
 
 		variable Memory : mem_type := memory_content;
@@ -58,6 +59,8 @@ begin
 						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);				
 
 			-- shift / rotate instructions (SLL, SRL, SRA, ROL, ROLC, ROR, RORC)
+
+			when code_sll	=>	EXEC_SLL(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
 
 			when code_rol	=>	EXEC_ROL(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
 

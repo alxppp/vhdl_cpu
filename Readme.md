@@ -37,6 +37,7 @@
 | EXEC_SLL | @alxppp |	|
 | EXEC_SRL | @alxppp |	|
 | EXEC_SRA | @alxppp |	|
+| Trace_pack | @maxcpu
 
 
 Hello! just a notice. It would be good if we all write the flag parameters always in the following order: Zero, Carry, Negative, Overflow. 

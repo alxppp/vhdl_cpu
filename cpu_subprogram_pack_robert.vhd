@@ -1,6 +1,7 @@
 package cpu_subprogram_pack_robert is
 
 use WORK.cpu_defs_pack.all;
+use WORK.cpu_subprogram_pack_orestis.all;
 use WORK.bit_vector_natural_pack.all;
 
 function "NOT" (constant A : data_type)
@@ -20,6 +21,12 @@ procedure Set_Flags_Logic(constant Data : in data_type;
 
 procedure Set_Flags_Load(constant Data : in data_type;
                          variable Zero, Carry, Negative, Overflow : out boolean);
+
+procedure EXEC_SUBC ( constant A,B	: in data_type;
+                      variable R	: out data_type; --Result
+                      variable Z	: out Boolean; --Zero Flag
+                      variable C	: inout Boolean; --Carry Flag [inout]
+                      variable N,O	: out Boolean ); --Negative, Overflow Flag
 
 end cpu_subprogram_pack_robert;
 
@@ -104,8 +111,29 @@ begin
 	Negative := boolean'val(Data / 2**(data_width-1));
 	
 	--Overflow Flag
-	--The overflow flag is cleared, when executing logical instructions. (Spec 3.2.7.3.)
+	--The overflow flag is cleared, when executing load instructions. (Spec 3.2.7.3.)
 	Overflow := false;
 
 end Set_Flags_Load;
+
+
+use WORK.cpu_subprogram_pack_orestis.all;
+procedure EXEC_SUBC ( constant A,B	: in data_type;
+                      variable R	: out data_type; --Result
+                      variable Z	: out Boolean; --Zero Flag
+                      variable C	: inout Boolean; --Carry Flag [inout]
+                      variable N,O	: out Boolean ) is --Negative, Overflow Flag
+variable C_inv : Boolean := not C;
+variable R_a : data_type;
+variable Z_a, N_a, O_a : Boolean;
+begin
+	EXEC_ADDC(A, not B, R_a, Z_a, C_inv, N_a, O_a );
+	Z := Z_a;
+	C := C_inv;
+	R := R_a;
+	N := N_a;
+	O := O_a;
+end EXEC_SUBC;
+
+
 end cpu_subprogram_pack_robert;

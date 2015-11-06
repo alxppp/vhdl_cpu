@@ -43,6 +43,11 @@ begin
 			when code_add	=> 	Carry := FALSE;
 						EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow); -- EXEC_ADDC also works for ADD, if we give assign FLASE to Carry parameter.
 			when code_addc	=> 	EXEC_ADDC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow);
+
+			when code_sub	=>	Carry := FALSE;
+						EXEC_SUBC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow);
+
+			when code_subc	=>	EXEC_SUBC(Reg(Y), Reg(Z), Reg(X), Zero, Carry, Negative, Overflow);
 			
 			-- logical instructions (NOT, AND, OR, XOR, REA, REO, REX) --Robert & Orestis
 

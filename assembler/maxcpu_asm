@@ -50,6 +50,12 @@ class Instruction
       puts_err "Command '#{@command}' requires additional attributes.", line_nr if @three_bytes && !@attributes.any?
     end
   end
+
+  def three_byte_representation
+    three_bytes = [self]
+    three_bytes << @attributes.last if @three_bytes
+    three_bytes
+  end
   private
 
   def parse_twos_complement(num, bits)

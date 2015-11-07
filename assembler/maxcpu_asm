@@ -118,3 +118,6 @@ ARGF.each_with_index do |line, i|
   parsed_assembly << instruction unless instruction.command.nil?
 end
 
+# Convert to three byte representation
+three_byte_representation = parsed_assembly.map(&:three_byte_representation).flatten
+

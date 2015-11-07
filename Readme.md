@@ -47,11 +47,11 @@
 maxcpu_asm reads assembly code from stdin and writes the resulting op code to stdout. You can redirect the output to a file with the -o option. Run `maxcpu_asm -h` for help.
 
 ### Installation
-* UNIX machines
+* **UNIX machines**
 
   Run `./maxcpu_asm`.
 
-* Windows
+* **Windows**
 
   There are two ways to run the assembler on Windows.
   1. The easy way is to run `maxcpu_asm.exe` from the command line.

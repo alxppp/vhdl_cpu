@@ -43,6 +43,7 @@
 
 ### Usage
 `maxcpu_asm [-o outfile] [options] filename`
+
 maxcpu_asm reads assembly code from stdin and writes the resulting op code to stdout. You can redirect the output to a file with the -o option. Run `maxcpu_asm -h` for help.
 
 ### Installation

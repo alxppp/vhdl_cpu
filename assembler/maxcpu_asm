@@ -121,3 +121,13 @@ end
 # Convert to three byte representation
 three_byte_representation = parsed_assembly.map(&:three_byte_representation).flatten
 
+# Resolve jumps
+three_byte_representation = three_byte_representation.each_with_index.map do |v, i|
+  if v.is_a? Jump
+    three_byte_representation.find_index { |w| w.is_a?(Instruction) && w.label == v.label } ||
+      puts_err("Cannot find label '#{v.label}'.", i + 1)
+  else
+    v
+  end
+end
+

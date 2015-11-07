@@ -56,6 +56,18 @@ class Instruction
     three_bytes << @attributes.last if @three_bytes
     three_bytes
   end
+
+  def op_code_representation
+    Integer(
+      '0b%06b%6.6s' %
+        [@op_code,
+          @attributes.each_with_index.map { |a, i|
+            (a.is_a?(Jump) || (@three_bytes && i == @attributes.length - 1)) ? '00' : ('%02b' % a)[0..1]
+          }.join + '000000'
+        ]
+    )
+  end
+
   private
 
   def parse_twos_complement(num, bits)

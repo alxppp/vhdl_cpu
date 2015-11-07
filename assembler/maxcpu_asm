@@ -36,14 +36,18 @@ class Instruction
   def initialize(assembly_line, line_nr = 0)
     parsed_instruction = assembly_line.match(ASSEMBLY_PARSER)
 
+    puts_err "Invalid assembly syntax.", line_nr if parsed_instruction.nil?
+
     @label   = parsed_instruction[:label]
     @command = parsed_instruction[:command]
     @attributes = [:attr_1, :attr_2, :attr_3].map { |s| parse_attr parsed_instruction[s] }.compact
 
     unless @command.nil?
       @op_code     = OP_CODES.fetch(@command.downcase, []).fetch(0, nil)
+      puts_err "Unknown command '#{@command}'.", line_nr if @op_code.nil?
 
       @three_bytes = OP_CODES[@command.downcase][1] == 1
+      puts_err "Command '#{@command}' requires additional attributes.", line_nr if @three_bytes && !@attributes.any?
     end
   end
   private

@@ -12,6 +12,11 @@ class Jump
   end
 end
 
+class Instruction
+  attr_accessor :label, :command, :attributes
+
+end
+
 
 ### Program options
 

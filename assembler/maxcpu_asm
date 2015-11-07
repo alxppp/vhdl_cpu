@@ -107,3 +107,14 @@ OptionParser.new do |opts|
     exit
   end
 end.parse!
+
+
+### Program logic
+
+# Parse assembly
+parsed_assembly = []
+ARGF.each_with_index do |line, i|
+  instruction = Instruction.new line, i + 1
+  parsed_assembly << instruction unless instruction.command.nil?
+end
+

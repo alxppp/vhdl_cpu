@@ -33,6 +33,12 @@ class Instruction
                          ([^\S\n]*;[^\S\n]*(?<comment>[^\n]*))?
                        $}x
 
+
+### Helpers
+
+def puts_err(err, line_nr = nil)
+  STDERR.puts "ERROR:#{(' Line ' + line_nr.to_s + ':') if !line_nr.nil?} #{err}"
+  exit
 end
 
 

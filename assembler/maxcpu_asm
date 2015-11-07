@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+require 'rubygems'
+
+exit if Object.const_defined?(:Ocra) # Needed for creating Windows executables using Ocra
+
 
 ### Class definitions
 

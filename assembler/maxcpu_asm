@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+
+### Program options
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: maxcpu_asm [-o outfile] [options] filename'
+
+  opts.on('-oPATH', '--outfile=PATH', 'Path to output file') do |path|
+    options[:outfile] = path
+  end
+
+  opts.on_tail('-h', '--help', 'Prints this help') do
+    puts opts
+    exit
+  end
+end.parse!

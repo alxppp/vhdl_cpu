@@ -33,6 +33,19 @@ class Instruction
                          ([^\S\n]*;[^\S\n]*(?<comment>[^\n]*))?
                        $}x
 
+  def initialize(assembly_line, line_nr = 0)
+    parsed_instruction = assembly_line.match(ASSEMBLY_PARSER)
+
+    @label   = parsed_instruction[:label]
+    @command = parsed_instruction[:command]
+    @attributes = [:attr_1, :attr_2, :attr_3].map { |s| parse_attr parsed_instruction[s] }.compact
+
+    unless @command.nil?
+      @op_code     = OP_CODES.fetch(@command.downcase, []).fetch(0, nil)
+
+      @three_bytes = OP_CODES[@command.downcase][1] == 1
+    end
+  end
   private
 
   def parse_twos_complement(num, bits)

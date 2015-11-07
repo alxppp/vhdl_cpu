@@ -1,0 +1,30 @@
+; Sample Program
+
+	LDC	R3	12
+	LDC	R1	0
+	LDC	R2	0
+	IN	R0
+	STD	R0	#FFC
+	IN	R0
+	STD	R0	#FFD
+LOOP:	SLL	R1	R1
+	STD	R1	#FFE
+	ROLC	R2	R2
+	STD	R2	#FFF
+	LDD	R0	#FFD
+	SLL	R0	R0
+	STD	R0	#FFD
+	JNC	CONT
+	LDD	R0	#FFC
+	ADD	R1	R1	R0
+	STD	R1	#FFE
+	JNC	CONT
+	LDC	R0	-1
+	SUB	R2	R2	R0	; subtraction
+	STD	R2	#FFF
+CONT:	LDC	R0	1
+	SUB	R3	R3	R0	; decrement counter
+	JNZ	LOOP
+	OUT	R1
+	OUT	R2
+	STOP

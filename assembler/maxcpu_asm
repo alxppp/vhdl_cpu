@@ -137,3 +137,13 @@ op_code_representation = three_byte_representation.map { |v| v.is_a?(Instruction
 # Convert to hex
 op_code_representation_hex = op_code_representation.map { |i| '%03x' % i }
 
+if options.has_key? :outfile
+  # Write to file
+  File.open(options[:outfile], 'w+') do |f|
+    f.puts(op_code_representation_hex)
+  end
+
+else
+  # Print to stdout
+  puts op_code_representation_hex
+end

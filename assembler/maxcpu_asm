@@ -131,3 +131,6 @@ three_byte_representation = three_byte_representation.each_with_index.map do |v,
   end
 end
 
+# Convert instructions to their op code representations
+op_code_representation = three_byte_representation.map { |v| v.is_a?(Instruction) ? v.op_code_representation : v }
+

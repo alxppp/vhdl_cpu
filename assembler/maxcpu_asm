@@ -2,6 +2,16 @@
 
 require 'optparse'
 
+### Class definitions
+
+class Jump
+  attr_accessor :label
+
+  def initialize(label)
+    @label = label
+  end
+end
+
 
 ### Program options
 

@@ -14,6 +14,8 @@ subtype opcode_type 	is natural range 0 to 2**opcode_width-1;
 
 type reg_type is array (reg_addr_type) of data_type;
 type mem_type is array (addr_type) of data_type;
+type cmd_image_table_type is array (opcode_type) of string(1 to 4);
+
 
 constant code_nop 	: opcode_type := 0;
 constant code_stop	: opcode_type := 1;
@@ -53,6 +55,48 @@ constant code_jnz	: opcode_type := 53;
 constant code_jnc	: opcode_type := 54;
 constant code_jnn	: opcode_type := 55;
 constant code_jno	: opcode_type := 56;
+
+constant cmd_img_table : cmd_image_table_type := (
+	code_nop	=> "NOP ",
+	code_stop	=> "STOP",
+	code_add	=> "ADD ",
+	code_addc	=> "ADDC",
+	code_sub	=> "SUB ",
+	code_subc	=> "SUBC",
+	code_not	=> "NOT ",
+	code_and	=> "AND ",
+	code_or		=> "OR  ",
+	code_xor	=> "XOR ",
+	code_rea	=> "REA ",
+	code_reo	=> "REO ",
+	code_rex	=> "REX ",
+	code_sll	=> "SLL ",
+	code_srl	=> "SRL ",
+	code_sra	=> "SRA ",
+	code_rol	=> "ROL ",
+	code_rolc	=> "ROLC",
+	code_ror	=> "ROR ",
+	code_rorc	=> "RORC",
+	code_ldc	=> "LDC ",
+	code_ldd	=> "LDD ",
+	code_ldr	=> "LDR ",
+	code_std	=> "STD ",
+	code_str	=> "STR ",
+	code_in		=> "IN  ",
+	code_out	=> "OUT ",
+	code_ldpc	=> "LDPC",
+	code_stpc	=> "STPC",
+	code_jmp	=> "JMP ",
+	code_jz		=> "JZ  ",
+	code_jc		=> "JC  ",
+	code_jn		=> "JN  ",
+	code_jo		=> "JO  ",
+	code_jnz	=> "JNZ ",
+	code_jnc	=> "JNC ",
+	code_jnn	=> "JNN ",
+	code_jno	=> "JNO ",
+	
+	others		=> "    ");
 
 
 end cpu_defs_pack;

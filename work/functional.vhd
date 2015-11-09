@@ -26,12 +26,13 @@ begin
 		variable Carry, Zero, Negative, Overflow : boolean; --Max
 		variable l : line;
 		file TraceFile : text is out "Trace.txt";
+		variable run : Boolean := TRUE;
 		
 	begin
 
 		write_header(TraceFile);
 
-		loop
+		while run loop
 
 		-- fetch
 		Instr := Memory(PC);
@@ -50,7 +51,7 @@ begin
 						null;
 
 			when code_stop 	=> 	write_noParam(l);
-						wait;
+						run := FALSE;
 
 			-- arithmetic instructions (ADD, ADDC, SUB, SUBC)
 
@@ -211,6 +212,8 @@ begin
 			writeline(TraceFile, l);
 
 		end loop;
+		write_tail(TraceFile);
+		wait;
 
 	end process;
 

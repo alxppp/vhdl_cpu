@@ -1,7 +1,8 @@
 package cpu_subprogram_pack_robert is
 
+
+--use WORK.cpu_subprogram_pack_orestis.EXEC_ADDC;
 use WORK.cpu_defs_pack.all;
-use WORK.cpu_subprogram_pack_orestis.all;
 use WORK.bit_vector_natural_pack.all;
 
 function "NOT" (constant A : data_type)
@@ -116,8 +117,6 @@ begin
 
 end Set_Flags_Load;
 
-
-use WORK.cpu_subprogram_pack_orestis.all;
 procedure EXEC_SUBC ( constant A,B	: in data_type;
                       variable R	: out data_type; --Result
                       variable Z	: out Boolean; --Zero Flag
@@ -127,7 +126,7 @@ variable C_inv : Boolean := not C;
 variable R_a : data_type;
 variable Z_a, N_a, O_a : Boolean;
 begin
-	EXEC_ADDC(A, not B, R_a, Z_a, C_inv, N_a, O_a );
+	--EXEC_ADDC(A, not B, R_a, Z_a, C_inv, N_a, O_a );
 	Z := Z_a;
 	C := C_inv;
 	R := R_a;

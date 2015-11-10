@@ -19,10 +19,10 @@
 | JC   | @RobMa [x] |        |
 | JN   | @RobMa [x] |        |
 | JO   | @RobMa [x] |        |
-| JNZ  |@OrestisAlpos|        |
-| JNC  |@OrestisAlpos|        |
-| JNN  |@OrestisAlpos|        |
-| JNO  |@OrestisAlpos|        |
+| JNZ  |@OrestisAlpos[x]|        |
+| JNC  |@OrestisAlpos[x]|        |
+| JNN  |@OrestisAlpos[x]|        |
+| JNO  |@OrestisAlpos[x]|        |
 | EXEC_ROL  | @maxcpu
 | EXEC_ROLC | @maxcpu
 | EXEC_ROR  | @maxcpu
@@ -31,12 +31,14 @@
 | EXEC_SUBC | @RobMa | |    |
 | set_flags_logic | @RobMa [x]| |    |
 | set_flags_load  | @RobMa [x]| |    |
-| EXEC_REA | @OrestisAlpos |	|
-| EXEC_REO | @OrestisAlpos |	|
-| EXEC_REX | @OrestisAlpos |	|
+| EXEC_REA | @OrestisAlpos [x]|	|
+| EXEC_REO | @OrestisAlpos [x]|	|
+| EXEC_REX | @OrestisAlpos [x]|	|
 | EXEC_SLL | @alxppp |	|
 | EXEC_SRL | @alxppp |	|
 | EXEC_SRA | @alxppp |	|
+| IN | @OrestisAlpos |	|
+| OUT | @OrestisAlpos |	|
 | Trace_pack | @maxcpu
 
 ## Assembler documentation

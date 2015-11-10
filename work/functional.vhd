@@ -24,9 +24,9 @@ begin
 		variable PC	: addr_type := 0;
 		variable data	: data_type; --Max
 		variable Carry, Zero, Negative, Overflow : boolean; --Max
-		variable l : line;
-		file TraceFile : text is out "Trace.txt";
-		variable run : Boolean := TRUE;
+		variable l	: line;
+		file TraceFile  : text is out "Trace.txt";
+		variable run 	: Boolean := TRUE;
 		
 	begin
 
@@ -123,13 +123,16 @@ begin
 			when code_ldc	=>	Reg(X) := Memory(PC); -- Alex
 						write_param(l, Memory(PC));
 						PC := INC(PC);
+						--- !!! FLAGS???
 						 
 			when code_ldd	=>	Reg(X) := Memory(Memory(PC)); -- Alex
 						write_Param(l, Memory(PC));
 						PC := INC(PC);
+						--- !!! FLAGS???
 
 			when code_ldr	=>	Reg(X) := Memory(Reg(Y)); -- Alex
 						write_noParam(l);
+						--- !!! FLAGS???
 
 			when code_std	=>	data := Reg(X); -- Alex
 						Memory(Memory(PC)) := data;
@@ -139,7 +142,13 @@ begin
 			when code_str	=>	data := Reg(X); --Max
 						Memory(Reg(Y)) := data; 
 						write_noParam(l);
+			
 			-- I/O instructions (IN, OUT)
+			when code_in	=>	EXEC_IN(Reg(X));
+						set_flags_load(Reg(X), Zero, Carry, Negative, Overflow);
+
+			when code_out	=>	EXEC_OUT(Reg(X));
+						
 
 			-- PC instructions (LDPC, STPC)
 			when code_ldpc	=>	data := PC; --Max

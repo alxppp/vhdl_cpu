@@ -2,6 +2,7 @@ package cpu_subprogram_pack_orestis is
 
 	use WORK.cpu_defs_pack.all;
 	use WORK.bit_vector_natural_pack.all;
+	use STD.textio.all;
 
 	function INC(constant PC :in addr_type) return addr_type;
 
@@ -26,6 +27,14 @@ package cpu_subprogram_pack_orestis is
 	procedure EXEC_REX ( variable A		: out data_type;
 			     constant B		: in data_type;
 			     variable Z,C,N,O	: out Boolean );
+
+	-- IN uses the txt 'InDevice' (defined in cpu_defs_pack) file as an Input Port, reads the first number (integer format)
+	-- written on the first (or next, for consequtive calls) line and saves it on the Register defined by parameter D.
+	procedure EXEC_IN ( variable D : out data_type );
+
+	-- OUT uses the txt 'OutDevice' (defined in cpu_defs_pack) file as an Output Port, 
+	-- and writes on it the value of the Register defined by parameter S.
+	procedure EXEC_OUT ( variable S : in data_type );
 
 end cpu_subprogram_pack_orestis;
 
@@ -144,8 +153,33 @@ package body cpu_subprogram_pack_orestis is
 		WORK.cpu_subprogram_pack_robert.set_flags_logic(result, Z, C, N, O);
 	end EXEC_REX;
 
+	
+	
+	procedure EXEC_IN ( variable D : out data_type )is
+		variable l 	: line;
+		variable v 	: data_type;
+		variable success: boolean;
+	begin
+		if not endfile(InDevice) then
+			readline(InDevice, l);
+			read (l, v, success);
+			if success then
+				D := v;
+			else 
+				assert FALSE report "Wrong value at Input Port" severity error;
+			end if;
+		end if;
+	end EXEC_IN;
 
 
 
+	procedure EXEC_OUT ( variable S : in data_type ) is
+		variable l 	: line;
+	begin
+		write (l, S);
+		writeline(OutDevice, l);
+	end EXEC_OUT;
+
+	
 
 end cpu_subprogram_pack_orestis;

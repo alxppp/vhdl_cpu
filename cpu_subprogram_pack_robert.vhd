@@ -117,22 +117,83 @@ begin
 
 end Set_Flags_Load;
 
+--Alternative implementation using only EXEC_ADDC:
+--procedure EXEC_SUBC ( constant A,B	: in data_type;
+--                      variable R	: out data_type; --Result
+--                      variable Z	: out Boolean; --Zero Flag
+--                      variable C	: inout Boolean; --Carry Flag [inout]
+--                      variable N,O	: out Boolean ) is --Negative, Overflow Flag
+--variable C_inv : Boolean := not C;
+--variable R_a : data_type;
+--variable Z_a, N_a, O_a : Boolean;
+--begin
+--	EXEC_ADDC(A, not B, R_a, Z_a, C_inv, N_a, O_a );
+--	Z := Z_a;
+--	C := C_inv;
+--	R := R_a;
+--	N := N_a;
+--	O := O_a;
+--end EXEC_SUBC;
+
 procedure EXEC_SUBC ( constant A,B	: in data_type;
                       variable R	: out data_type; --Result
                       variable Z	: out Boolean; --Zero Flag
                       variable C	: inout Boolean; --Carry Flag [inout]
                       variable N,O	: out Boolean ) is --Negative, Overflow Flag
-variable C_inv : Boolean := not C;
-variable R_a : data_type;
-variable Z_a, N_a, O_a : Boolean;
+variable T : integer;
+variable B_C : integer := (2**(data_width) - B) mod (2**data_width); --Two's complement of B
+variable C_C : integer := (2**(data_width) - boolean'pos(C)) mod (2**data_width); --Two's complement of Carry
+variable A_s, B_s, T_s : integer;
 begin
-	--EXEC_ADDC(A, not B, R_a, Z_a, C_inv, N_a, O_a );
-	Z := Z_a;
-	C := C_inv;
-	R := R_a;
-	N := N_a;
-	O := O_a;
-end EXEC_SUBC;
+	--two's complement calculation
+	T := A + B_C + C_C;
 
+	--prepare signed calculation
+	if A >= 2**(data_width-1) then
+		A_s := A-2**(data_width); --A negative
+	else
+		A_s := A;
+	end if;
+
+	if B >= 2**(data_width-1) then
+		B_s := B-2**(data_width); --B negative
+	else
+		B_s := B;
+	end if;
+	
+	--signed calculation
+	T_s := A_s - B_s - boolean'pos(C);
+
+	--compute result and Carry-Flag
+	if T >= 2**data_width then --check carry
+		T := T mod (2**data_width);
+		C := TRUE;
+	else
+		C := FALSE;
+	end if;
+	R := T; 
+
+	--check Zero-Flag
+	if T = 0 then
+		Z := TRUE;
+	else
+		Z := FALSE;
+	end if;
+
+	--check Negative-Flag
+	if T_s < 0 then
+		N := TRUE;
+	else
+		N := FALSE;
+	end if;
+
+	--check Overflow-Flag
+	if (T_s < -2**(data_width-1)) or (T_s >= 2**(data_width-1)) then
+		O := TRUE; --signed value out of range --> Overflow
+	else
+		O := FALSE;
+	end if;
+
+end EXEC_SUBC;
 
 end cpu_subprogram_pack_robert;

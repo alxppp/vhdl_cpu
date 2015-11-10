@@ -15,10 +15,10 @@
 | LDPC | @maxcpu   |        |
 | STPC | @maxcpu   |        |
 | JMP  | @maxcpu   |        |
-| JZ   | @RobMa [x] |        |
-| JC   | @RobMa [x] |        |
-| JN   | @RobMa [x] |        |
-| JO   | @RobMa [x] |        |
+| JZ   | @RobMa    |        |
+| JC   | @RobMa    |        |
+| JN   | @RobMa    |        |
+| JO   | @RobMa    |        |
 | JNZ  |@OrestisAlpos|        |
 | JNC  |@OrestisAlpos|        |
 | JNN  |@OrestisAlpos|        |
@@ -29,8 +29,8 @@
 | EXEC_RORC | @maxcpu
 | EXEC_SUB  | @RobMa | |    |
 | EXEC_SUBC | @RobMa | |    |
-| set_flags_logic | @RobMa [x]| |    |
-| set_flags_load  | @RobMa [x]| |    |
+| set_flags_logic | @RobMa | |    |
+| set_flags_load  | @RobMa | |    |
 | EXEC_REA | @OrestisAlpos |	|
 | EXEC_REO | @OrestisAlpos |	|
 | EXEC_REX | @OrestisAlpos |	|
@@ -38,6 +38,7 @@
 | EXEC_SRL | @alxppp |	|
 | EXEC_SRA | @alxppp |	|
 | Trace_pack | @maxcpu
+| init_memory | | @RobMa | |  |
 
 ## Assembler documentation
 

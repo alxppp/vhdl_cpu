@@ -27,18 +27,18 @@
 | EXEC_ROLC | @maxcpu
 | EXEC_ROR  | @maxcpu
 | EXEC_RORC | @maxcpu
-| EXEC_SUB  | @RobMa | |    |
-| EXEC_SUBC | @RobMa | |    |
-| set_flags_logic | @RobMa | |    |
-| set_flags_load  | @RobMa | |    |
+| EXEC_SUB  | @RobMa |     |
+| EXEC_SUBC | @RobMa |     |
+| set_flags_logic | @RobMa |     |
+| set_flags_load  | @RobMa |     |
 | EXEC_REA | @OrestisAlpos |	|
 | EXEC_REO | @OrestisAlpos |	|
 | EXEC_REX | @OrestisAlpos |	|
 | EXEC_SLL | @alxppp |	|
 | EXEC_SRL | @alxppp |	|
 | EXEC_SRA | @alxppp |	|
-| Trace_pack | @maxcpu
-| init_memory | | @RobMa | |  |
+| Trace_pack | @maxcpu |
+| init_memory | @RobMa |  |
 
 ## Assembler documentation
 

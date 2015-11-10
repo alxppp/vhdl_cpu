@@ -8,7 +8,7 @@ use work.cpu_subprogram_pack_robert.EXEC_SUBC;
 signal START : bit := '0';
 
 begin
-START <= '1';
+--START <= '1';
 
 process (START)
 variable r, x, y : data_type;

@@ -93,13 +93,16 @@ begin
 						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);	
 						write_noParam(l);
 
-			when code_rea	=>	EXEC_REA(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
+			when code_rea	=>	EXEC_REA(Reg(X), Reg(Y));
+						Set_Flags_Logic(Reg(X), Zero, Carry, Negative, Overflow);
 						write_noParam(l);
 
-			when code_reo	=>	EXEC_REO(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
+			when code_reo	=>	EXEC_REO(Reg(X), Reg(Y));
+						Set_Flags_Logic(Reg(X), Zero, Carry, Negative, Overflow);
 						write_noParam(l);
 
-			when code_rex	=>	EXEC_REX(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);	
+			when code_rex	=>	EXEC_REX(Reg(X), Reg(Y));
+						Set_Flags_Logic(Reg(X), Zero, Carry, Negative, Overflow);
 						write_noParam(l);
 
 			-- shift / rotate instructions (SLL, SRL, SRA, ROL, ROLC, ROR, RORC)

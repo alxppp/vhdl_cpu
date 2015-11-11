@@ -15,18 +15,15 @@ package cpu_subprogram_pack_orestis is
 	
 	--REA: Use AND operator on all bits of Y and assign the result to the LSb of X. All other bits of X are cleared.
 	procedure EXEC_REA ( variable A		: out data_type;
-			     constant B		: in data_type;
-			     variable Z,C,N,O	: out Boolean );
+			     constant B		: in data_type );
 
 	--REO: Use OR operator on all bits of Y and assign the result to the LSb of X. All other bits of X are cleared.
 	procedure EXEC_REO ( variable A		: out data_type;
-			     constant B		: in data_type;
-			     variable Z,C,N,O	: out Boolean );	
+			     constant B		: in data_type );	
 
 	--REA: Use XOR operator on all bits of Y and assign the result to the LSb of X. All other bits of X are cleared.
 	procedure EXEC_REX ( variable A		: out data_type;
-			     constant B		: in data_type;
-			     variable Z,C,N,O	: out Boolean );
+			     constant B		: in data_type );
 
 	-- IN uses the txt 'InDevice' (defined in cpu_defs_pack) file as an Input Port, reads the first number (integer format)
 	-- written on the first (or next, for consequtive calls) line and saves it on the Register defined by parameter D.
@@ -105,8 +102,7 @@ package body cpu_subprogram_pack_orestis is
 
 
 	procedure EXEC_REA (variable A		: out data_type;
-			    constant B		: in data_type;
-			    variable Z,C,N,O	: out Boolean ) is
+			    constant B		: in data_type ) is
 		variable result : natural;
 	begin
 		if B = 2**data_width - 1 then --result is 1 iff all bits of Y are 1
@@ -115,14 +111,12 @@ package body cpu_subprogram_pack_orestis is
 			result := 0;
 		end if;
 		A := result;
-		WORK.cpu_subprogram_pack_robert.set_flags_logic(result, Z, C, N, O);
 	end EXEC_REA;
 
 
 
 	procedure EXEC_REO (variable A		: out data_type;
-			    constant B		: in data_type;
-			    variable Z,C,N,O	: out Boolean ) is
+			    constant B		: in data_type ) is
 		variable result	: natural;
 	begin
 		if B > 0 then --result is 1 if at least one bit in Y is 1
@@ -131,14 +125,12 @@ package body cpu_subprogram_pack_orestis is
 			result := 0;
 		end if;
 		A := result;
-		WORK.cpu_subprogram_pack_robert.set_flags_logic(result, Z, C, N, O);
 	end EXEC_REO;
 
 
 
 	procedure EXEC_REX (variable A		: out data_type;
-			    constant B		: in data_type;
-			    variable Z,C,N,O	: out Boolean ) is
+			    constant B		: in data_type) is
 		variable B_bv		: bit_vector(data_width-1 downto 0) := natural2bit_vector(B, data_width);
 		variable total_xor	: bit := B_bv(data_width-1);
 		variable result		: natural;
@@ -152,7 +144,6 @@ package body cpu_subprogram_pack_orestis is
 			result := 0;
 		end if;
 		A := result;
-		WORK.cpu_subprogram_pack_robert.set_flags_logic(result, Z, C, N, O);
 	end EXEC_REX;
 
 	

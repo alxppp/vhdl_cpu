@@ -40,6 +40,7 @@
 | IN | @OrestisAlpos |	|
 | OUT | @OrestisAlpos |	|
 | Trace_pack | @maxcpu
+| init_memory | @RobMa |  |
 
 ## Assembler documentation
 

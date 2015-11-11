@@ -156,7 +156,7 @@ package body cpu_subprogram_pack_orestis is
 	begin
 		if not endfile(InDevice) then
 			readline(InDevice, l);
-			read (l, v, success);
+			WORK.cpu_memory_pack.read (l, v, success);
 			if success then
 				D := v;
 			else 
@@ -170,8 +170,10 @@ package body cpu_subprogram_pack_orestis is
 	procedure EXEC_OUT ( variable S : in data_type;
 			     variable OutDevice : out text ) is
 		variable l : line;
+		variable S_hex : string ( 1 to 3);
 	begin
-		write (l, S);
+		S_hex := WORK.cpu_trace_pack.hex_image(S);
+		write (l, S_hex);
 		writeline(OutDevice, l);
 	end EXEC_OUT;
 

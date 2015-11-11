@@ -26,6 +26,9 @@ begin
 		variable Carry, Zero, Negative, Overflow : boolean; --Max
 		variable l	: line;
 		file TraceFile  : text is out "Trace.txt";
+		-- Input and Output devices are simulated as two txt files.
+		file InDevice   : Text is in "InDevice.txt";	--Orestis
+		file OutDevice  : Text is out "OutDevice.txt";  --Orestis
 		variable run 	: Boolean := TRUE;
 		
 	begin
@@ -144,10 +147,10 @@ begin
 						write_noParam(l);
 			
 			-- I/O instructions (IN, OUT)
-			when code_in	=>	EXEC_IN(Reg(X));
+			when code_in	=>	EXEC_IN(Reg(X), InDevice);
 						set_flags_load(Reg(X), Zero, Carry, Negative, Overflow);
 
-			when code_out	=>	EXEC_OUT(Reg(X));
+			when code_out	=>	EXEC_OUT(Reg(X), OutDevice);
 						
 
 			-- PC instructions (LDPC, STPC)

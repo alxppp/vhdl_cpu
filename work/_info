@@ -187,42 +187,44 @@ R10
 R12
 Pcpu_subprogram_pack_orestis
 R11
+Z31 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 R20
-R1
+Z32 w1447247070
 R0
-Z31 8C:/vhdl_cpu/work/cpu_subprogram_pack_orestis.vhd
-Z32 FC:/vhdl_cpu/work/cpu_subprogram_pack_orestis.vhd
+Z33 8C:/vhdl_cpu/work/cpu_subprogram_pack_orestis.vhd
+Z34 FC:/vhdl_cpu/work/cpu_subprogram_pack_orestis.vhd
 l0
 L1
-VHk_2bOWdV]2l;;SB0KZgo1
-!s100 @UJjo=`2lnn5[JENTVQ9c1
+V_SH]angIoPjQUU5kECkzh0
+!s100 =DPmoC[i8YXC@cDG<74:D3
 R4
 32
 b1
-R15
+Z35 !s110 1447247072
 !i10b 1
-R16
-Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/work/cpu_subprogram_pack_orestis.vhd|
-Z34 !s107 C:/vhdl_cpu/work/cpu_subprogram_pack_orestis.vhd|
+Z36 !s108 1447247072.000000
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/work/cpu_subprogram_pack_orestis.vhd|
+Z38 !s107 C:/vhdl_cpu/work/cpu_subprogram_pack_orestis.vhd|
 !i113 1
 R9
 R10
 Bbody
-Z35 DPx4 work 26 cpu_subprogram_pack_robert 0 22 2m^9FDkAQSMB^6;hBRU?]3
-Z36 DPx4 work 27 cpu_subprogram_pack_orestis 0 22 Hk_2bOWdV]2l;;SB0KZgo1
+Z39 DPx4 work 26 cpu_subprogram_pack_robert 0 22 2m^9FDkAQSMB^6;hBRU?]3
+Z40 DPx4 work 27 cpu_subprogram_pack_orestis 0 22 _SH]angIoPjQUU5kECkzh0
 R11
+R31
 R20
 l0
-L36
-V>O>[>ZfA:EoNmbgi]BahZ3
-!s100 zP?Rk5:OSIAT;LE3WFcHM1
+L47
+VMAB2P]Zj18`9jThPHD1aL0
+!s100 M_N>Z3jzE9[3Y^IPk4H]82
 R4
 32
-R15
+R35
 !i10b 1
-R16
-R33
-R34
+R36
+R37
+R38
 !i113 1
 R9
 R10
@@ -230,10 +232,10 @@ R12
 Pcpu_subprogram_pack_robert
 R11
 R20
-Z37 w1447088073
+Z41 w1447088073
 R0
-Z38 8C:/vhdl_cpu/cpu_subprogram_pack_robert.vhd
-Z39 FC:/vhdl_cpu/cpu_subprogram_pack_robert.vhd
+Z42 8C:/vhdl_cpu/cpu_subprogram_pack_robert.vhd
+Z43 FC:/vhdl_cpu/cpu_subprogram_pack_robert.vhd
 l0
 L1
 V2m^9FDkAQSMB^6;hBRU?]3
@@ -244,13 +246,13 @@ b1
 R15
 !i10b 1
 R16
-Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/cpu_subprogram_pack_robert.vhd|
-Z41 !s107 C:/vhdl_cpu/cpu_subprogram_pack_robert.vhd|
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/cpu_subprogram_pack_robert.vhd|
+Z45 !s107 C:/vhdl_cpu/cpu_subprogram_pack_robert.vhd|
 !i113 1
 R9
 R10
 Bbody
-R35
+R39
 R11
 R20
 l0
@@ -262,19 +264,19 @@ R4
 R15
 !i10b 1
 R16
-R40
-R41
+R44
+R45
 !i113 1
 R9
 R10
 R12
 Pcpu_trace_pack
-Z42 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+R31
 R20
-Z43 w1447061912
+Z46 w1447061912
 R0
-Z44 8C:/vhdl_cpu/cpu_trace_pack.vhd
-Z45 FC:/vhdl_cpu/cpu_trace_pack.vhd
+Z47 8C:/vhdl_cpu/cpu_trace_pack.vhd
+Z48 FC:/vhdl_cpu/cpu_trace_pack.vhd
 l0
 L1
 VVU_1ghh_lXo9SA:OSBzI11
@@ -285,14 +287,14 @@ b1
 R15
 !i10b 1
 R16
-Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/cpu_trace_pack.vhd|
-Z47 !s107 C:/vhdl_cpu/cpu_trace_pack.vhd|
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/cpu_trace_pack.vhd|
+Z50 !s107 C:/vhdl_cpu/cpu_trace_pack.vhd|
 !i113 1
 R9
 R10
 Bbody
-Z48 DPx4 work 14 cpu_trace_pack 0 22 VU_1ghh_lXo9SA:OSBzI11
-R42
+Z51 DPx4 work 14 cpu_trace_pack 0 22 VU_1ghh_lXo9SA:OSBzI11
+R31
 R20
 l0
 L20
@@ -303,18 +305,18 @@ R4
 R15
 !i10b 1
 R16
-R46
-R47
+R49
+R50
 !i113 1
 R9
 R10
 R12
 Pmem_defs_pack
 R20
-Z49 w1447063618
+Z52 w1447063618
 R0
-Z50 8C:/vhdl_cpu/mem_defs_pack.vhd
-Z51 FC:/vhdl_cpu/mem_defs_pack.vhd
+Z53 8C:/vhdl_cpu/mem_defs_pack.vhd
+Z54 FC:/vhdl_cpu/mem_defs_pack.vhd
 l0
 L1
 V6?DP5B=gP??;08^DAh^GE0
@@ -325,13 +327,13 @@ b1
 R15
 !i10b 1
 R6
-Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/mem_defs_pack.vhd|
-Z53 !s107 C:/vhdl_cpu/mem_defs_pack.vhd|
+Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/mem_defs_pack.vhd|
+Z56 !s107 C:/vhdl_cpu/mem_defs_pack.vhd|
 !i113 1
 R9
 R10
 Bbody
-Z54 DPx4 work 13 mem_defs_pack 0 22 6?DP5B=gP??;08^DAh^GE0
+Z57 DPx4 work 13 mem_defs_pack 0 22 6?DP5B=gP??;08^DAh^GE0
 R20
 l0
 L11
@@ -342,54 +344,54 @@ R4
 R15
 !i10b 1
 R6
-R52
-R53
+R55
+R56
 !i113 1
 R9
 R10
 R12
 Esystem
-Z55 w1447089393
+Z58 w1447246757
 R0
-Z56 8C:/vhdl_cpu/work/functional.vhd
-Z57 FC:/vhdl_cpu/work/functional.vhd
+Z59 8C:/vhdl_cpu/work/functional.vhd
+Z60 FC:/vhdl_cpu/work/functional.vhd
 l0
 L1
 V8a<Vok`2RJMS=6VPMWRaZ2
 !s100 NC32=M[ePeAzN1bf1L<;F0
 R4
 32
-R15
+Z61 !s110 1447247076
 !i10b 1
-R16
-Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/work/functional.vhd|
-Z59 !s107 C:/vhdl_cpu/work/functional.vhd|
+Z62 !s108 1447247076.000000
+Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/vhdl_cpu/work/functional.vhd|
+Z64 !s107 C:/vhdl_cpu/work/functional.vhd|
 !i113 1
 R9
 R10
 Afunctional
-R48
-R54
+R51
+R57
 R19
 R25
-R35
+R39
 R30
 R11
-R36
+R40
 R20
-R42
-Z60 DEx4 work 6 system 0 22 8a<Vok`2RJMS=6VPMWRaZ2
+R31
+Z65 DEx4 work 6 system 0 22 8a<Vok`2RJMS=6VPMWRaZ2
 l7
 L6
-V53_2e8[d2cK0^WEdGcc>L3
-!s100 @YkPB;J9?o3Nm]eQi1_4n3
+V0JRKk>[af`_5TX3RQfga=1
+!s100 `5Fd2m:OMAD;RNFToQ:5Z2
 R4
 32
-R15
+R61
 !i10b 1
-R16
-R58
-R59
+R62
+R63
+R64
 !i113 1
 R9
 R10

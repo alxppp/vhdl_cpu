@@ -30,11 +30,13 @@ package cpu_subprogram_pack_orestis is
 
 	-- IN uses the txt 'InDevice' (defined in cpu_defs_pack) file as an Input Port, reads the first number (integer format)
 	-- written on the first (or next, for consequtive calls) line and saves it on the Register defined by parameter D.
-	procedure EXEC_IN ( variable D : out data_type );
+	procedure EXEC_IN ( variable D : out data_type;
+			    variable InDevice :in text );
 
 	-- OUT uses the txt 'OutDevice' (defined in cpu_defs_pack) file as an Output Port, 
 	-- and writes on it the value of the Register defined by parameter S.
-	procedure EXEC_OUT ( variable S : in data_type );
+	procedure EXEC_OUT ( variable S : in data_type;
+			     variable OutDevice : out text  );
 
 end cpu_subprogram_pack_orestis;
 
@@ -155,7 +157,8 @@ package body cpu_subprogram_pack_orestis is
 
 	
 	
-	procedure EXEC_IN ( variable D : out data_type )is
+	procedure EXEC_IN ( variable D : out data_type;
+			    variable InDevice : in text ) is
 		variable l 	: line;
 		variable v 	: data_type;
 		variable success: boolean;
@@ -173,8 +176,9 @@ package body cpu_subprogram_pack_orestis is
 
 
 
-	procedure EXEC_OUT ( variable S : in data_type ) is
-		variable l 	: line;
+	procedure EXEC_OUT ( variable S : in data_type;
+			     variable OutDevice : out text ) is
+		variable l : line;
 	begin
 		write (l, S);
 		writeline(OutDevice, l);

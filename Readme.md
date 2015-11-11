@@ -47,44 +47,44 @@
 ### Test
 
 | OP	| Tester |
-| NOP	|  |
-| STOP	|  |
-| ADD	|  |
-| ADDC	|  |
-| SUB	|  |
-| SUBC	|  |
-| NOT	|  |
-| AND	|  |
-| OR	|  |
-| XOR	|  |
-| REA	|  |
-| REO	|  |
-| REX	|  |
-| SLL	|  |
-| SRL	|  |
-| SRA	|  |
-| ROL	|  |
-| ROLC	|  |
-| ROR	|  |
-| RORC	|  |
-| LDC	|  |
-| LDD	|  |
-| LDR	|  |
-| STD	|  |
-| STR	|  |
-| IN	|  |
-| OUT	|  |
-| LDPC	|  |
-| STPC	|  |
-| JMP	|  |
-| JZ	|  |
-| JC	|  |
-| JN	|  |
-| JO	|  |
-| JNZ	|  |
-| JNC	|  |
-| JNN	|  |
-| JNO	|  |
+| NOP	| @RobMa |
+| STOP	| @RobMa |
+| ADD	| @maxcpu |
+| ADDC	| @maxcpu |
+| SUB	| @OrestisAlpos |
+| SUBC	| @OrestisAlpos |
+| NOT	| @alxppp |
+| AND	| @alxppp |
+| OR	| @alxppp |
+| XOR	| @alxppp |
+| REA	| @RobMa |
+| REO	| @RobMa |
+| REX	| @RobMa |
+| SLL	| @maxcpu |
+| SRL	| @maxcpu |
+| SRA	| @maxcpu |
+| ROL	| @RobMa |
+| ROLC	| @RobMa |
+| ROR	| @RobMa |
+| RORC	| @RobMa |
+| LDC	| @OrestisAlpos |
+| LDD	| @OrestisAlpos |
+| LDR	| @OrestisAlpos |
+| STD	| @OrestisAlpos |
+| STR	| @OrestisAlpos |
+| IN	| @maxcpu |
+| OUT	| @maxcpu |
+| LDPC	| @alxppp |
+| STPC	| @alxppp |
+| JMP	| @alxppp |
+| JZ	| @alxppp |
+| JC	| @alxppp |
+| JN	| @OrestisAlpos |
+| JO	| @OrestisAlpos |
+| JNZ	| @maxcpu |
+| JNC	| @maxcpu |
+| JNN	| @maxcpu |
+| JNO	| @RobMa |
 
 ## Assembler documentation
 

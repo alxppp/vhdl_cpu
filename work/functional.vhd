@@ -155,8 +155,10 @@ begin
 			-- I/O instructions (IN, OUT)
 			when code_in	=>	EXEC_IN(Reg(X), InDevice);
 						set_flags_load(Reg(X), Zero, Carry, Negative, Overflow);
+						write_noParam(l);
 
 			when code_out	=>	EXEC_OUT(Reg(X), OutDevice);
+						write_noParam(l);
 						
 
 			-- PC instructions (LDPC, STPC)

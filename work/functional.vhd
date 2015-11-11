@@ -13,6 +13,7 @@ begin
 		use WORK.cpu_subprogram_pack_max.all;
 		use WORK.cpu_subprogram_pack_robert.all;
 		use WORK.cpu_subprogram_pack_alex.all;
+		use WORK.cpu_memory_pack.init_memory;
 		use WORK.mem_defs_pack.all;
 		use WORK.cpu_trace_pack.all;
 
@@ -26,12 +27,14 @@ begin
 		variable Carry, Zero, Negative, Overflow : boolean; --Max
 		variable l	: line;
 		file TraceFile  : text is out "Trace.txt";
+		file MemoryFile : text is in "Memory.hex";
 		-- Input and Output devices are simulated as two txt files.
 		file InDevice   : Text is in "InDevice.txt";	--Orestis
 		file OutDevice  : Text is out "OutDevice.txt";  --Orestis
 		variable run 	: Boolean := TRUE;
 		
 	begin
+		init_memory(MemoryFile, Memory);
 
 		write_header(TraceFile);
 

@@ -5,42 +5,86 @@
 
 ## Aufteilung Befehle
 
-| OP   | Ersteller | Tester |
-|------|-----------|--------|
-| LDC  | @alxppp   |        |
-| LDD  | @alxppp   |        |
-| LDR  | @alxppp   |        |
-| STD  | @alxppp   |        |
-| STR  | @maxcpu   |        |
-| LDPC | @maxcpu   |        |
-| STPC | @maxcpu   |        |
-| JMP  | @maxcpu   |        |
-| JZ   | @RobMa [x] |        |
-| JC   | @RobMa [x] |        |
-| JN   | @RobMa [x] |        |
-| JO   | @RobMa [x] |        |
-| JNZ  |@OrestisAlpos[x]|        |
-| JNC  |@OrestisAlpos[x]|        |
-| JNN  |@OrestisAlpos[x]|        |
-| JNO  |@OrestisAlpos[x]|        |
-| EXEC_ROL  | @maxcpu
-| EXEC_ROLC | @maxcpu
-| EXEC_ROR  | @maxcpu
-| EXEC_RORC | @maxcpu
-| EXEC_SUB  | @RobMa | |    |
-| EXEC_SUBC | @RobMa | |    |
-| set_flags_logic | @RobMa [x]| |    |
-| set_flags_load  | @RobMa [x]| |    |
-| EXEC_REA | @OrestisAlpos [x]|	|
-| EXEC_REO | @OrestisAlpos [x]|	|
-| EXEC_REX | @OrestisAlpos [x]|	|
-| EXEC_SLL | @alxppp |	|
-| EXEC_SRL | @alxppp |	|
-| EXEC_SRA | @alxppp |	|
-| IN | @OrestisAlpos |	|
-| OUT | @OrestisAlpos |	|
-| Trace_pack | @maxcpu
-| init_memory | @RobMa |  |
+### Implementierung
+
+| OP   | Ersteller |
+|------|-----------|
+| LDC  | @alxppp   |
+| LDD  | @alxppp   |
+| LDR  | @alxppp   |
+| STD  | @alxppp   |
+| STR  | @maxcpu   |
+| LDPC | @maxcpu   |
+| STPC | @maxcpu   |
+| JMP  | @maxcpu   |
+| JZ   | @RobMa [x] |
+| JC   | @RobMa [x] |
+| JN   | @RobMa [x] |
+| JO   | @RobMa [x] |
+| JNZ  |@OrestisAlpos[x]|
+| JNC  |@OrestisAlpos[x]|
+| JNN  |@OrestisAlpos[x]|
+| JNO  |@OrestisAlpos[x]|
+| EXEC_ROL  | @maxcpu |
+| EXEC_ROLC | @maxcpu |
+| EXEC_ROR  | @maxcpu |
+| EXEC_RORC | @maxcpu |
+| EXEC_SUB  | @RobMa |
+| EXEC_SUBC | @RobMa |
+| set_flags_logic | @RobMa [x]|
+| set_flags_load  | @RobMa [x]|
+| EXEC_REA | @OrestisAlpos [x]|
+| EXEC_REO | @OrestisAlpos [x]|
+| EXEC_REX | @OrestisAlpos [x]|
+| EXEC_SLL | @alxppp |
+| EXEC_SRL | @alxppp |
+| EXEC_SRA | @alxppp |
+| IN | @OrestisAlpos |
+| OUT | @OrestisAlpos |
+| Trace_pack | @maxcpu |
+| init_memory | @RobMa |
+
+### Test
+
+| OP	| Tester |
+| NOP	|  |
+| STOP	|  |
+| ADD	|  |
+| ADDC	|  |
+| SUB	|  |
+| SUBC	|  |
+| NOT	|  |
+| AND	|  |
+| OR	|  |
+| XOR	|  |
+| REA	|  |
+| REO	|  |
+| REX	|  |
+| SLL	|  |
+| SRL	|  |
+| SRA	|  |
+| ROL	|  |
+| ROLC	|  |
+| ROR	|  |
+| RORC	|  |
+| LDC	|  |
+| LDD	|  |
+| LDR	|  |
+| STD	|  |
+| STR	|  |
+| IN	|  |
+| OUT	|  |
+| LDPC	|  |
+| STPC	|  |
+| JMP	|  |
+| JZ	|  |
+| JC	|  |
+| JN	|  |
+| JO	|  |
+| JNZ	|  |
+| JNC	|  |
+| JNN	|  |
+| JNO	|  |
 
 ## Assembler documentation
 

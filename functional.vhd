@@ -9,15 +9,15 @@ begin
 
 		use STD.textio.all;
 		use WORK.cpu_defs_pack.all;
-		use WORK.cpu_subprogram_pack_orestis.all;
-		use WORK.cpu_subprogram_pack_max.all;
-		use WORK.cpu_subprogram_pack_robert.all;
-		use WORK.cpu_subprogram_pack_alex.all;
-		use WORK.cpu_memory_pack.init_memory;
-		use WORK.mem_defs_pack.all;
+		use WORK.cpu_memory_pack.all;
 		use WORK.cpu_trace_pack.all;
+		use WORK.cpu_general_subprogram_pack.all;
+		use WORK.cpu_arithmetic_pack.all;
+		use WORK.cpu_logic_pack.all;
+		use WORK.cpu_shift_rotate_pack.all;
+		use WORK.cpu_IN_OUT_pack.all;
 
-		variable Memory : mem_type := memory_content;
+		variable Memory : mem_type;
 		variable Reg 	: reg_type;
 		variable Instr 	: data_type;
 		variable OP	: opcode_type;

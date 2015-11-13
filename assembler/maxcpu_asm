@@ -125,7 +125,7 @@ ARGF.each_with_index do |line, i|
 
   if instruction.command.nil? && !instruction.label.nil?
     # Could not parse current label, remember for next line
-    unparsed_label = instruction.assembly
+    unparsed_label = instruction.assembly.slice(/.*:/)
 
   elsif !instruction.command.nil?
     # Parsing successful

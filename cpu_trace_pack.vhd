@@ -1,10 +1,8 @@
 package cpu_trace_pack is
 
-use WORK.cpu_defs_pack.all;
 use STD.textio.all;
-
-function hex_image(d : data_type) return string;
-function bool_character(b : Boolean) return character;
+use WORK.cpu_defs_pack.all;
+use WORK.cpu_textio_pack.all;
 
 procedure write_header(variable f : out text);
 procedure write_PC_CMD(variable l : inout line; constant PC : in addr_type; constant OP : in opcode_type; constant X,Y,Z : in reg_addr_type); 
@@ -18,32 +16,6 @@ end cpu_trace_pack;
 
 
 package body cpu_trace_pack is
-
-
-function hex_image(d : data_type) return string is
-
-constant hex_table : string (1 to 16) := "0123456789ABCDEF";
-variable result : string ( 1 to 3);
-
-begin
-
-	result(3) := hex_table(d mod 16 + 1);
-	result(2) := hex_table((d / 16) mod 16 + 1);
-	result(1) := hex_table((d / 256) mod 16 + 1);
-
-	return result;
-	
-end hex_image;
-
-function bool_character(b : Boolean) return character is
-
-begin
-
-	if b then return 'T';
-	else return 'F';
-	end if;
-
-end bool_character;
 
 procedure write_header( variable f : out text) is 
 

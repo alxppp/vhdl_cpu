@@ -24,7 +24,7 @@ begin
 		variable X,Y,Z	: reg_addr_type;
 		variable PC	: addr_type := 0;
 		variable data	: data_type; --Max
-		variable Carry, Zero, Negative, Overflow : boolean; --Max
+		variable Carry, Zero, Negative, Overflow : boolean := FALSE; --Max
 		variable l	: line;
 		file TraceFile  : text is out "Trace.txt";
 		file MemoryFile : text is in "Memory.hex";

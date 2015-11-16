@@ -88,8 +88,8 @@ end write_tail;
 procedure write_flags(variable l : inout line; constant Z,C,N,O : in Boolean) is
 begin
 
-	write(l, bool_character(C));
 	write(l, bool_character(Z));
+	write(l, bool_character(C));
 	write(l, bool_character(N));
 	write(l, bool_character(O));
 

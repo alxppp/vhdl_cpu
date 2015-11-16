@@ -8,7 +8,7 @@ package cpu_general_subprogram_pack is
 	                          variable Zero, Carry, Negative, Overflow : out boolean);
 
 	procedure Set_Flags_Load(constant Data : in data_type;
-	                         variable Zero, Carry, Negative, Overflow : out boolean);
+	                         variable Zero, Carry, Negative, Overflow : inout boolean);
 
 end cpu_general_subprogram_pack;
 
@@ -47,7 +47,7 @@ package body cpu_general_subprogram_pack is
 	--The Set_Flags_Load procedure updates the Flags and should be called after
 	--processing every of the following instructions: LDC, LDD, LDR
 	procedure Set_Flags_Load( constant Data : in data_type;
-	                          variable Zero, Carry, Negative, Overflow : out boolean) is
+	                          variable Zero, Carry, Negative, Overflow : inout boolean) is
 	begin
 		--Zero Flag
 		--If Data equals 0x0, the zero flag is set, otherwise it is cleared. (Spec 3.2.4.1.)

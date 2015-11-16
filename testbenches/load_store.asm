@@ -1,4 +1,4 @@
-	;TESTING LOAD INSTRUCTIONS
+	; --- TESTING LOAD INSTRUCTIONS --- 
 	; First we save some constants in the memory addresses NUMBER_1 to NUMBER_9. We will use them to test the Load Instrucrions.
 	LDC R0 #000
 	STD R0 NUMBER_1
@@ -18,7 +18,7 @@
 	STD R0 NUMBER_8
 	LDC R0 #FFF
 	STD R0 NUMBER_9
-	;
+
 	;TESTING LDC
 	;Flags are tested after each LDC instruction.
 	LDC R0 #000	;Test 1
@@ -45,7 +45,7 @@
 	JO ERROR
 	SUB R2 R2 R3
 	JNZ ERROR
-	;
+
 	;TESTING LDD: Load numbers directly from memory (Number_1 to Number_9) and check if the number you have read is the one you expected to read.
 	;Flags are tested after each LDD instruction.
 	LDD R0 NUMBER_1	  ;Test 1
@@ -108,7 +108,7 @@
 	LDC R3 #FFF
 	SUB R2 R3 R1
 	JNZ ERROR
-	;
+
 	;TESTING LDR: First load some address in R0 using LDC, then load the content of that address in R1 using LDR and check if the content was the expected.
 	;Flags are tested after each LDR instruction.
 	LDC R0 NUMBER_1	  ;Test 1
@@ -183,9 +183,9 @@
 	LDC R2 #FFF
 	SUB R1 R1 R2
 	JNZ ERROR
-	;
-	;
-	;TESTING STORE INSTRUCTIONS
+
+
+	; --- TESTING STORE INSTRUCTIONS ---
 	;TEST STD: Load a constant to a register, store it in memory, then ready that memory cell and check if the POSITION you have read is the one you had written.
 	LDC R1 #000	  ;Test 1
 	STD R1 POSITION_1
@@ -207,7 +207,7 @@
 	LDD R1 POSITION_2
 	SUB R0 R0 R1
 	JNZ ERROR
-	;
+
 	;TEST STR: First load some address in R0 using LDC, then load a constant in R1 and store R1 in the address pointed by R0. Then load the content of that address in R2 and check if you have read the correct number
 	LDC R0 POSITION_1	  ;Test 1
 	LDC R1 #000
@@ -227,15 +227,16 @@
 	LDD R2 POSITION_2
 	SUB R1 R1 R2
 	JNZ ERROR
+
+
 SUCCESS: LDC R0 #001
 		 STOP
-;
 
-ERROR: LDC R0 #000
-	   STOP
-;
-;
-;
+
+ERROR:	 LDC R0 #000
+		 STOP
+
+
 ;The following memory cells are reserved for writing constants.
 NUMBER_1:  NOP ;#000
 NUMBER_2:  NOP ;#001

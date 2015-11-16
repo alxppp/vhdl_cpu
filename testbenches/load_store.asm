@@ -1,0 +1,250 @@
+	;TESTING LOAD INSTRUCTIONS
+	; First we save some constants in the memory addresses NUMBER_1 to NUMBER_9. We will use them to test the Load Instrucrions.
+	LDC R0 #000
+	STD R0 NUMBER_1
+	LDC R0 #001
+	STD R0 NUMBER_2
+	LDC R0 #00F
+	STD R0 NUMBER_3
+	LDC R0 #0F0
+	STD R0 NUMBER_4
+	LDC R0 #0FF
+	STD R0 NUMBER_5
+	LDC R0 #F00
+	STD R0 NUMBER_6
+	LDC R0 #F0F
+	STD R0 NUMBER_7
+	LDC R0 #FF0
+	STD R0 NUMBER_8
+	LDC R0 #FFF
+	STD R0 NUMBER_9
+	;
+	;TESTING LDC
+	;Flags are tested after each LDC instruction.
+	LDC R0 #000	;Test 1
+	JNZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R0 #00F	;Test 2
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R1 #00F
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	SUB R0 R0 R1
+	JNZ ERROR
+	LDC R2 #FFF	;Test 3
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	LDC R3 #FFF
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	SUB R2 R2 R3
+	JNZ ERROR
+	;
+	;TESTING LDD: Load numbers directly from memory (Number_1 to Number_9) and check if the number you have read is the one you expected to read.
+	;Flags are tested after each LDD instruction.
+	LDD R0 NUMBER_1	  ;Test 1
+	JNZ ERROR
+	JN ERROR
+	JO ERROR
+	LDD R1 NUMBER_2   ;Test 2
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R2 #001
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDD R2 NUMBER_3   ;Test 3
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R3 #00F
+	SUB R2 R2 R3
+	JNZ ERROR
+	LDD R3 NUMBER_4   ;Test 4
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R0 #0F0
+	SUB R3 R3 R0
+	JNZ ERROR
+	LDD R0 NUMBER_5   ;Test 5
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R2 #0FF
+	SUB R1 R0 R2
+	JNZ ERROR
+	LDD R0 NUMBER_6   ;Test 6
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	LDC R3 #F00
+	SUB R1 R0 R3
+	JNZ ERROR
+	LDD R3 NUMBER_7   ;Test 7
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	LDC R0 #F0F
+	SUB R2 R3 R0
+	JNZ ERROR
+	LDD R2 NUMBER_8   ;Test 8
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	LDC R0 #FF0
+	SUB R0 R2 R0
+	JNZ ERROR
+	LDD R1 NUMBER_9   ;Test 9
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	LDC R3 #FFF
+	SUB R2 R3 R1
+	JNZ ERROR
+	;
+	;TESTING LDR: First load some address in R0 using LDC, then load the content of that address in R1 using LDR and check if the content was the expected.
+	;Flags are tested after each LDR instruction.
+	LDC R0 NUMBER_1	  ;Test 1
+	LDR R1 R0
+	JNZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R2 #000
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 NUMBER_2	  ;Test 2
+	LDR R1 R0
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R2 #001
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 NUMBER_3	  ;Test 3
+	LDR R1 R0
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R2 #00F
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 NUMBER_4	  ;Test 4
+	LDR R1 R0
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R2 #0F0
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 NUMBER_5	  ;Test 5
+	LDR R1 R0
+	JZ ERROR
+	JN ERROR
+	JO ERROR
+	LDC R2 #0FF
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 NUMBER_6	  ;Test 6
+	LDR R1 R0
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	LDC R2 #F00
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 NUMBER_7	  ;Test 7
+	LDR R1 R0
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	LDC R2 #F0F
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 NUMBER_8	  ;Test 8
+	LDR R1 R0
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	LDC R2 #FF0
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 NUMBER_9	  ;Test 9
+	LDR R1 R0
+	JZ ERROR
+	JNN ERROR
+	JO ERROR
+	LDC R2 #FFF
+	SUB R1 R1 R2
+	JNZ ERROR
+	;
+	;
+	;TESTING STORE INSTRUCTIONS
+	;TEST STD: Load a constant to a register, store it in memory, then ready that memory cell and check if the POSITION you have read is the one you had written.
+	LDC R1 #000	  ;Test 1
+	STD R1 POSITION_1
+	LDD R2 POSITION_1
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R1 #001	  ;Test 2
+	STD R1 POSITION_1
+	LDD R2 POSITION_1
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R2 #100	  ;Test 3
+	STD R2 POSITION_2
+	LDD R3 POSITION_2
+	SUB R2 R2 R3
+	JNZ ERROR
+	LDC R0 #FFF	  ;Test 4
+	STD R0 POSITION_2
+	LDD R1 POSITION_2
+	SUB R0 R0 R1
+	JNZ ERROR
+	;
+	;TEST STR: First load some address in R0 using LDC, then load a constant in R1 and store R1 in the address pointed by R0. Then load the content of that address in R2 and check if you have read the correct number
+	LDC R0 POSITION_1	  ;Test 1
+	LDC R1 #000
+	STR R1 R0
+	LDD R2 POSITION_1
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 POSITION_1	  ;Test 2
+	LDC R1 #0F0
+	STR R1 R0
+	LDD R2 POSITION_1
+	SUB R1 R1 R2
+	JNZ ERROR
+	LDC R0 POSITION_2	  ;Test 3
+	LDC R1 #FFF
+	STR R1 R0
+	LDD R2 POSITION_2
+	SUB R1 R1 R2
+	JNZ ERROR
+SUCCESS: LDC R0 #001
+		 STOP
+;
+
+ERROR: LDC R0 #000
+	   STOP
+;
+;
+;
+;The following memory cells are reserved for writing constants.
+NUMBER_1:  NOP ;#000
+NUMBER_2:  NOP ;#001
+NUMBER_3:  NOP ;#00F
+NUMBER_4:  NOP ;#0F0
+NUMBER_5:  NOP ;#0FF
+NUMBER_6:  NOP ;#F00
+NUMBER_7:  NOP ;#F0F
+NUMBER_8:  NOP ;#FF0
+NUMBER_9:  NOP ;#FFF
+POSITION_1:  NOP
+POSITION_2:  NOP

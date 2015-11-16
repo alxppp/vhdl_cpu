@@ -132,16 +132,16 @@ begin
 			when code_ldc	=>	Reg(X) := Memory(PC); -- Alex
 						write_param(l, Memory(PC));
 						PC := INC(PC);
-						Set_Flags_Load(data, Zero, Carry, Negative, Overflow);
+						Set_Flags_Load(Reg(X), Zero, Carry, Negative, Overflow);
 						 
 			when code_ldd	=>	Reg(X) := Memory(Memory(PC)); -- Alex
 						write_Param(l, Memory(PC));
 						PC := INC(PC);
-						Set_Flags_Load(data, Zero, Carry, Negative, Overflow);
+						Set_Flags_Load(Reg(X), Zero, Carry, Negative, Overflow);
 
 			when code_ldr	=>	Reg(X) := Memory(Reg(Y)); -- Alex
 						write_noParam(l);
-						Set_Flags_Load(data, Zero, Carry, Negative, Overflow);
+						Set_Flags_Load(Reg(X), Zero, Carry, Negative, Overflow);
 
 			when code_std	=>	data := Reg(X); -- Alex
 						Memory(Memory(PC)) := data;

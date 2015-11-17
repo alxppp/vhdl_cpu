@@ -6,7 +6,7 @@ TEST1:	LDC	R1	0		; test 0 ⊻ 0 == 0
 
 TEST2:	LDC	R1	0		; test 0 ⊻ #FFF == #FFF
 	LDC	R2	#FFF
-	OR	R1	R1	R2
+	XOR	R1	R1	R2
 	SUB	R1	R1	R2
 	JNZ	ERROR
 
@@ -20,6 +20,7 @@ TEST3:	LDC	R1	1		; test 1 ⊻ 2 == 3
 TEST4:	LDC	R1	#FFF		; test #FFF ⊻ #FFF == 0
 	XOR	R1	R1	R1
 	LDC	R2	#FFF
+	SUB	R1	R1	R2
 	JNZ	ERROR
 
 SUCCESS:

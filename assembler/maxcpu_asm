@@ -38,7 +38,7 @@ class Instruction
                        $}x
 
   def initialize(assembly_line, line_nr = 0)
-    @assembly = assembly_line
+    @assembly = assembly_line.rstrip
 
     parsed_instruction = @assembly.match(ASSEMBLY_PARSER)
 

@@ -154,11 +154,11 @@ unparsed_label = ''
 ARGF.each_with_index do |line, i|
   instruction = Instruction.new "#{unparsed_label}#{line}", i + 1
 
-  if instruction.command.nil? && !instruction.label.nil?
+  if instruction.command.blank? && instruction.label.present? && !instruction.preproc?
     # Could not parse current label, remember for next line
     unparsed_label = instruction.assembly.slice(/.*:/)
 
-  elsif !instruction.command.nil?
+  elsif instruction.command.present? || instruction.preproc?
     # Parsing successful
     parsed_assembly << instruction
     unparsed_label = ''
@@ -166,7 +166,7 @@ ARGF.each_with_index do |line, i|
 end
 
 # Convert to three byte representation
-three_byte_representation = parsed_assembly.map(&:three_byte_representation).flatten
+three_byte_representation = parsed_assembly.map { |v| v.is_a?(Instruction) ? v.three_byte_representation : v }.flatten
 
 # Resolve jumps
 three_byte_representation = three_byte_representation.each_with_index.map do |v, i|

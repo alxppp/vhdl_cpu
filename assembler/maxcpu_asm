@@ -165,8 +165,18 @@ ARGF.each_with_index do |line, i|
   end
 end
 
+# Resolve 'before three byte rep' preprocessor statements
+parsed_assembly = parsed_assembly.map do |i|
+  i.is_a?(Instruction) ? i.resolved_preproc_representation(:before_three_byte_representation) : i
+end.flatten
+
 # Convert to three byte representation
 three_byte_representation = parsed_assembly.map { |v| v.is_a?(Instruction) ? v.three_byte_representation : v }.flatten
+
+# Resolve 'before jump resolve' preprocessor statements
+three_byte_representation = three_byte_representation.map do |i|
+  i.is_a?(Instruction) ? i.resolved_preproc_representation(:before_jump_resolve) : i
+end.flatten
 
 # Resolve jumps
 three_byte_representation = three_byte_representation.each_with_index.map do |v, i|
@@ -177,6 +187,11 @@ three_byte_representation = three_byte_representation.each_with_index.map do |v,
     v
   end
 end
+
+# Resolve 'before op code representation' preprocessor statements
+three_byte_representation = three_byte_representation.map do |i|
+  i.is_a?(Instruction) ? i.resolved_preproc_representation(:before_op_code_representation) : i
+end.flatten
 
 # Convert instructions to their op code representations
 op_code_representation = three_byte_representation.map { |v| v.is_a?(Instruction) ? v.op_code_representation : v }

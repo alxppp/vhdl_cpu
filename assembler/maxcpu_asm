@@ -1,14 +1,13 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+require 'active_support/core_ext/object/blank'
 require 'rubygems'
 
 exit if Object.const_defined?(:Ocra) # Needed for creating Windows executables using Ocra
 
 
 ### Class definitions
-
-
 
 class Jump
   attr_accessor :label
@@ -50,7 +49,7 @@ class Instruction
     @command = parsed_instruction[:command]
     @attributes = [:attr_1, :attr_2, :attr_3].map { |s| parse_attr parsed_instruction[s] }.compact
 
-    unless @command.nil?
+    if @command.present?
       @op_code = OP_CODES.fetch(@command.downcase, []).fetch(0, nil)
       puts_err "Unknown command '#{@command}'.", line_nr if @op_code.nil?
 

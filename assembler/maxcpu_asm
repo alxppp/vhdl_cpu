@@ -115,7 +115,7 @@ class Instruction
   def parse_attr(attribute)
     return nil if attribute.nil?
     return Integer('0x' + attribute[1..-1]) if attribute =~ /^#/
-    return Integer(attribute[1..-1]) if attribute =~ /^R/i
+    return Integer(attribute[1..-1]) if attribute =~ /^R\d/i
     return parse_twos_complement(Integer(attribute), 12) rescue Jump.new(attribute)
   end
 end

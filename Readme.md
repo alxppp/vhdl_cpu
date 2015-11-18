@@ -52,8 +52,8 @@
 | STOP	| @RobMa |
 | ADD	| @maxcpu |
 | ADDC	| @maxcpu |
-| SUB	| @OrestisAlpos |
-| SUBC	| @OrestisAlpos |
+| SUB	| @OrestisAlpos [x]|
+| SUBC	| @OrestisAlpos [x]|
 | NOT	| @alxppp |
 | AND	| @alxppp |
 | OR	| @alxppp |
@@ -68,11 +68,11 @@
 | ROLC	| @RobMa |
 | ROR	| @RobMa |
 | RORC	| @RobMa |
-| LDC	| @OrestisAlpos |
-| LDD	| @OrestisAlpos |
-| LDR	| @OrestisAlpos |
-| STD	| @OrestisAlpos |
-| STR	| @OrestisAlpos |
+| LDC	| @OrestisAlpos [x]|
+| LDD	| @OrestisAlpos [x]|
+| LDR	| @OrestisAlpos [x]|
+| STD	| @OrestisAlpos [x]|
+| STR	| @OrestisAlpos [x]|
 | IN	| @maxcpu |
 | OUT	| @maxcpu |
 | LDPC	| @alxppp |
@@ -80,8 +80,8 @@
 | JMP	| @alxppp |
 | JZ	| @alxppp |
 | JC	| @alxppp |
-| JN	| @OrestisAlpos |
-| JO	| @OrestisAlpos |
+| JN	| @OrestisAlpos [x]|
+| JO	| @OrestisAlpos [x]|
 | JNZ	| @maxcpu |
 | JNC	| @maxcpu |
 | JNN	| @maxcpu |
@@ -110,11 +110,3 @@ maxcpu_asm reads assembly code from stdin and writes the resulting op code to st
      ```
 
   2. The other way is to install the Ruby interpreter and run the program with `ruby maxcpu_asm`. This option allows you to modify the source code.
-
-___
-
-Hello! just a notice. It would be good if we all write the flag parameters always in the following order: Zero, Carry, Negative, Overflow.
-I think this would be very useful in order to avoid mistakes later when calling the EXEC_functions. Do you agree?
-	->Yes, good idea! (@RobMa)
-	-> Good idea! changed my procedures (@maxcpu)
-	-> Yup, nice! (@alxppp)

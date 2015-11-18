@@ -1,0 +1,11 @@
+; Test JZ
+
+	LDC	R1	0
+	JZ	SUCCESS
+
+ERROR:	LDC	R0	1
+	STOP
+
+SUCCESS:
+	LDC	R0	0
+	STOP

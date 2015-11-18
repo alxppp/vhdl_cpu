@@ -7,9 +7,9 @@ package cpu_shift_rotate_pack is
 	procedure EXEC_SRL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
 	procedure EXEC_SRA(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
 	procedure EXEC_ROL(constant A : in data_type; variable B : out data_type; variable Z,C,N,O : out Boolean);
-	procedure EXEC_ROR(constant A : in data_type; variable B : out data_type; variable Z,C,N,O : out Boolean); 
-	procedure EXEC_ROLC(constant A : in data_type; variable B : out data_type; variable Z : out boolean; constant CI : in Boolean; variable CO,N,O : out Boolean); 
-	procedure EXEC_RORC(constant A : in data_type; variable B : out data_type; variable Z : out boolean; constant CI : in Boolean; variable CO,N,O : out Boolean); 
+	procedure EXEC_ROR(constant A : in data_type; variable B : out data_type; variable Z,C,N,O : out Boolean);
+	procedure EXEC_ROLC(constant A : in data_type; variable B : out data_type; variable Z : out boolean; constant CI : in Boolean; variable CO,N,O : out Boolean);
+	procedure EXEC_RORC(constant A : in data_type; variable B : out data_type; variable Z : out boolean; constant CI : in Boolean; variable CO,N,O : out Boolean);
 
 end cpu_shift_rotate_pack;
 
@@ -71,7 +71,7 @@ package body cpu_shift_rotate_pack is
 
 		C := Boolean'val(Bit'pos(T(T'right)));
 
-		T := T(T'right) & T(T'left downto 1);
+		T := T(T'left) & T(T'left downto 1);
 
 		R := bit_vector2natural(T);
 		if R = 0 then Z := TRUE;

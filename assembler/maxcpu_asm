@@ -8,6 +8,8 @@ exit if Object.const_defined?(:Ocra) # Needed for creating Windows executables u
 
 ### Class definitions
 
+
+
 class Jump
   attr_accessor :label
 

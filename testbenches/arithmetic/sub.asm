@@ -1,0 +1,139 @@
+	; --- TESTING SUB INSTRUCTION --- 
+	; 1st operand will be R0, second R1 and the (expected) result will be in R2
+	LDC R0 #000		;Test 1, 0 - 0 = 0
+	LDC R1 #000
+	LDC R2 #000
+	SUB R0 R0 R1
+	JNZ ERROR
+	JC ERROR
+	JN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #001		;Test 2, 1 - 0 = 1
+	LDC R1 #000
+	LDC R2 #001
+	SUB R0 R0 R1
+	JZ ERROR
+	JC ERROR
+	JN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #FFF		;Test 3, FFF - 0 = FFF
+	LDC R1 #000
+	LDC R2 #FFF
+	SUB R0 R0 R1
+	JZ ERROR
+	JC ERROR
+	JNN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #7FF		;Test 4, 7FF - 0 = 7FF
+	LDC R1 #0
+	SUB R0 R0 R1
+	LDC R2 #7FF
+	JZ ERROR
+	JC ERROR
+	JN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #000		;Test 5, 0 - 1 = -1 (=FFF in 2's comp)
+	LDC R1 #001
+	LDC R2 #FFF
+	SUB R0 R0 R1
+	JZ ERROR
+	JC ERROR
+	JNN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #0		;Test 6, 0 - 7FF = -7FF (=801 in 2's comp)
+	LDC R1 #7FF
+	LDC R2 #801
+	SUB R0 R0 R1
+	JZ ERROR
+	JC ERROR
+	JNN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #0		;Test 7, 0 - FFF = 0 - (-1) = 0 + 1 = 1
+	LDC R1 #FFF
+	LDC R2 #1
+	SUB R0 R0 R1
+	JZ ERROR
+	JC ERROR
+	JN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #7FF		;Test 8, 7FF - 7FF = 0
+	LDC R1 #7FF
+	LDC R2 #0
+	SUB R0 R0 R1
+	JNZ ERROR
+	JNC ERROR
+	JN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #801		;Test 9, -(2^11 - 1) - (2^11 - 1) = -(2^12)-2, overflow expected,  (2^11 - 1) = 0111_1111_1111,  -(2^11 - 1) = 1000_0000_0001,
+	LDC R1 #7FF
+	LDC R2 #002
+	SUB R0 R0 R1
+	JZ ERROR
+	JNC ERROR
+	JNN ERROR
+	JNO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	;
+	;
+	;
+	; --- TESTING SUBC INSTRUCTION --- 
+	; 1st operand will be R0, second R1 and the (expected) result will be in R2
+	LDC R0 #001		;Test 1, 1 - 0 - C = 0, for C=1. Zero result with Carry flag set is expected.
+	LDC R1 #000
+	LDC R2 #000
+	LDC R3 #800		;set Carry flag
+	SLL R3 R3
+	SUBC R0 R0 R1
+	JNZ ERROR
+	JNC ERROR
+	JN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #001		;Test 2, 1 - 0 - C = 0, for C=0
+	LDC R1 #000
+	LDC R2 #001
+	LDC R3 #000		;clear Carry flag
+	SLL R3 R3
+	SUBC R0 R0 R1
+	JZ ERROR
+	JC ERROR
+	JN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+	LDC R0 #0		;Test 3, 0 - 7FF - C = -7FF - 1 = -800, (=800 in 2's comp) for C=1. Carry flag expected to be set in result.
+	LDC R1 #7FF
+	LDC R2 #800
+	LDC R3 #800		;set Carry flag
+	SLL R3 R3
+	SUBC R0 R0 R1
+	JZ ERROR
+	JNC ERROR
+	JNN ERROR
+	JO ERROR
+	SUB R0 R0 R2
+	JNZ ERROR
+SUCCESS: LDC R0 #001
+		 STOP
+
+
+ERROR:	 LDC R0 #000
+		 STOP

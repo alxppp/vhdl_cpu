@@ -46,9 +46,17 @@ package body cpu_shift_rotate_pack is
 		variable R : data_type;
 
 	begin
+		T := natural2bit_vector(A, data_width);
+
 		C := Boolean'val(Bit'pos(T(T'right)));
+
 		T := '0' & T(T'left downto 1);
+
 		R := bit_vector2natural(T);
+		if R = 0 then Z := TRUE;
+		else Z := FALSE;
+		end if;
+
 		B := R;
 
 	end EXEC_SRL;
@@ -59,9 +67,17 @@ package body cpu_shift_rotate_pack is
 		variable R : data_type;
 
 	begin
+		T := natural2bit_vector(A, data_width);
+
 		C := Boolean'val(Bit'pos(T(T'right)));
+
 		T := T(T'right) & T(T'left downto 1);
+
 		R := bit_vector2natural(T);
+		if R = 0 then Z := TRUE;
+		else Z := FALSE;
+		end if;
+
 		B := R;
 
 	end EXEC_SRA;
@@ -73,13 +89,13 @@ package body cpu_shift_rotate_pack is
 		variable R : data_type;
 
 	begin
-	
+
 		T := natural2bit_vector(A, data_width);
 		T_b := T(T'left);
 		T := T(T'left - 1 downto 0) & T_b;
 
 		R := bit_vector2natural(T);
-	
+
 		C := FALSE;
 		if R = 0 then Z := TRUE;
 		else Z := FALSE;
@@ -107,7 +123,7 @@ package body cpu_shift_rotate_pack is
 		T(T'left) := T_b;
 
 		R := bit_vector2natural(T);
-	
+
 		C := FALSE;
 
 		if R = 0 then Z := TRUE;
@@ -134,14 +150,14 @@ package body cpu_shift_rotate_pack is
 		T := T(T'left - 1 downto 0) & Bit'val(Boolean'pos(CI));
 
 		R := bit_vector2natural(T);
-	
-	
+
+
 		if R = 0 then Z := TRUE;
 		else Z := FALSE;
 		end if;
-	
+
 		N := Boolean'val(Bit'pos(T(T'left)));
-	
+
 		O := FALSE;
 
 		B := R;
@@ -161,8 +177,8 @@ package body cpu_shift_rotate_pack is
 		T(T'left) := Bit'val(Boolean'pos(CI));
 
 		R := bit_vector2natural(T);
-	
-	
+
+
 		if R = 0 then Z := TRUE;
 		else Z := FALSE;
 		end if;

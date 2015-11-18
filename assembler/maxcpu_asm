@@ -83,6 +83,28 @@ class Instruction
     !!@preproc_command
   end
 
+  def resolved_preproc_representation(stage)
+    # Stages: :before_three_byte_representation, :before_jump_resolve, :before_op_code_representation
+    if preproc?
+
+      # Load constant into memory
+      if @preproc_command == '.db' && stage == :before_op_code_representation
+        puts_err "'.db' needs an attribute.", @line_nr if @attributes[0].blank?
+        return parse_attr @attributes[0]
+      end
+
+      # Unknown preprocessor command
+      if stage == :before_op_code_representation
+          puts_err "Unknown preprocessor command '#{@preproc_command}'.", @line_nr
+      else
+        return self
+      end
+
+    else
+      self
+    end
+  end
+
   private
 
   def parse_twos_complement(num, bits)

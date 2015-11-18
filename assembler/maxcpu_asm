@@ -62,13 +62,13 @@ class Instruction
     end
   end
 
-  def three_byte_representation
+  def three_byte_rep
     three_bytes = [self]
     three_bytes << @attributes.last if @three_bytes
     three_bytes
   end
 
-  def op_code_representation
+  def op_code_rep
     Integer(
       '0b%06b%6.6s' %
         [@op_code,
@@ -83,18 +83,18 @@ class Instruction
     !!@preproc_command
   end
 
-  def resolved_preproc_representation(stage)
-    # Stages: :before_three_byte_representation, :before_jump_resolve, :before_op_code_representation
+  def resolved_preproc_rep(stage)
+    # Stages: :before_three_byte_rep, :before_jump_resolve, :before_op_code_rep
     if preproc?
 
       # Load constant into memory
-      if @preproc_command == '.db' && stage == :before_op_code_representation
+      if @preproc_command == '.db' && stage == :before_op_code_rep
         puts_err "'.db' needs an attribute.", @line_nr if @attributes[0].blank?
         return parse_attr @attributes[0]
       end
 
       # Unknown preprocessor command
-      if stage == :before_op_code_representation
+      if stage == :before_op_code_rep
           puts_err "Unknown preprocessor command '#{@preproc_command}'.", @line_nr
       else
         return self
@@ -167,45 +167,45 @@ end
 
 # Resolve 'before three byte rep' preprocessor statements
 parsed_assembly = parsed_assembly.map do |i|
-  i.is_a?(Instruction) ? i.resolved_preproc_representation(:before_three_byte_representation) : i
+  i.is_a?(Instruction) ? i.resolved_preproc_rep(:before_three_byte_rep) : i
 end.flatten
 
-# Convert to three byte representation
-three_byte_representation = parsed_assembly.map { |v| v.is_a?(Instruction) ? v.three_byte_representation : v }.flatten
+# Convert to three byte rep
+three_byte_rep = parsed_assembly.map { |v| v.is_a?(Instruction) ? v.three_byte_rep : v }.flatten
 
 # Resolve 'before jump resolve' preprocessor statements
-three_byte_representation = three_byte_representation.map do |i|
-  i.is_a?(Instruction) ? i.resolved_preproc_representation(:before_jump_resolve) : i
+three_byte_rep = three_byte_rep.map do |i|
+  i.is_a?(Instruction) ? i.resolved_preproc_rep(:before_jump_resolve) : i
 end.flatten
 
 # Resolve jumps
-three_byte_representation = three_byte_representation.each_with_index.map do |v, i|
+three_byte_rep = three_byte_rep.each_with_index.map do |v, i|
   if v.is_a? Jump
-    three_byte_representation.find_index { |w| w.is_a?(Instruction) && w.label == v.label } ||
+    three_byte_rep.find_index { |w| w.is_a?(Instruction) && w.label == v.label } ||
       puts_err("Cannot find label '#{v.label}'.", i + 1)
   else
     v
   end
 end
 
-# Resolve 'before op code representation' preprocessor statements
-three_byte_representation = three_byte_representation.map do |i|
-  i.is_a?(Instruction) ? i.resolved_preproc_representation(:before_op_code_representation) : i
+# Resolve 'before op code rep' preprocessor statements
+three_byte_rep = three_byte_rep.map do |i|
+  i.is_a?(Instruction) ? i.resolved_preproc_rep(:before_op_code_rep) : i
 end.flatten
 
-# Convert instructions to their op code representations
-op_code_representation = three_byte_representation.map { |v| v.is_a?(Instruction) ? v.op_code_representation : v }
+# Convert instructions to their op code reps
+op_code_rep = three_byte_rep.map { |v| v.is_a?(Instruction) ? v.op_code_rep : v }
 
 # Convert to hex
-op_code_representation_hex = op_code_representation.map { |i| '%03x' % i }
+op_code_rep_hex = op_code_rep.map { |i| '%03x' % i }
 
 if options.has_key? :outfile
   # Write to file
   File.open(options[:outfile], 'w+') do |f|
-    f.puts(op_code_representation_hex)
+    f.puts(op_code_rep_hex)
   end
 
 else
   # Print to stdout
-  puts op_code_representation_hex
+  puts op_code_rep_hex
 end

@@ -19,6 +19,7 @@
 	LDC R0 #FFF
 	STD R0 NUMBER_9
 
+
 	;TESTING LDC
 	;Flags are tested after each LDC instruction.
 	LDC R0 #000	;Test 1
@@ -232,9 +233,9 @@
 SUCCESS: LDC R0 #001
 		 STOP
 
-
 ERROR:	 LDC R0 #000
 		 STOP
+
 
 
 ;The following memory cells are reserved for writing constants.

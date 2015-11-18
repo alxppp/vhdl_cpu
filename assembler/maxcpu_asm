@@ -79,6 +79,10 @@ class Instruction
     )
   end
 
+  def preproc?
+    !!@preproc_command
+  end
+
   private
 
   def parse_twos_complement(num, bits)

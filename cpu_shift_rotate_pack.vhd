@@ -32,6 +32,10 @@ package body cpu_shift_rotate_pack is
 
 		C := Boolean'val(Bit'pos(T_b));
 
+		if R = 0 then Z := TRUE;
+		else Z := FALSE;
+		end if;
+
 		B := R;
 
 	end EXEC_SLL;

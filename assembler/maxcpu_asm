@@ -19,6 +19,7 @@ end
 
 class Instruction
   attr_accessor :label, :command, :attributes, :assembly
+  attr_reader :preproc_command, :line_nr
 
   OP_CODES = {'nop' => [0, 0], 'stop' => [1, 0], 'add' => [2, 0], 'addc' => [3, 0], 'sub' => [4, 0], 'subc' => [5, 0],
               'not' => [6, 0], 'and' => [7, 0], 'or' => [8, 0], 'xor' => [9, 0], 'rea' => [10, 0], 'reo' => [11, 0],
@@ -32,6 +33,7 @@ class Instruction
                        ^
                          ((?<label>[^\n]*):)?
                          ([^\S]*(?<command>[a-zA-Z]{1,4}))?
+                         ([^\S]*(?<preproc_command>\.[a-zA-Z]{1,4}))?
                          ([^\S\n]+(?<attr_1>[^\s;\n]+))?
                          ([^\S\n]+(?<attr_2>[^\s;\n]+))?
                          ([^\S\n]+(?<attr_3>[^\s;\n]+))?
@@ -40,21 +42,23 @@ class Instruction
 
   def initialize(assembly_line, line_nr = 0)
     @assembly = assembly_line.rstrip
+    @line_nr  = line_nr
 
     parsed_instruction = @assembly.match(ASSEMBLY_PARSER)
 
-    puts_err "Invalid assembly syntax.", line_nr if parsed_instruction.nil?
+    puts_err "Invalid assembly syntax.", @line_nr if parsed_instruction.nil?
 
-    @label   = parsed_instruction[:label]
-    @command = parsed_instruction[:command]
-    @attributes = [:attr_1, :attr_2, :attr_3].map { |s| parse_attr parsed_instruction[s] }.compact
+    @label           = parsed_instruction[:label]
+    @command         = parsed_instruction[:command]
+    @preproc_command = parsed_instruction[:preproc_command]
+    @attributes      = [:attr_1, :attr_2, :attr_3].map { |s| parse_attr parsed_instruction[s] }.compact
 
     if @command.present?
       @op_code = OP_CODES.fetch(@command.downcase, []).fetch(0, nil)
-      puts_err "Unknown command '#{@command}'.", line_nr if @op_code.nil?
+      puts_err "Unknown command '#{@command}'.", @line_nr if @op_code.nil?
 
       @three_bytes = OP_CODES[@command.downcase][1] == 1
-      puts_err "Command '#{@command}' requires additional attributes.", line_nr if @three_bytes && !@attributes.any?
+      puts_err "Command '#{@command}' requires additional attributes.", @line_nr if @three_bytes && !@attributes.any?
     end
   end
 

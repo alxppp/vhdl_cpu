@@ -10,7 +10,7 @@ package cpu_textio_pack is
 	
 
 	procedure read(variable l : in line; variable v : out data_type; success : out boolean );
-	procedure hex2int(constant c : in character; variable d : out integer; variable success : out boolean);
+	procedure asciihex2int(constant c : in character; variable d : out integer; variable success : out boolean);
 
 
 end cpu_textio_pack;
@@ -60,8 +60,8 @@ package body cpu_textio_pack is
 			return;
 		end if;	
 		outest: for I in 0 to (char_count-1) loop
-			--hex2int(l(I+1), x(I), success_t);
-			hex2int(l(I+1), x, success_t);		
+			--asciihex2int(l(I+1), x(I), success_t);
+			asciihex2int(l(I+1), x, success_t);		
 			if not success_t then
 				success := success_t;
 				return;
@@ -75,7 +75,7 @@ package body cpu_textio_pack is
 	end read;
 
 
-	procedure hex2int(constant c : in character; variable d : out integer; variable success : out boolean) is
+	procedure asciihex2int(constant c : in character; variable d : out integer; variable success : out boolean) is
 
 	constant i : integer := character'pos(c);
 	variable tmp : integer := -1;
@@ -103,6 +103,6 @@ package body cpu_textio_pack is
 			d := tmp;
 			success := TRUE;
 		end if;
-	end hex2int;
+	end asciihex2int;
 	
 end cpu_textio_pack;

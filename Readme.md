@@ -48,8 +48,8 @@
 
 | OP	| Tester |
 |-------|--------|
-| NOP	| @RobMa |
-| STOP	| @RobMa |
+| NOP	| @RobMa [x]|
+| STOP	| @RobMa [x]|
 | ADD	| @maxcpu |
 | ADDC	| @maxcpu |
 | SUB	| @OrestisAlpos [x]|
@@ -58,9 +58,9 @@
 | AND	| @alxppp |
 | OR	| @alxppp |
 | XOR	| @alxppp |
-| REA	| @RobMa |
-| REO	| @RobMa |
-| REX	| @RobMa |
+| REA	| @RobMa [x]|
+| REO	| @RobMa [x]|
+| REX	| @RobMa [x]|
 | SLL	| @maxcpu |
 | SRL	| @maxcpu |
 | SRA	| @maxcpu |

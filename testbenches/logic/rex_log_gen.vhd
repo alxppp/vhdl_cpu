@@ -12,9 +12,6 @@ use WORK.cpu_defs_pack.all;
 use WORK.cpu_IN_OUT_pack.all;
 
 file logfile : text is out "testbenches/logic/rex_log.txt";
-variable i : data_type := 0;
-variable c1 : data_type := 0; 
-variable c2 : data_type := 0; 
 variable tgl : boolean := FALSE;
 variable d : data_type := 0;
 variable x : boolean := FALSE;

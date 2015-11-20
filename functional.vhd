@@ -32,7 +32,7 @@ begin
 		file InDevice   : Text is in "InDevice.txt";	--Orestis
 		file OutDevice  : Text is out "OutDevice.txt";  --Orestis
 		variable run 	: Boolean := TRUE;
-		
+
 	begin
 		init_memory(MemoryFile, Memory);
 
@@ -90,7 +90,7 @@ begin
 						write_noParam(l);
 
 			when code_xor	=>	data := Reg(Y) xor Reg(Z); Reg(x) := data;
-						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);	
+						Set_Flags_Logic(data, Zero, Carry, Negative, Overflow);
 						write_noParam(l);
 
 			when code_rea	=>	EXEC_REA(Reg(X), Reg(Y));
@@ -107,25 +107,25 @@ begin
 
 			-- shift / rotate instructions (SLL, SRL, SRA, ROL, ROLC, ROR, RORC)
 
-			when code_sll	=>	EXEC_SLL(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
+			when code_sll	=>	EXEC_SLL(Reg(Y), Reg(X), Zero, Carry, Negative, Overflow);
 						write_noParam(l);
 
-			when code_srl	=>	EXEC_SRL(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
+			when code_srl	=>	EXEC_SRL(Reg(Y), Reg(X), Zero, Carry, Negative, Overflow);
 						write_noParam(l);
 
-			when code_sra	=>	EXEC_SRA(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
+			when code_sra	=>	EXEC_SRA(Reg(Y), Reg(X), Zero, Carry, Negative, Overflow);
 						write_noParam(l);
 
-			when code_rol	=>	EXEC_ROL(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
+			when code_rol	=>	EXEC_ROL(Reg(Y), Reg(X), Zero, Carry, Negative, Overflow);
 						write_noParam(l);
 
-			when code_rolc	=>	EXEC_ROLC(Reg(X), Reg(Y), Zero, Carry, Carry, Negative, Overflow);
+			when code_rolc	=>	EXEC_ROLC(Reg(Y), Reg(X), Zero, Carry, Carry, Negative, Overflow);
 						write_noParam(l);
 
-			when code_ror	=>	EXEC_ROR(Reg(X), Reg(Y), Zero, Carry, Negative, Overflow);
+			when code_ror	=>	EXEC_ROR(Reg(Y), Reg(X), Zero, Carry, Negative, Overflow);
 						write_noParam(l);
 
-			when code_rorc	=>	EXEC_RORC(Reg(X), Reg(Y), Zero, Carry, Carry, Negative, Overflow);
+			when code_rorc	=>	EXEC_RORC(Reg(Y), Reg(X), Zero, Carry, Carry, Negative, Overflow);
 						write_noParam(l);
 
 			-- memory access instructions (LDC, LDD, LDR, STD, STR)
@@ -133,7 +133,7 @@ begin
 						write_param(l, Memory(PC));
 						PC := INC(PC);
 						Set_Flags_Load(Reg(X), Zero, Carry, Negative, Overflow);
-						 
+
 			when code_ldd	=>	Reg(X) := Memory(Memory(PC)); -- Alex
 						write_Param(l, Memory(PC));
 						PC := INC(PC);
@@ -149,9 +149,9 @@ begin
 						PC := INC(PC);
 
 			when code_str	=>	data := Reg(X); --Max
-						Memory(Reg(Y)) := data; 
+						Memory(Reg(Y)) := data;
 						write_noParam(l);
-			
+
 			-- I/O instructions (IN, OUT)
 			when code_in	=>	EXEC_IN(Reg(X), InDevice);
 						set_flags_load(Reg(X), Zero, Carry, Negative, Overflow);
@@ -159,7 +159,7 @@ begin
 
 			when code_out	=>	EXEC_OUT(Reg(X), OutDevice);
 						write_noParam(l);
-						
+
 
 			-- PC instructions (LDPC, STPC)
 			when code_ldpc	=>	data := PC; --Max
@@ -174,7 +174,7 @@ begin
 			-- jump instructions (JMP, JZ, JC, JN, JO, JNZ, JNC, JNN, JNO)
 
 			when code_jmp	=>	write_Param(l, Memory(PC));
-						PC := Memory(PC); --Max	
+						PC := Memory(PC); --Max
 
 			when code_jz	=> 	write_Param(l, Memory(PC));
 						if Zero then PC := Memory(PC);

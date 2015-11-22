@@ -168,7 +168,7 @@ end
 # Resolve 'before three byte rep' preprocessor statements
 parsed_assembly = parsed_assembly.map do |i|
   i.is_a?(Instruction) ? i.resolved_preproc_rep(:before_three_byte_rep) : i
-end.flatten
+end.flatten(1)
 
 # Convert to three byte rep
 three_byte_rep = parsed_assembly.map { |v| v.is_a?(Instruction) ? v.three_byte_rep : v }.flatten
@@ -176,7 +176,7 @@ three_byte_rep = parsed_assembly.map { |v| v.is_a?(Instruction) ? v.three_byte_r
 # Resolve 'before jump resolve' preprocessor statements
 three_byte_rep = three_byte_rep.map do |i|
   i.is_a?(Instruction) ? i.resolved_preproc_rep(:before_jump_resolve) : i
-end.flatten
+end.flatten(1)
 
 # Resolve jumps
 three_byte_rep = three_byte_rep.each_with_index.map do |v, i|
@@ -191,7 +191,7 @@ end
 # Resolve 'before op code rep' preprocessor statements
 three_byte_rep = three_byte_rep.map do |i|
   i.is_a?(Instruction) ? i.resolved_preproc_rep(:before_op_code_rep) : i
-end.flatten
+end.flatten(1)
 
 # Convert instructions to their op code reps
 op_code_rep = three_byte_rep.map { |v| v.is_a?(Instruction) ? v.op_code_rep : v }

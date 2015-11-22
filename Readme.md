@@ -64,10 +64,10 @@
 | SLL	| @maxcpu |
 | SRL	| @maxcpu |
 | SRA	| @maxcpu |
-| ROL	| @RobMa |
-| ROLC	| @RobMa |
-| ROR	| @RobMa |
-| RORC	| @RobMa |
+| ROL	| @RobMa [x]|
+| ROLC	| @RobMa [x]|
+| ROR	| @RobMa [x]|
+| RORC	| @RobMa [x]|
 | LDC	| @OrestisAlpos [x]|
 | LDD	| @OrestisAlpos [x]|
 | LDR	| @OrestisAlpos [x]|

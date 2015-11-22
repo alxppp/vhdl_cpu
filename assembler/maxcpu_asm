@@ -87,6 +87,32 @@ class Instruction
     # Stages: :before_three_byte_rep, :before_jump_resolve, :before_op_code_rep
     if preproc?
 
+      # Include other assembly files
+      if @preproc_command == '.inc' && stage == :before_three_byte_rep
+        puts_err "'.inc' needs an attribute.", @line_nr if @attributes[0].blank?
+
+        parsed_assembly = []
+        unparsed_label = ''
+
+        i = 1
+        file = File.new(@attributes[0], 'r')
+        while (line = file.gets)
+          instruction = Instruction.new "#{unparsed_label}#{line}", i
+
+          if instruction.command.blank? && instruction.label.present? && !instruction.preproc?
+            unparsed_label = instruction.assembly.slice(/.*:/)
+          elsif instruction.command.present? || instruction.preproc?
+            parsed_assembly << instruction
+            unparsed_label = ''
+          end
+
+          i += 1
+        end
+        file.close
+
+        return parsed_assembly
+      end
+
       # Load constant into memory
       if @preproc_command == '.db' && stage == :before_op_code_rep
         puts_err "'.db' needs an attribute.", @line_nr if @attributes[0].blank?
@@ -114,6 +140,7 @@ class Instruction
 
   def parse_attr(attribute)
     return nil if attribute.nil?
+    return attribute[1..-2] if attribute =~ /^["'][^"']*["']$/
     return Integer('0x' + attribute[1..-1]) if attribute =~ /^#/
     return Integer(attribute[1..-1]) if attribute =~ /^R\d$/i
     return parse_twos_complement(Integer(attribute), 12) rescue Jump.new(attribute)

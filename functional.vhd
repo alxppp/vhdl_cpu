@@ -28,6 +28,7 @@ begin
 		variable l	: line;
 		file TraceFile  : text is out "Trace.txt";
 		file MemoryFile : text is in "Memory.hex";
+		file MemoryDumpFile : text is out "MemoryDump.txt";
 		-- Input and Output devices are simulated as two txt files.
 		file InDevice   : Text is in "InDevice.txt";	--Orestis
 		file OutDevice  : Text is out "OutDevice.txt";  --Orestis
@@ -233,6 +234,7 @@ begin
 
 		end loop;
 		write_tail(TraceFile);
+		dump_memory(MemoryDumpFile, Memory);
 		wait;
 
 	end process;

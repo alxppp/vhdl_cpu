@@ -36,6 +36,8 @@ package body cpu_shift_rotate_pack is
 		else Z := FALSE;
 		end if;
 
+		O := T_b /= T(T'left);
+
 		B := R;
 
 	end EXEC_SLL;

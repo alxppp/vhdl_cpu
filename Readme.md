@@ -3,6 +3,14 @@
 ## Spec
 [Link](https://github.com/alxppp/vhdl_cpu/blob/master/spec.pdf)
 
+### We're almost done!
+*What is still left to do until Friday? (Feel free to add stuff, sorted by highest priority)*
+- [ ] Again study testbenches and trace files. Especially compare Flag behaviour with specification!
+- [ ] Put together all-in-one test
+- [ ] Memory Dump seems to work, but some additional tests would be nice
+- [ ] Documentation: add comments describing the creator of code/functions...
+- [ ] Tidy up the code
+
 ## Aufteilung Befehle
 
 ### Implementierung
@@ -85,7 +93,7 @@
 | JNZ	| @maxcpu |
 | JNC	| @maxcpu |
 | JNN	| @maxcpu |
-| JNO	| @RobMa |
+| JNO	| @RobMa [x]|
 
 ## Assembler documentation
 

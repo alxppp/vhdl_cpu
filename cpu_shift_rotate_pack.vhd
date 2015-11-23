@@ -36,6 +36,8 @@ package body cpu_shift_rotate_pack is
 		else Z := FALSE;
 		end if;
 
+		N := Boolean'val(Bit'pos(T(T'left)));
+
 		O := T_b /= T(T'left);
 
 		B := R;
@@ -59,6 +61,8 @@ package body cpu_shift_rotate_pack is
 		else Z := FALSE;
 		end if;
 
+		N := Boolean'val(Bit'pos(T(T'left)));
+
 		B := R;
 
 	end EXEC_SRL;
@@ -79,6 +83,8 @@ package body cpu_shift_rotate_pack is
 		if R = 0 then Z := TRUE;
 		else Z := FALSE;
 		end if;
+
+		N := Boolean'val(Bit'pos(T(T'left)));
 
 		B := R;
 

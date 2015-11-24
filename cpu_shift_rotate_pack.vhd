@@ -6,10 +6,10 @@ package cpu_shift_rotate_pack is
 	procedure EXEC_SLL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
 	procedure EXEC_SRL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
 	procedure EXEC_SRA(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
-	procedure EXEC_ROL(constant A : in data_type; variable B : out data_type; variable Z,C,N,O : out Boolean);
-	procedure EXEC_ROR(constant A : in data_type; variable B : out data_type; variable Z,C,N,O : out Boolean);
-	procedure EXEC_ROLC(constant A : in data_type; variable B : out data_type; variable Z : out boolean; constant CI : in Boolean; variable CO,N,O : out Boolean);
-	procedure EXEC_RORC(constant A : in data_type; variable B : out data_type; variable Z : out boolean; constant CI : in Boolean; variable CO,N,O : out Boolean);
+	procedure EXEC_ROL(constant A : in data_type; variable B : out data_type; variable Z,C,N,O : out Boolean); --Max
+	procedure EXEC_ROR(constant A : in data_type; variable B : out data_type; variable Z,C,N,O : out Boolean); --Max
+	procedure EXEC_ROLC(constant A : in data_type; variable B : out data_type; variable Z : out boolean; constant CI : in Boolean; variable CO,N,O : out Boolean); --Max
+	procedure EXEC_RORC(constant A : in data_type; variable B : out data_type; variable Z : out boolean; constant CI : in Boolean; variable CO,N,O : out Boolean); --Max
 
 end cpu_shift_rotate_pack;
 

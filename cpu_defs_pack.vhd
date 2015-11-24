@@ -1,4 +1,4 @@
-package cpu_defs_pack is
+package cpu_defs_pack is --Max
 
 constant bus_width		: natural := 12;
 constant data_width		: natural := bus_width;

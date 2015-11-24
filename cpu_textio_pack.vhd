@@ -5,8 +5,8 @@ package cpu_textio_pack is
 
 
 
-	function hex_image(d : data_type) return string;
-	function bool_character(b : Boolean) return character;
+	function hex_image(d : data_type) return string; --Max
+	function bool_character(b : Boolean) return character; --Max
 	
 
 	procedure read(variable l : in line; variable v : out data_type; success : out boolean );

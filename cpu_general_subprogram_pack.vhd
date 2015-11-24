@@ -2,13 +2,13 @@ package cpu_general_subprogram_pack is
 
 	use WORK.cpu_defs_pack.all;
 
-	function INC(constant PC :in addr_type) return addr_type;
+	function INC(constant PC :in addr_type) return addr_type; --Orestis
 
 	procedure Set_Flags_Logic(constant Data : in data_type;
-	                          variable Zero, Carry, Negative, Overflow : out boolean);
+	                          variable Zero, Carry, Negative, Overflow : out boolean); --Robert
 
 	procedure Set_Flags_Load(constant Data : in data_type;
-	                         variable Zero, Carry, Negative, Overflow : inout boolean);
+	                         variable Zero, Carry, Negative, Overflow : inout boolean); --Robert
 
 end cpu_general_subprogram_pack;
 

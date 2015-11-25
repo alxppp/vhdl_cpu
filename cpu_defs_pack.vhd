@@ -16,11 +16,6 @@ type reg_type is array (reg_addr_type) of data_type;
 type mem_type is array (addr_type) of data_type;
 type cmd_image_table_type is array (opcode_type) of string(1 to 4);
 
--- Input and Output devices are simulated as two txt files.
-use STD.textio.all;
-file InDevice   : Text is in "InDevice.txt";	--Orestis
-file OutDevice  : Text is out "OutDevice.txt";  --Orestis
-
 constant code_nop 	: opcode_type := 0;
 constant code_stop	: opcode_type := 1;
 constant code_add	: opcode_type := 2;

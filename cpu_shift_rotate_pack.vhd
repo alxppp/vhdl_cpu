@@ -3,9 +3,9 @@ package cpu_shift_rotate_pack is
 	use WORK.cpu_defs_pack.all;
 	use WORK.bit_vector_natural_pack.all;
 
-	procedure EXEC_SLL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
-	procedure EXEC_SRL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
-	procedure EXEC_SRA(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean);
+	procedure EXEC_SLL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean); --Alex
+	procedure EXEC_SRL(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean); --Alex
+	procedure EXEC_SRA(constant A : in data_type; variable B : out data_type; variable Z, C, N, O : out Boolean); --Alex
 	procedure EXEC_ROL(constant A : in data_type; variable B : out data_type; variable Z,C,N,O : out Boolean); --Max
 	procedure EXEC_ROR(constant A : in data_type; variable B : out data_type; variable Z,C,N,O : out Boolean); --Max
 	procedure EXEC_ROLC(constant A : in data_type; variable B : out data_type; variable Z : out boolean; constant CI : in Boolean; variable CO,N,O : out Boolean); --Max

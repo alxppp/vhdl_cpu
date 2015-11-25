@@ -3,13 +3,13 @@ package cpu_arithmetic_pack is
 	use WORK.cpu_defs_pack.all;
 
 	-- ADDC implementation appropriate both for ADD and ADDC instructons. See Skript 152-153.
-	procedure EXEC_ADDC ( constant A,B	: in data_type;
+	procedure EXEC_ADDC ( constant A,B	: in data_type; --Orestis
 			      variable R	: out data_type;
 			      variable Z	: out Boolean;
 			      variable C	: inout Boolean;
 			      variable N,O	: out Boolean );
 
-	procedure EXEC_SUBC ( constant A,B	: in data_type;
+	procedure EXEC_SUBC ( constant A,B	: in data_type; --Robert
 	                      variable R	: out data_type; --Result
 	                      variable Z	: out Boolean; --Zero Flag
 	                      variable C	: inout Boolean; --Carry Flag [inout]

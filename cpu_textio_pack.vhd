@@ -9,8 +9,8 @@ package cpu_textio_pack is
 	function bool_character(b : Boolean) return character; --Max
 	
 
-	procedure read(variable l : in line; variable v : out data_type; success : out boolean );
-	procedure asciihex2int(constant c : in character; variable d : out integer; variable success : out boolean);
+	procedure read(variable l : in line; variable v : out data_type; success : out boolean ); --Robert
+	procedure asciihex2int(constant c : in character; variable d : out integer; variable success : out boolean); --Robert
 
 
 end cpu_textio_pack;

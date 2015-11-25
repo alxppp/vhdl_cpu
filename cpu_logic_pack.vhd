@@ -3,28 +3,28 @@ package cpu_logic_pack is
 	use WORK.cpu_defs_pack.all;
 	use WORK.bit_vector_natural_pack.all;
 
-	function "NOT" (constant A : data_type)
+	function "NOT" (constant A : data_type) --Robert 
 		return data_type;
 
-	function "AND" (constant A, B : data_type)
+	function "AND" (constant A, B : data_type) --Robert
 		return data_type;
 
-	function "OR" (constant A, B : data_type)
+	function "OR" (constant A, B : data_type) --Robert
 		return data_type;
 
-	function "XOR" (constant A, B : data_type)
+	function "XOR" (constant A, B : data_type) --Robert
 		return data_type;
 
 	--REA: Use AND operator on all bits of Y and assign the result to the LSb of X. All other bits of X are cleared.
-	procedure EXEC_REA ( variable A		: out data_type;
+	procedure EXEC_REA ( variable A		: out data_type; --Orestis
 			     constant B		: in data_type );
 
 	--REO: Use OR operator on all bits of Y and assign the result to the LSb of X. All other bits of X are cleared.
-	procedure EXEC_REO ( variable A		: out data_type;
+	procedure EXEC_REO ( variable A		: out data_type; --Orestis
 			     constant B		: in data_type );	
 
 	--REA: Use XOR operator on all bits of Y and assign the result to the LSb of X. All other bits of X are cleared.
-	procedure EXEC_REX ( variable A		: out data_type;
+	procedure EXEC_REX ( variable A		: out data_type; --Orestis
 			     constant B		: in data_type );
 
 end cpu_logic_pack;

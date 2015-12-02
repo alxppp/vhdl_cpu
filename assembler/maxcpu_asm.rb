@@ -1,0 +1,238 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'active_support/core_ext/object/blank'
+require 'rubygems'
+
+exit if Object.const_defined?(:Ocra) # Needed for creating Windows executables using Ocra
+
+
+### Class definitions
+
+class Jump
+  attr_accessor :label
+
+  def initialize(label)
+    @label = label
+  end
+end
+
+class Instruction
+  attr_accessor :label, :command, :attributes, :assembly
+  attr_reader :preproc_command, :line_nr
+
+  OP_CODES = {'nop' => [0, 0], 'stop' => [1, 0], 'add' => [2, 0], 'addc' => [3, 0], 'sub' => [4, 0], 'subc' => [5, 0],
+              'not' => [6, 0], 'and' => [7, 0], 'or' => [8, 0], 'xor' => [9, 0], 'rea' => [10, 0], 'reo' => [11, 0],
+              'rex' => [12, 0], 'sll' => [13, 0], 'srl' => [14, 0], 'sra' => [15, 0], 'rol' => [16, 0],
+              'rolc' => [17, 0], 'ror' => [18, 0], 'rorc' => [19, 0], 'ldc' => [32, 1], 'ldd' => [33, 1],
+              'ldr' => [34, 0], 'std' => [35, 1], 'str' => [36, 0], 'in' => [37, 0], 'out' => [38, 0],
+              'ldpc' => [39, 0], 'stpc' => [40, 0], 'jmp' => [48, 1], 'jz' => [49, 1], 'jc' => [50, 1], 'jn' => [51, 1],
+              'jo' => [52, 1], 'jnz' => [53, 1], 'jnc' => [54, 1], 'jnn' => [55, 1], 'jno' => [56, 1]}
+
+  ASSEMBLY_PARSER = %r{
+                       ^
+                         ((?<label>[^\n]*):)?
+                         ([^\S]*(?<command>[a-zA-Z]{1,4}))?
+                         ([^\S]*(?<preproc_command>\.[a-zA-Z]{1,4}))?
+                         ([^\S\n]+(?<attr_1>[^\s;\n]+))?
+                         ([^\S\n]+(?<attr_2>[^\s;\n]+))?
+                         ([^\S\n]+(?<attr_3>[^\s;\n]+))?
+                         ([^\S\n]*;[^\S\n]*(?<comment>[^\n]*))?
+                       $}x
+
+  def initialize(assembly_line, line_nr = 0)
+    @assembly = assembly_line.rstrip
+    @line_nr  = line_nr
+
+    parsed_instruction = @assembly.match(ASSEMBLY_PARSER)
+
+    puts_err "Invalid assembly syntax.", @line_nr if parsed_instruction.nil?
+
+    @label           = parsed_instruction[:label]
+    @command         = parsed_instruction[:command]
+    @preproc_command = parsed_instruction[:preproc_command]
+    @attributes      = [:attr_1, :attr_2, :attr_3].map { |s| parse_attr parsed_instruction[s] }.compact
+
+    if @command.present?
+      @op_code = OP_CODES.fetch(@command.downcase, []).fetch(0, nil)
+      puts_err "Unknown command '#{@command}'.", @line_nr if @op_code.nil?
+
+      @three_bytes = OP_CODES[@command.downcase][1] == 1
+      puts_err "Command '#{@command}' requires additional attributes.", @line_nr if @three_bytes && !@attributes.any?
+    end
+  end
+
+  def three_byte_rep
+    three_bytes = [self]
+    three_bytes << @attributes.last if @three_bytes
+    three_bytes
+  end
+
+  def op_code_rep
+    Integer(
+      '0b%06b%6.6s' %
+        [@op_code,
+          @attributes.each_with_index.map { |a, i|
+            (a.is_a?(Jump) || (@three_bytes && i == @attributes.length - 1)) ? '00' : ('%02b' % a)[0..1]
+          }.join + '000000'
+        ]
+    )
+  end
+
+  def preproc?
+    !!@preproc_command
+  end
+
+  def resolved_preproc_rep(stage)
+    # Stages: :before_three_byte_rep, :before_jump_resolve, :before_op_code_rep
+    if preproc?
+
+      # Include other assembly files
+      if @preproc_command == '.inc' && stage == :before_three_byte_rep
+        puts_err "'.inc' needs an attribute.", @line_nr if @attributes[0].blank?
+
+        parsed_assembly = []
+        unparsed_label = ''
+
+        i = 1
+        file = File.new(@attributes[0], 'r')
+        while (line = file.gets)
+          instruction = Instruction.new "#{unparsed_label}#{line}", i
+
+          if instruction.command.blank? && instruction.label.present? && !instruction.preproc?
+            unparsed_label = instruction.assembly.slice(/.*:/)
+          elsif instruction.command.present? || instruction.preproc?
+            parsed_assembly << instruction
+            unparsed_label = ''
+          end
+
+          i += 1
+        end
+        file.close
+
+        return parsed_assembly
+      end
+
+      # Load constant into memory
+      if @preproc_command == '.db' && stage == :before_op_code_rep
+        puts_err "'.db' needs an attribute.", @line_nr if @attributes[0].blank?
+        return parse_attr @attributes[0]
+      end
+
+      # Unknown preprocessor command
+      if stage == :before_op_code_rep
+          puts_err "Unknown preprocessor command '#{@preproc_command}'.", @line_nr
+      else
+        return self
+      end
+
+    else
+      self
+    end
+  end
+
+  private
+
+  def parse_twos_complement(num, bits)
+    num &= (2 << bits - 1) - 1 # Mask
+    ("%0#{bits}b" % Integer(num)).to_i(2)
+  end
+
+  def parse_attr(attribute)
+    return nil if attribute.nil?
+    return attribute[1..-2] if attribute =~ /^["'][^"']*["']$/
+    return Integer('0x' + attribute[1..-1]) if attribute =~ /^#/
+    return Integer(attribute[1..-1]) if attribute =~ /^R\d$/i
+    return parse_twos_complement(Integer(attribute), 12) rescue Jump.new(attribute)
+  end
+end
+
+
+### Helpers
+
+def puts_err(err, line_nr = nil)
+  STDERR.puts "ERROR:#{(' Line ' + line_nr.to_s + ':') if !line_nr.nil?} #{err}"
+  exit
+end
+
+
+### Program options
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: maxcpu_asm [-o outfile] [options] filename'
+
+  opts.on('-oPATH', '--outfile=PATH', 'Path to output file') do |path|
+    options[:outfile] = path
+  end
+
+  opts.on_tail('-h', '--help', 'Prints this help') do
+    puts opts
+    exit
+  end
+end.parse!
+
+
+### Program logic
+
+# Parse assembly
+parsed_assembly = []
+unparsed_label = ''
+ARGF.each_with_index do |line, i|
+  instruction = Instruction.new "#{unparsed_label}#{line}", i + 1
+
+  if instruction.command.blank? && instruction.label.present? && !instruction.preproc?
+    # Could not parse current label, remember for next line
+    unparsed_label = instruction.assembly.slice(/.*:/)
+
+  elsif instruction.command.present? || instruction.preproc?
+    # Parsing successful
+    parsed_assembly << instruction
+    unparsed_label = ''
+  end
+end
+
+# Resolve 'before three byte rep' preprocessor statements
+parsed_assembly = parsed_assembly.map do |i|
+  i.is_a?(Instruction) ? i.resolved_preproc_rep(:before_three_byte_rep) : i
+end.flatten(1)
+
+# Convert to three byte rep
+three_byte_rep = parsed_assembly.map { |v| v.is_a?(Instruction) ? v.three_byte_rep : v }.flatten
+
+# Resolve 'before jump resolve' preprocessor statements
+three_byte_rep = three_byte_rep.map do |i|
+  i.is_a?(Instruction) ? i.resolved_preproc_rep(:before_jump_resolve) : i
+end.flatten(1)
+
+# Resolve jumps
+three_byte_rep = three_byte_rep.each_with_index.map do |v, i|
+  if v.is_a? Jump
+    three_byte_rep.find_index { |w| w.is_a?(Instruction) && w.label == v.label } ||
+      puts_err("Cannot find label '#{v.label}'.", i + 1)
+  else
+    v
+  end
+end
+
+# Resolve 'before op code rep' preprocessor statements
+three_byte_rep = three_byte_rep.map do |i|
+  i.is_a?(Instruction) ? i.resolved_preproc_rep(:before_op_code_rep) : i
+end.flatten(1)
+
+# Convert instructions to their op code reps
+op_code_rep = three_byte_rep.map { |v| v.is_a?(Instruction) ? v.op_code_rep : v }
+
+# Convert to hex
+op_code_rep_hex = op_code_rep.map { |i| '%03x' % i }
+
+if options.has_key? :outfile
+  # Write to file
+  File.open(options[:outfile], 'w+') do |f|
+    f.puts(op_code_rep_hex)
+  end
+
+else
+  # Print to stdout
+  puts op_code_rep_hex
+end

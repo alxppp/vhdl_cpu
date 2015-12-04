@@ -13,6 +13,19 @@
 
 ## Aufteilung Befehle
 
+### RTL
+
+| Task   | Ersteller |
+|------|-----------|
+| Memory  | @alxppp   |
+| Register  | @alxppp   |
+| Muxes  | @alxppp   |
+| Simple shift  | @alxppp   |
+| FSM  | @RobMa   |
+| OP decode | @maxcpu   |
+| Adder | @maxcpu   |
+| IO Devices | @OrestisAlpos   |
+
 ### Implementierung
 
 | OP   | Ersteller |

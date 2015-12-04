@@ -1,5 +1,5 @@
 library IEEE;
-use IEEE.numeric_bit_unsigned.all;
+use IEEE.numeric_bit.all;
 
 entity datapath is
 
@@ -38,7 +38,7 @@ begin
 			FLAG_IN := B"0000";	
 
 		elsif CLK = '1' and CLK'event then
-			ALU_IN := REG(TO_INTEGER(SEL_OUT_A));
+			ALU_IN := REG(TO_INTEGER(UNSIGNED(SEL_OUT_A)));
 			case OP is
 				when B"00_0111" => 
 					ALU_RES := D_OUT_2 and ALU_IN;
@@ -57,7 +57,7 @@ begin
 			--FLAG_IN(3) := nor reduce_or(RF_IN);
 
 			if REG_EN = '1' then
-				REG(TO_INTEGER(SEL_IN)) <= RF_IN;
+				REG(TO_INTEGER(UNSIGNED(SEL_IN))) <= RF_IN;
 				FLAGS <= FLAG_IN;
 			end if;
 
@@ -65,7 +65,7 @@ begin
 		end if;
 
 	end process;
-	D_OUT_2 <= REG(TO_INTEGER(SEL_OUT_B));
-	D_OUT_1 <= REG(TO_INTEGER(SEL_OUT_C));
+	D_OUT_2 <= REG(TO_INTEGER(UNSIGNED(SEL_OUT_B)));
+	D_OUT_1 <= REG(TO_INTEGER(UNSIGNED(SEL_OUT_C)));
 	
 end behavioral;

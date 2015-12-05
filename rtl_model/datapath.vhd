@@ -1,6 +1,8 @@
 library IEEE;
 use IEEE.numeric_bit.all;
 
+use WORK.cpu_defs_pack.all;
+
 entity datapath is
 
 	port(	--clock, reset
@@ -29,7 +31,7 @@ begin
 	process(CLK, RST)
 
 		variable ALU_IN, ALU_RES, RF_IN : bit_vector(11 downto 0);
-		variable ALU_FLAGS : bit_vector(2 downto 0);
+		variable ALU_FLAGS : bit_vector(2 downto 0); --(C, N, O)
 		variable FLAGS_IN : bit_vector(3 downto 0); --(Z, C, N, O)
 
 	begin
@@ -41,9 +43,19 @@ begin
 		elsif CLK = '1' and CLK'event then
 			ALU_IN := REG(TO_INTEGER(UNSIGNED(SEL_OUT_A)));
 			case OP is
-				when B"00_0111" => 
+				when code_and => 
 					ALU_RES := D_OUT_2_TMP and ALU_IN;
-				when others => assert FALSE severity ERROR;
+					ALU_FLAGS(2) := '0';
+					ALU_FLAGS(1) := ALU_RES(11);
+					ALU_FLAGS(0) := '0';
+				when code_not =>
+					ALU_RES := not D_OUT_2_TMP;
+					ALU_FLAGS(2) := '0';
+					ALU_FLAGS(1) := ALU_RES(11);
+					ALU_FLAGS(0) := '0';
+				when others => 	
+					ALU_RES := (others => '0');
+					ALU_FLAGS := (others => '0');
 			end case;
 
 			if FC_SEL = '0' then
@@ -55,19 +67,17 @@ begin
 				FLAGS_IN(1) := D_IN(11);
 				FLAGS_IN(0) := '0';
 			end if;
-			FLAGS_IN(3) := '0'; --nor reduce_or(RF_IN);
+			FLAGS_IN(3) := '0'; --not reduce_or(RF_IN);
 
 			if REG_EN = '1' then
 				REG(TO_INTEGER(UNSIGNED(SEL_IN))) <= RF_IN;
 				FLAGS_TMP <= FLAGS_IN;
-			end if;
-
-			FLAGS <= FLAGS_TMP;
-			D_OUT_2 <= D_OUT_2_TMP;
-			
+			end if;			
 		end if;
 	end process;
 	D_OUT_2_TMP <= REG(TO_INTEGER(UNSIGNED(SEL_OUT_B)));
 	D_OUT_1 <= REG(TO_INTEGER(UNSIGNED(SEL_OUT_C)));
+	FLAGS <= FLAGS_TMP;
+	D_OUT_2 <= D_OUT_2_TMP;
 	
 end behavioral;

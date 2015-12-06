@@ -2,6 +2,7 @@ library IEEE;
 use IEEE.numeric_bit.all;
 
 use WORK.cpu_defs_pack.all;
+use WORK.cpu_subprogram_pack.all;
 
 entity datapath is
 
@@ -67,7 +68,7 @@ begin
 				FLAGS_IN(1) := D_IN(11);
 				FLAGS_IN(0) := '0';
 			end if;
-			FLAGS_IN(3) := '0'; --not reduce_or(RF_IN);
+			FLAGS_IN(3) := not reduce_or(RF_IN);
 
 			if REG_EN = '1' then
 				REG(TO_INTEGER(UNSIGNED(SEL_IN))) <= RF_IN;

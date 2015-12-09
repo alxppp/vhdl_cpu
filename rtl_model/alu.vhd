@@ -20,7 +20,7 @@ begin
 	LU:	entity WORK.logic_unit(struct)
 		port map(OP1, OP2, OP, FLAGS_LU, RES_LU);
 
-	process(RES_LU, FLAGS_LU)
+	process(RES_LU, FLAGS_LU, OP)
 	begin
 
 		case(OP) is

@@ -12,10 +12,11 @@ begin
 	process (d_in_a, d_in_b, select_input)
 		variable select_vector, select_vector_bar : bit_vector (11 downto 0);
 	begin
-		select_vector := (others => select_input);
-		select_vector_bar := (others => not select_vector);
-
-		d_out <= (d_in_a AND select_vector) OR (d_in_b AND select_vector_bar);
+		if select_input = '0' then
+			d_out <= d_in_a;
+		else
+			d_out <= d_in_b;
+		end if;
 	end process;
 end RTL;
 
@@ -26,7 +27,7 @@ entity mux12_4x1 is
 		select_input	: in  bit_vector (1 downto 0);
 		d_in_a, d_in_b	: in  bit_vector (11 downto 0);
 		d_in_c, d_in_d	: in  bit_vector (11 downto 0);
-		d_out			: out bit_vector (11 downto 0)
+		d_out		: out bit_vector (11 downto 0)
 	);
 end mux12_4x1;
 

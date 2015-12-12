@@ -23,7 +23,7 @@
 | Simple shift  | @alxppp   |
 | FSM  | @RobMa   |
 | OP decode | @maxcpu   |
-| Adder | @maxcpu   |
+| Adder | @RobMa   |
 | IO Devices | @OrestisAlpos   |
 
 ### Implementierung

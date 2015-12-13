@@ -14,11 +14,16 @@ architecture struct of alu is
 
 	signal RES_LU : bit_vector(11 downto 0);
 	signal FLAGS_LU : bit_vector(2 downto 0);
+	signal RES_AU : bit_vector(11 downto 0); --Robert
+	signal FLAGS_AU : bit_vector(2 downto 0); --Robert
 
 begin
 
 	LU:	entity WORK.logic_unit(struct)
 		port map(OP1, OP2, OP, FLAGS_LU, RES_LU);
+
+	AU:	entity WORK.ADDER_UNIT(RTL) --Robert
+		port map(OP1, OP2, OP, C_IN, RES_AU, FLAGS_AU); --Robert
 
 	process(RES_LU, FLAGS_LU, OP)
 	begin
@@ -28,6 +33,9 @@ begin
 		when code_not | code_and | code_or | code_xor | code_rea | code_reo | code_rex =>
 			FLAGS <= FLAGS_LU;
 			RES <= RES_LU;
+		when code_add | code_addc | code_sub | code_subc => --Robert
+			FLAGS <= FLAGS_AU; --Robert
+			RES <= RES_AU; --Robert
 		when others =>
 			FLAGS <= (others => '0');
 			RES <= (others => '0');

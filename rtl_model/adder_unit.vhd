@@ -3,8 +3,8 @@ use WORK.cpu_subprogram_pack.all;
 
 entity ADDER_UNIT is
     port(A, B : in bit_vector(11 downto 0);
-         CIN : in bit;
          OP : in bit_vector(5 downto 0);
+         CIN : in bit;         
          RESULT : out bit_vector(11 downto 0);
          FLAGS_OUT : out bit_vector(2 downto 0)); --C, N, O
 end ADDER_UNIT;

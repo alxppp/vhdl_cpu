@@ -25,7 +25,7 @@ begin
 	AU:	entity WORK.ADDER_UNIT(RTL) --Robert
 		port map(OP1, OP2, OP, C_IN, RES_AU, FLAGS_AU); --Robert
 
-	process(RES_LU, FLAGS_LU, OP)
+	process(RES_LU, FLAGS_LU, FLAGS_AU, RES_AU, OP)
 	begin
 
 		case(OP) is

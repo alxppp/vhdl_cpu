@@ -16,7 +16,8 @@
 | FSM  | @RobMa   |
 | OP decode | @maxcpu   |
 | Adder | @RobMa   |
-| IO Devices | @OrestisAlpos   |
+| Out Device | @OrestisAlpos   |
+| In Device  | @maxcpu  |
 
 ### Implementierung
 

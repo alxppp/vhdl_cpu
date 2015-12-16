@@ -54,20 +54,22 @@ begin
         case s_STATE is
             when s_IF => s_STATE <= s_PFEX;
             when s_PFEX =>
-                if STORE = '1' then
-                    s_STATE <= s_MEM;
-                elsif CMD_IO = '1' then
+                if CMD_IO = '1' then
                     s_STATE <= s_IO;
+                elsif CMD_DIR = '1' then
+                    s_STATE <= s_MEM;
                 elsif CMD_STOP = '1' then
                     s_STATE <= s_STOP;
                 else
                     s_STATE <= s_IF;
                 end if;
             when s_IO =>
-                if (not DEV_RDY) = '0' then
+                if DEV_RDY = '1' then
                     s_STATE <= s_IF;
+                else
+                    s_STATE <= s_IO;
                 end if;
-            when s_MEM => s_STATE <= s_PFEX;
+            when s_MEM => s_STATE <= s_IF;
             when s_STOP => s_STATE <= s_STOP;
             when others =>
                 s_STATE <= s_STOP;
@@ -93,3 +95,8 @@ end process state_update;
     ACTIVE          <= NOT s_STATE(i_STOP);  
  
 end MEALY;
+
+configuration FSM_CONFIG of FSM is
+for MEALY
+end for;
+end FSM_CONFIG;

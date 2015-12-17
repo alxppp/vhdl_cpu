@@ -46,3 +46,8 @@ begin
     FLAGS_OUT(0) <= COUT_tmp xor COUT10_tmp; --Overflow flag
 
 end RTL;
+
+configuration ADDER_UNIT_CONFIG of ADDER_UNIT is
+    for RTL
+    end for;
+end ADDER_UNIT_CONFIG;

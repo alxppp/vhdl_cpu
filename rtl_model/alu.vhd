@@ -43,3 +43,10 @@ begin
 	end process;
 
 end struct;
+
+configuration LU_CONFIG of ALU is
+
+	for struct
+	end for;
+
+end LU_CONFIG;

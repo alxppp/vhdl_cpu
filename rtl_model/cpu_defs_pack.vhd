@@ -41,5 +41,9 @@ constant code_jnc	: opcode_type := B"110110";
 constant code_jnn	: opcode_type := B"110111";
 constant code_jno	: opcode_type := B"111000";
 
+--Definitions for Simulation
+
+subtype data_type is integer range 0 to 4095;
+constant data_width : positive := 12;
 
 end cpu_defs_pack;

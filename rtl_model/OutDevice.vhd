@@ -40,7 +40,7 @@ begin
                 D_EMPTY <= '0';
             end if;
             
-            if ACC_EN = '1' and ACC_TYPE = '1' and D_EMPTY = '0' then
+            if DATA_REQ and D_EMPTY = '0' then
                 D_EMPTY <= '1';
             end if;
         

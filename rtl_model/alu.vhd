@@ -12,15 +12,15 @@ architecture struct of alu is
 
 	use WORK.cpu_defs_pack.all;
 
-	signal RES_LU : bit_vector(11 downto 0);
-	signal FLAGS_LU : bit_vector(2 downto 0);
+	signal RES_LU : bit_vector(11 downto 0); --Max
+	signal FLAGS_LU : bit_vector(2 downto 0); --Max
 	signal RES_AU : bit_vector(11 downto 0); --Robert
 	signal FLAGS_AU : bit_vector(2 downto 0); --Robert
 
 begin
 
-	LU:	entity WORK.logic_unit(struct)
-		port map(OP1, OP2, OP, FLAGS_LU, RES_LU);
+	LU:	entity WORK.logic_unit(struct) --Max
+		port map(OP1, OP2, OP, FLAGS_LU, RES_LU); --Max
 
 	AU:	entity WORK.ADDER_UNIT(RTL) --Robert
 		port map(OP1, OP2, OP, C_IN, RES_AU, FLAGS_AU); --Robert
@@ -30,9 +30,9 @@ begin
 
 		case(OP) is
 		
-		when code_not | code_and | code_or | code_xor | code_rea | code_reo | code_rex =>
-			FLAGS <= FLAGS_LU;
-			RES <= RES_LU;
+		when code_not | code_and | code_or | code_xor | code_rea | code_reo | code_rex => --Max
+			FLAGS <= FLAGS_LU; --Max
+			RES <= RES_LU; --Max
 		when code_add | code_addc | code_sub | code_subc => --Robert
 			FLAGS <= FLAGS_AU; --Robert
 			RES <= RES_AU; --Robert
@@ -44,9 +44,9 @@ begin
 
 end struct;
 
-configuration LU_CONFIG of ALU is
+configuration ALU_CONFIG of ALU is
 
 	for struct
 	end for;
 
-end LU_CONFIG;
+end ALU_CONFIG;

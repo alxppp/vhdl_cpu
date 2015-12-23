@@ -45,7 +45,7 @@ begin
 
 end struct;
 
-configuration DATPATH_CONFIG of CPU is
+configuration CPU_CONFIG of CPU is
 	for struct
 	end for;
-end DATPATH_CONFIG;
+end CPU_CONFIG;

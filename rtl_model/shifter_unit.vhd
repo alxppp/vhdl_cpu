@@ -25,7 +25,7 @@ begin
             res := B(10 downto 0) & '0';
 
             FLAGS_OUT(2) <= B(11); -- Carry
-            FLAGS_OUT(0) <= res(11) /= B(11); -- Overflow
+            FLAGS_OUT(0) <= res(11) xor B(11); -- Overflow
 
         -- Shift Y right by one bit (not conserving sign bit) and assign the result to X (3.1.2.4.)
         when code_srl =>

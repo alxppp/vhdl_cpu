@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1450878647">
-  <File Type="RDS-DCP" Name="D_REG12RE.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1451220174">
+  <File Type="RDS-DCP" Name="CPU_CONFIG.dcp"/>
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/synth_1/constrs_in.xml"/>
-  <File Type="RDS-UTIL-PB" Name="D_REG12RE_utilization_synth.pb"/>
+  <File Type="RDS-UTIL-PB" Name="CPU_CONFIG_utilization_synth.pb"/>
   <File Type="RUN-SRCS" Name="$PDATADIR/runs/synth_1/sources.xml"/>
-  <File Type="RDS-PROPCONSTRS" Name="D_REG12RE_drc_synth.rpt"/>
-  <File Type="PA-TCL" Name="D_REG12RE.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="CPU_CONFIG_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="CPU_CONFIG.tcl"/>
   <File Type="RUN-STRAT" Name="$PDATADIR/runs/synth_1/synth_1.psg"/>
-  <File Type="RDS-RDS" Name="D_REG12RE.vds"/>
-  <File Type="RDS-UTIL" Name="D_REG12RE_utilization_synth.rpt"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="D_REG12RE_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="D_REG12RE_timing_summary_synth.pb"/>
+  <File Type="RDS-RDS" Name="CPU_CONFIG.vds"/>
+  <File Type="RDS-UTIL" Name="CPU_CONFIG_utilization_synth.rpt"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="CPU_CONFIG_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="CPU_CONFIG_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../cpu_subprogram_pack.vhd">
@@ -85,25 +85,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../OutDevice.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../controller.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../cpu.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../inc.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -115,9 +97,27 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../inc.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../cpu.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../shifter_unit.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="D_REG12RE"/>
+      <Option Name="TopModule" Val="CPU_CONFIG"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

@@ -2,11 +2,11 @@
 # Vivado v2015.4 (64-bit)
 # SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
 # IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
-# Start of session at: Wed Dec 23 14:50:49 2015
-# Process ID: 9880
+# Start of session at: Sun Dec 27 13:42:55 2015
+# Process ID: 11116
 # Current directory: C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.runs/synth_1
-# Command line: vivado.exe -log D_REG12RE.vds -mode batch -messageDb vivado.pb -notrace -source D_REG12RE.tcl
-# Log file: C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.runs/synth_1/D_REG12RE.vds
+# Command line: vivado.exe -log CPU_CONFIG.vds -mode batch -messageDb vivado.pb -notrace -source CPU_CONFIG.tcl
+# Log file: C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.runs/synth_1/CPU_CONFIG.vds
 # Journal file: C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source D_REG12RE.tcl -notrace
+source CPU_CONFIG.tcl -notrace

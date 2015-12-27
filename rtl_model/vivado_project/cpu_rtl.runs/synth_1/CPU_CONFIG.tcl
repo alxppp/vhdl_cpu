@@ -4,8 +4,6 @@
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7k70tfbv676-1
 
 set_param project.compositeFile.enableAutoGeneration 0
@@ -28,12 +26,12 @@ read_vhdl -library xil_defaultlib {
   C:/vhdl_cpu/rtl_model/fsm.vhd
   C:/vhdl_cpu/rtl_model/adder_unit.vhd
   C:/vhdl_cpu/rtl_model/adder_subcomponents.vhd
-  C:/vhdl_cpu/rtl_model/OutDevice.vhd
   C:/vhdl_cpu/rtl_model/controller.vhd
-  C:/vhdl_cpu/rtl_model/cpu.vhd
-  C:/vhdl_cpu/rtl_model/inc.vhd
   C:/vhdl_cpu/rtl_model/InDevice.vhd
+  C:/vhdl_cpu/rtl_model/inc.vhd
+  C:/vhdl_cpu/rtl_model/cpu.vhd
+  C:/vhdl_cpu/rtl_model/shifter_unit.vhd
 }
-synth_design -top D_REG12RE -part xc7k70tfbv676-1
-write_checkpoint -noxdef D_REG12RE.dcp
-catch { report_utilization -file D_REG12RE_utilization_synth.rpt -pb D_REG12RE_utilization_synth.pb }
+synth_design -top CPU_CONFIG -part xc7k70tfbv676-1
+write_checkpoint -noxdef CPU_CONFIG.dcp
+catch { report_utilization -file CPU_CONFIG_utilization_synth.rpt -pb CPU_CONFIG_utilization_synth.pb }

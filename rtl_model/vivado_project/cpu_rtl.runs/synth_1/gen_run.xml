@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1451220174">
-  <File Type="RDS-DCP" Name="CPU_CONFIG.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1451325491">
+  <File Type="RDS-DCP" Name="System.dcp"/>
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/synth_1/constrs_in.xml"/>
-  <File Type="RDS-UTIL-PB" Name="CPU_CONFIG_utilization_synth.pb"/>
+  <File Type="RDS-UTIL-PB" Name="System_utilization_synth.pb"/>
   <File Type="RUN-SRCS" Name="$PDATADIR/runs/synth_1/sources.xml"/>
-  <File Type="RDS-PROPCONSTRS" Name="CPU_CONFIG_drc_synth.rpt"/>
-  <File Type="PA-TCL" Name="CPU_CONFIG.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="System_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="System.tcl"/>
   <File Type="RUN-STRAT" Name="$PDATADIR/runs/synth_1/synth_1.psg"/>
-  <File Type="RDS-RDS" Name="CPU_CONFIG.vds"/>
-  <File Type="RDS-UTIL" Name="CPU_CONFIG_utilization_synth.rpt"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="CPU_CONFIG_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="CPU_CONFIG_timing_summary_synth.pb"/>
+  <File Type="RDS-RDS" Name="System.vds"/>
+  <File Type="RDS-UTIL" Name="System_utilization_synth.rpt"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="System_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="System_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../cpu_subprogram_pack.vhd">
@@ -115,9 +115,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/System.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="CPU_CONFIG"/>
+      <Option Name="TopModule" Val="System"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

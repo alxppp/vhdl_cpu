@@ -42,3 +42,22 @@ begin
 		end if;
 	end process;
 end RTL;
+
+entity mux_2x1 is
+    port(   sel_in : in bit;
+            d_in_a, d_in_b : in bit;
+            d_out : out bit );
+            
+end mux_2x1;
+
+architecture RTL of mux_2x1 is
+begin
+    process(sel_in, d_in_a, d_in_b)
+    begin
+        if sel_in  = '0' then
+            d_out <= d_in_a;
+        else
+            d_out <= d_in_b;
+        end if;
+    end process;
+end RTL;

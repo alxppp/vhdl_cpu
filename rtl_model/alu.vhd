@@ -30,7 +30,7 @@ begin
 	SU:	entity WORK.SHIFTER_UNIT(RTL) -- Alex
 		port map(OP1, OP2, OP, C_IN, RES_SU, FLAGS_SU); -- Alex
 
-	process(RES_LU, FLAGS_LU, FLAGS_AU, RES_AU, OP, FLAGS_SU)
+	process(RES_LU, FLAGS_LU, FLAGS_AU, RES_AU, OP, , RES_SU, FLAGS_SU)
 	begin
 
 		case(OP) is

@@ -26,6 +26,9 @@ architecture behavioral of System is
 
 begin
 
+    RST <= '1' after 10 ns;
+    CLK <= not CLK after 5 ns when ACTIVE = '1' else '0';
+
     CPU1:       entity WORK.CPU(struct)
                 port map(   CLK => CLK,
                             RST => RST,

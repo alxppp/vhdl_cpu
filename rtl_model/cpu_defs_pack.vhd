@@ -46,4 +46,7 @@ constant code_jno	: opcode_type := B"111000";
 subtype data_type is integer range 0 to 4095;
 constant data_width : positive := 12;
 
+--Definitions for Memory
+--type RAM is array(bit, bit, bit, bit, bit, bit, bit, bit, bit, bit, bit, bit) of bit_vector(11 downto 0);
+type RAM is array(0 to 4095) of bit_vector(11 downto 0);
 end cpu_defs_pack;

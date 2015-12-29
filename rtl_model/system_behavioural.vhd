@@ -1,7 +1,4 @@
-entity System is
-end System;
-
-architecture RTL of System is
+architecture behavioral of System is
 
     --clock and reset signals
     signal CLK, RST, ACTIVE : bit;
@@ -83,14 +80,14 @@ begin
                             DATA_REQ => OUT_REQ,
                             DATA_OUT => OUT_DATA_TO_TB );
                             
---    IO_TEST:    entity WORK.IO_Testbench(TB)
---                port map(   CLK => CLK,
---                            RST => RST,
---                            IN_REQ => IN_REQ,
---                            IN_READY => IN_RDY,
---                            IN_DATA => IN_DATA_FROM_TB,
---                            OUT_READY => OUT_RDY,
---                            OUT_REQ => OUT_REQ,
---                            OUT_DATA => OUT_DATA_TO_TB );
+    IO_TEST:    entity WORK.IO_Testbench(TB)
+                port map(   CLK => CLK,
+                            RST => RST,
+                            IN_REQ => IN_REQ,
+                            IN_READY => IN_RDY,
+                            IN_DATA => IN_DATA_FROM_TB,
+                            OUT_READY => OUT_RDY,
+                            OUT_REQ => OUT_REQ,
+                            OUT_DATA => OUT_DATA_TO_TB );
             
-end RTL;
+end behavioral;

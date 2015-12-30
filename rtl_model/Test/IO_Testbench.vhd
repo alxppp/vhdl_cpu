@@ -23,29 +23,31 @@ entity IO_Testbench is
 end IO_Testbench;
 
 architecture TB of IO_Testbench is
+    
 begin
-
+    
 	process(RST, CLK)
 
 		variable TMP : data_type; -- integer type to reuse cpu_IN_OUT_pack from functional model
 		file InDevice   : Text is in "InDevice.txt";
 		file OutDevice  : Text is out "OutDevice.txt";
-
+        variable IN_READY_TMP : bit := '0';
 	begin
 		if(RST = '0') then
-			IN_READY <= '0';
+			--IN_READY <= '0';
+			IN_READY_TMP := '0';
 			IN_DATA <= (others => '0');
 			OUT_REQ <= '1';
 
 		elsif CLK = '1' and CLK'event then
 
-			if IN_REQ = '1' and not endfile(InDevice) then
-				IN_READY <= '0';
+			if IN_REQ = '1' and not endfile(InDevice) and IN_READY_TMP='0' then
+				--IN_READY <= '0';
 				EXEC_IN(TMP, InDevice);
 				IN_DATA <= bit_vector(TO_UNSIGNED(TMP, 12));
-				IN_READY <= '1';
+				IN_READY_TMP := '1';
 			else 
-				IN_READY <= '0';
+				IN_READY_TMP := '0';
 			end if;
 
 			if OUT_READY = '1' then
@@ -55,6 +57,7 @@ begin
 			end if;
 
 		end if;
+		IN_READY <= IN_READY_TMP;
 	end process;
 
 

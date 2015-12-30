@@ -23,7 +23,6 @@ vhdl xil_defaultlib  "../../../../alu.vhd"
 vhdl xil_defaultlib  "../../../../datapath.vhd"
 vhdl xil_defaultlib  "../../../../cpu.vhd"
 vhdl xil_defaultlib  "../../../../system.vhd"
-vhdl xil_defaultlib  "../../../../system_behavioural.vhd"
 
 # Do not sort compile order
 nosort

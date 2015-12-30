@@ -54,10 +54,11 @@ begin
                             d_in_b => OUT_DEV_RDY,
                             d_out => DEV_RDY );
                             
-    MEM:        entity WORK.Memory(rtl_bootloader)
+    MEM:        entity WORK.Memory(hex_load)
                	port map(   clk => CLK,
+               	            rst => RST,
                             data_in => D_OUT,
-			    addr => MEM_ADDR,
+			                addr => MEM_ADDR,
                             w_en => MEM_EN,
                             data_out => MEM_OUT );
 

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="System_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="System" />
+            <top_module name="bootloader_program_pack" />
+            <top_module name="cpu_defs_pack" />
+            <top_module name="cpu_in_out_pack" />
+            <top_module name="cpu_subprogram_pack" />
+            <top_module name="cpu_textio_pack" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="529899933667fs"></ZoomStartTime>
+      <ZoomEndTime time="530032733670fs"></ZoomEndTime>
+      <Cursor1Time time="529922067000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="13" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/OP1">
+      <obj_property name="ElementShortName">OP1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">OP1[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/OP2">
+      <obj_property name="ElementShortName">OP2[11:0]</obj_property>
+      <obj_property name="ObjectShortName">OP2[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/DATPATH/ALU/C_IN">
+      <obj_property name="ElementShortName">C_IN</obj_property>
+      <obj_property name="ObjectShortName">C_IN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/OP">
+      <obj_property name="ElementShortName">OP[5:0]</obj_property>
+      <obj_property name="ObjectShortName">OP[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/FLAGS">
+      <obj_property name="ElementShortName">FLAGS[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FLAGS[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/RES">
+      <obj_property name="ElementShortName">RES[11:0]</obj_property>
+      <obj_property name="ObjectShortName">RES[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/RES_LU">
+      <obj_property name="ElementShortName">RES_LU[11:0]</obj_property>
+      <obj_property name="ObjectShortName">RES_LU[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/FLAGS_LU">
+      <obj_property name="ElementShortName">FLAGS_LU[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FLAGS_LU[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/RES_AU">
+      <obj_property name="ElementShortName">RES_AU[11:0]</obj_property>
+      <obj_property name="ObjectShortName">RES_AU[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/FLAGS_AU">
+      <obj_property name="ElementShortName">FLAGS_AU[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FLAGS_AU[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/RES_SU">
+      <obj_property name="ElementShortName">RES_SU[11:0]</obj_property>
+      <obj_property name="ObjectShortName">RES_SU[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/ALU/FLAGS_SU">
+      <obj_property name="ElementShortName">FLAGS_SU[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FLAGS_SU[2:0]</obj_property>
+   </wvobject>
+</wave_config>

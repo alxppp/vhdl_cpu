@@ -53,6 +53,7 @@ begin
                             
     MEM:        entity WORK.Memory(rtl_bootloader)
                	port map(   clk => CLK,
+			    rst => RST,
                             data_in => D_OUT,
 			    addr => MEM_ADDR,
                             w_en => MEM_EN,

@@ -43,8 +43,12 @@ constant code_jno	: opcode_type := B"111000";
 
 --Definitions for Simulation
 
-subtype data_type is integer range 0 to 4095;
 constant data_width : positive := 12;
+subtype data_type is integer range 0 to 2**data_width - 1;
+
+constant addr_width : positive := 12;
+subtype addr_type is integer range 0 to 2**addr_width - 1;
+
 
 --Definitions for Memory
 --type RAM is array(bit, bit, bit, bit, bit, bit, bit, bit, bit, bit, bit, bit) of bit_vector(11 downto 0);

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="System_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="System" />
+            <top_module name="cpu_defs_pack" />
+            <top_module name="cpu_memory_pack" />
+            <top_module name="cpu_subprogram_pack" />
+            <top_module name="cpu_textio_pack" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="777618000fs"></ZoomStartTime>
+      <ZoomEndTime time="1009418001fs"></ZoomEndTime>
+      <Cursor1Time time="926418000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="14" />
+   <wvobject db_ref_id="1" fp_name="/System/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/RST" type="logic">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/ACTIVE" type="logic">
+      <obj_property name="ElementShortName">ACTIVE</obj_property>
+      <obj_property name="ObjectShortName">ACTIVE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/D_IN" type="array">
+      <obj_property name="ElementShortName">D_IN[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D_IN[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/D_OUT" type="array">
+      <obj_property name="ElementShortName">D_OUT[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D_OUT[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/SEL_IN" type="logic">
+      <obj_property name="ElementShortName">SEL_IN</obj_property>
+      <obj_property name="ObjectShortName">SEL_IN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/IO_EN" type="logic">
+      <obj_property name="ElementShortName">IO_EN</obj_property>
+      <obj_property name="ObjectShortName">IO_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/IO_TYPE" type="logic">
+      <obj_property name="ElementShortName">IO_TYPE</obj_property>
+      <obj_property name="ObjectShortName">IO_TYPE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/DEV_RDY" type="logic">
+      <obj_property name="ElementShortName">DEV_RDY</obj_property>
+      <obj_property name="ObjectShortName">DEV_RDY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/MEM_ADDR" type="array">
+      <obj_property name="ElementShortName">MEM_ADDR[11:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_ADDR[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/MEM_OUT" type="array">
+      <obj_property name="ElementShortName">MEM_OUT[11:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_OUT[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/MEM_EN" type="logic">
+      <obj_property name="ElementShortName">MEM_EN</obj_property>
+      <obj_property name="ObjectShortName">MEM_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/REG" type="array">
+      <obj_property name="ElementShortName">REG[0:3][11:0]</obj_property>
+      <obj_property name="ObjectShortName">REG[0:3][11:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/FLAGS_TMP" type="array">
+      <obj_property name="ElementShortName">FLAGS_TMP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">FLAGS_TMP[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>

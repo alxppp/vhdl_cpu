@@ -32,9 +32,11 @@ begin
 	begin
 		OP 		<= INSTR(11 downto 6);
 		SEL_IN		<= INSTR(5 downto 4);
-		SEL_OUT_A	<= INSTR(5 downto 4);
+		--SEL_OUT_A	<= INSTR(5 downto 4);
+		SEL_OUT_C   <= INSTR(5 downto 4); --bugfix
 		SEL_OUT_B	<= INSTR(3 downto 2);
-		SEL_OUT_C	<= INSTR(1 downto 0);
+		--SEL_OUT_C	<= INSTR(1 downto 0); 
+		SEL_OUT_A	<= INSTR(1 downto 0); --bugfix
 		
 		-- default assignment
 		TAKE_JMP <= '0'; STORE <= '0'; CMD_CALC <= '0'; CMD_CONST <= '0'; CMD_DIR <= '0'; 

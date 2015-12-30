@@ -4093,12 +4093,12 @@ bootldr_start:	LDC		R0 0			;Mem(4076)
 										;Mem(4079)
 				
 bootldr_loop:	IN		R2				;Mem(4080)			Load instruction from InDevice
-				STR		R2, R0			;Mem(4081)			Save instruction into Mem(R0)
+				STR		R2 R0			;Mem(4081)			Save instruction into Mem(R0)
 				
-				ADD		R0 R1			;Mem(4082)			update loop
+				ADD		R0 R0 R1		;Mem(4082)			update loop
 				LDC		R3 4076			;Mem(4083)			Stop after 4076 instructions
 										;Mem(4084)
-				SUB 	R3 R0 R1		;Mem(4085)
+				SUB 	R3 R0 R3		;Mem(4085)
 
 				JNZ		bootldr_loop	;Mem(4086)
 										;Mem(4087)
@@ -4106,8 +4106,8 @@ bootldr_loop:	IN		R2				;Mem(4080)			Load instruction from InDevice
 ; program is loaded, now reset registers and start program
 bootldr_done:	LDC		R1 0			;Mem(4088)
 										;Mem(4089)
-				LDC		R2 0			;Mem(4090)
-										;Mem(4091)
+				NOT		R2 R1			;Mem(4090)
+				NOT		R2 R2			;Mem(4091)
 				LDC		R0 0			;Mem(4092)
 										;Mem(4093)
 				JMP		start_prgm		;Mem(4094)			return to program start

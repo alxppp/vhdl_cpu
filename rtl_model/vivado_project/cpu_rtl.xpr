@@ -17,7 +17,7 @@
     <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
     <Option Name="BoardPart" Val=""/>
     <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
-    <Option Name="ActiveSimSet" Val="sim_1"/>
+    <Option Name="ActiveSimSet" Val="sim_bootloader"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
@@ -204,6 +204,7 @@
         <Option Name="TopModule" Val="System"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopArchitecture" Val="behavioral"/>
+        <Option Name="SimMode" Val="post-implementation"/>
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/Wafeform_controller.wcfg"/>
       </Config>
@@ -230,6 +231,26 @@
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PSIMDIR/sim_2/System_behav.wcfg"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_bootloader" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_bootloader">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../system_bootloader.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../InDevice.txt"/>
+      <File Path="$PPRDIR/../Memory.hex"/>
+      <File Path="$PPRDIR/../OutDevice.txt"/>
+      <File Path="$PPRDIR/../bootloader_program.hex"/>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="System"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TopArchitecture" Val="BOOTLOADER"/>
+        <Option Name="SrcSet" Val="sources_1"/>
       </Config>
     </FileSet>
   </FileSets>

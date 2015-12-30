@@ -7,6 +7,7 @@ use WORK.cpu_IN_OUT_pack.all;
 
 
 entity IO_Testbench is
+    generic( UseBootloader : boolean := False);
 	port(	--Reset and Clock signals
 		CLK : in bit;
 		RST : in bit;
@@ -34,15 +35,18 @@ begin
 		file BootloaderDev  : Text is in "Memory.hex";
 		
         variable IN_READY_TMP : bit := '0';
-        variable BOOTLOADER_ACTIVE : bit := '1';
+        variable BOOTLOADER_ACTIVE : bit;
 	begin
 		if(RST = '0') then
 			--IN_READY <= '0';
 			IN_READY_TMP := '0';
 			IN_DATA <= (others => '0');
 			OUT_REQ <= '1';
-			BOOTLOADER_ACTIVE := '1';
-
+			if UseBootloader then
+			     BOOTLOADER_ACTIVE := '1';
+			else
+			     BOOTLOADER_ACTIVE := '0';
+			end if;
 		elsif CLK = '1' and CLK'event then
             
             if BOOTLOADER_ACTIVE = '0' then

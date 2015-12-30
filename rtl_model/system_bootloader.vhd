@@ -1,4 +1,8 @@
-architecture behavioral of System is
+--This System uses a bootloader to load the program/testbench hex-file into the memory
+-- Use the python script memory_generate.py [path-to-testbench.hex] in the rtl_model directory 
+-- to generate the Memory.hex file which is then loaded using the IO-Device.
+-- The bootloader needs 530,045ns to load, when it's done it jumps to Mem(0) and starts the loaded program.
+architecture BOOTLOADER of SYSTEM is
 
     --clock and reset signals
     signal CLK, RST, ACTIVE : bit;
@@ -51,7 +55,7 @@ begin
                             d_in_b => OUT_DEV_RDY,
                             d_out => DEV_RDY );
                             
-    MEM:        entity WORK.Memory(HEX_LOAD)
+    MEM:        entity WORK.Memory(RTL_BOOTLOADER)
                	port map(   clk => CLK,
 			    rst => RST,
                             data_in => D_OUT,
@@ -82,7 +86,7 @@ begin
                             DATA_OUT => OUT_DATA_TO_TB );
                             
     IO_TEST:    entity WORK.IO_Testbench(TB)
-                generic map( UseBootloader => False)
+                generic map( UseBootloader => True)
                 port map(   CLK => CLK,
                             RST => RST,
                             IN_REQ => IN_REQ,
@@ -92,4 +96,4 @@ begin
                             OUT_REQ => OUT_REQ,
                             OUT_DATA => OUT_DATA_TO_TB );
             
-end behavioral;
+end BOOTLOADER;

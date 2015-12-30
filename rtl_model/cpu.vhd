@@ -47,8 +47,10 @@ begin
             port map(   CLK => CLK,
                         RST => RST,
                         D_IN => DATA_IN,
-                        A_IN_1 => DAT_1_TO_CONTR,
-                        A_IN_2 => DAT_2_TO_CONTR,
+                        --A_IN_1 => DAT_1_TO_CONTR,
+                        --A_IN_2 => DAT_2_TO_CONTR,
+                        A_IN_1 => DAT_2_TO_CONTR, --bugfix
+                        A_IN_2 => DAT_1_TO_CONTR, --bugfix
                         FLAGS => FLAGS_TO_CONTR,
                         FC_SEL => FC_SEL_TO_DATPATH,
                         REG_EN => REG_EN_TO_DATPATH,
@@ -67,7 +69,7 @@ begin
                         ACTIVE => ACTIVE );
                       
     DATA_OUT <= DAT_1_TO_CONTR;   
-					
+	--DATA_OUT <= DAT_2_TO_CONTR; --bugfix				
 
 end struct;
 

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="System_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="System" />
+            <top_module name="bootloader_program_pack" />
+            <top_module name="cpu_defs_pack" />
+            <top_module name="cpu_in_out_pack" />
+            <top_module name="cpu_subprogram_pack" />
+            <top_module name="cpu_textio_pack" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="130000000fs"></ZoomStartTime>
+      <ZoomEndTime time="196400002fs"></ZoomEndTime>
+      <Cursor1Time time="171500000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="46" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/RST">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/D_IN">
+      <obj_property name="ElementShortName">D_IN[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D_IN[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/A_IN_1">
+      <obj_property name="ElementShortName">A_IN_1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">A_IN_1[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/A_IN_2">
+      <obj_property name="ElementShortName">A_IN_2[11:0]</obj_property>
+      <obj_property name="ObjectShortName">A_IN_2[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/FLAGS">
+      <obj_property name="ElementShortName">FLAGS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">FLAGS[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/FC_SEL">
+      <obj_property name="ElementShortName">FC_SEL</obj_property>
+      <obj_property name="ObjectShortName">FC_SEL</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/REG_EN">
+      <obj_property name="ElementShortName">REG_EN</obj_property>
+      <obj_property name="ObjectShortName">REG_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/SEL_IN">
+      <obj_property name="ElementShortName">SEL_IN[1:0]</obj_property>
+      <obj_property name="ObjectShortName">SEL_IN[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/DEV_RDY">
+      <obj_property name="ElementShortName">DEV_RDY</obj_property>
+      <obj_property name="ObjectShortName">DEV_RDY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/A_OUT">
+      <obj_property name="ElementShortName">A_OUT[11:0]</obj_property>
+      <obj_property name="ObjectShortName">A_OUT[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/D_IN_MUX">
+      <obj_property name="ElementShortName">D_IN_MUX</obj_property>
+      <obj_property name="ObjectShortName">D_IN_MUX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/IO_TYPE">
+      <obj_property name="ElementShortName">IO_TYPE</obj_property>
+      <obj_property name="ObjectShortName">IO_TYPE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/IO_EN">
+      <obj_property name="ElementShortName">IO_EN</obj_property>
+      <obj_property name="ObjectShortName">IO_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/ACTIVE">
+      <obj_property name="ElementShortName">ACTIVE</obj_property>
+      <obj_property name="ObjectShortName">ACTIVE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/TAKE_JMP">
+      <obj_property name="ElementShortName">TAKE_JMP</obj_property>
+      <obj_property name="ObjectShortName">TAKE_JMP</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/STORE">
+      <obj_property name="ElementShortName">STORE</obj_property>
+      <obj_property name="ObjectShortName">STORE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CMD_CALC">
+      <obj_property name="ElementShortName">CMD_CALC</obj_property>
+      <obj_property name="ObjectShortName">CMD_CALC</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CMD_CONST">
+      <obj_property name="ElementShortName">CMD_CONST</obj_property>
+      <obj_property name="ObjectShortName">CMD_CONST</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CMD_DIR">
+      <obj_property name="ElementShortName">CMD_DIR</obj_property>
+      <obj_property name="ObjectShortName">CMD_DIR</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CMD_REG">
+      <obj_property name="ElementShortName">CMD_REG</obj_property>
+      <obj_property name="ObjectShortName">CMD_REG</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CMD_IO">
+      <obj_property name="ElementShortName">CMD_IO</obj_property>
+      <obj_property name="ObjectShortName">CMD_IO</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CMD_PC">
+      <obj_property name="ElementShortName">CMD_PC</obj_property>
+      <obj_property name="ObjectShortName">CMD_PC</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CMD_JMP">
+      <obj_property name="ElementShortName">CMD_JMP</obj_property>
+      <obj_property name="ObjectShortName">CMD_JMP</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CMD_STOP">
+      <obj_property name="ElementShortName">CMD_STOP</obj_property>
+      <obj_property name="ObjectShortName">CMD_STOP</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/INSTR_EN">
+      <obj_property name="ElementShortName">INSTR_EN</obj_property>
+      <obj_property name="ObjectShortName">INSTR_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/PC_MUX">
+      <obj_property name="ElementShortName">PC_MUX</obj_property>
+      <obj_property name="ObjectShortName">PC_MUX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/PC_EN">
+      <obj_property name="ElementShortName">PC_EN</obj_property>
+      <obj_property name="ObjectShortName">PC_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/ADDR_EN">
+      <obj_property name="ElementShortName">ADDR_EN</obj_property>
+      <obj_property name="ObjectShortName">ADDR_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/D_OUT_MUX">
+      <obj_property name="ElementShortName">D_OUT_MUX</obj_property>
+      <obj_property name="ObjectShortName">D_OUT_MUX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/A_OUT_MUX">
+      <obj_property name="ElementShortName">A_OUT_MUX[1:0]</obj_property>
+      <obj_property name="ObjectShortName">A_OUT_MUX[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/A_OUT_TMP">
+      <obj_property name="ElementShortName">A_OUT_TMP[11:0]</obj_property>
+      <obj_property name="ObjectShortName">A_OUT_TMP[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/MEM/data_in">
+      <obj_property name="ElementShortName">data_in[11:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/W_EN">
+      <obj_property name="ElementShortName">W_EN</obj_property>
+      <obj_property name="ObjectShortName">W_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/D_OUT_1">
+      <obj_property name="ElementShortName">D_OUT_1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D_OUT_1[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/D_OUT_2">
+      <obj_property name="ElementShortName">D_OUT_2[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D_OUT_2[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATA_OUT">
+      <obj_property name="ElementShortName">DATA_OUT[11:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_OUT[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/SEL_OUT_A">
+      <obj_property name="ElementShortName">SEL_OUT_A[1:0]</obj_property>
+      <obj_property name="ObjectShortName">SEL_OUT_A[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/SEL_OUT_B">
+      <obj_property name="ElementShortName">SEL_OUT_B[1:0]</obj_property>
+      <obj_property name="ObjectShortName">SEL_OUT_B[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/SEL_OUT_C">
+      <obj_property name="ElementShortName">SEL_OUT_C[1:0]</obj_property>
+      <obj_property name="ObjectShortName">SEL_OUT_C[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/PC">
+      <obj_property name="ElementShortName">PC[11:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/OP">
+      <obj_property name="ElementShortName">OP[5:0]</obj_property>
+      <obj_property name="ObjectShortName">OP[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/INSTR">
+      <obj_property name="ElementShortName">INSTR[11:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTR[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/ADDR">
+      <obj_property name="ElementShortName">ADDR[11:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/INC_OUT">
+      <obj_property name="ElementShortName">INC_OUT[11:0]</obj_property>
+      <obj_property name="ObjectShortName">INC_OUT[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/REG">
+      <obj_property name="ElementShortName">REG[0:3][11:0]</obj_property>
+      <obj_property name="ObjectShortName">REG[0:3][11:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/REG[0]">
+         <obj_property name="ElementShortName">[0][11:0]</obj_property>
+         <obj_property name="ObjectShortName">REG[0][11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/REG[1]">
+         <obj_property name="ElementShortName">[1][11:0]</obj_property>
+         <obj_property name="ObjectShortName">REG[1][11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/REG[2]">
+         <obj_property name="ElementShortName">[2][11:0]</obj_property>
+         <obj_property name="ObjectShortName">REG[2][11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/REG[3]">
+         <obj_property name="ElementShortName">[3][11:0]</obj_property>
+         <obj_property name="ObjectShortName">REG[3][11:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+</wave_config>

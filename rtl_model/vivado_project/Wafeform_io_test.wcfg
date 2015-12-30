@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="System_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="System" />
+            <top_module name="bootloader_program_pack" />
+            <top_module name="cpu_defs_pack" />
+            <top_module name="cpu_in_out_pack" />
+            <top_module name="cpu_subprogram_pack" />
+            <top_module name="cpu_textio_pack" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="8" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/RST">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/IN_REQ">
+      <obj_property name="ElementShortName">IN_REQ</obj_property>
+      <obj_property name="ObjectShortName">IN_REQ</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/IN_READY">
+      <obj_property name="ElementShortName">IN_READY</obj_property>
+      <obj_property name="ObjectShortName">IN_READY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/IO_TEST/IN_DATA">
+      <obj_property name="ElementShortName">IN_DATA[11:0]</obj_property>
+      <obj_property name="ObjectShortName">IN_DATA[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/OUT_READY">
+      <obj_property name="ElementShortName">OUT_READY</obj_property>
+      <obj_property name="ObjectShortName">OUT_READY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/OUT_REQ">
+      <obj_property name="ElementShortName">OUT_REQ</obj_property>
+      <obj_property name="ObjectShortName">OUT_REQ</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/IO_TEST/OUT_DATA">
+      <obj_property name="ElementShortName">OUT_DATA[11:0]</obj_property>
+      <obj_property name="ObjectShortName">OUT_DATA[11:0]</obj_property>
+   </wvobject>
+</wave_config>

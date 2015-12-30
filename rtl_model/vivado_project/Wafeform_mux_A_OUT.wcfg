@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="System_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="System" />
+            <top_module name="bootloader_program_pack" />
+            <top_module name="cpu_defs_pack" />
+            <top_module name="cpu_in_out_pack" />
+            <top_module name="cpu_subprogram_pack" />
+            <top_module name="cpu_textio_pack" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="159598215fs"></ZoomEndTime>
+      <Cursor1Time time="125670000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="8" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/CONTR/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/OP">
+      <obj_property name="ElementShortName">OP[5:0]</obj_property>
+      <obj_property name="ObjectShortName">OP[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/MUX_A_OUT/select_input">
+      <obj_property name="ElementShortName">select_input[1:0]</obj_property>
+      <obj_property name="ObjectShortName">select_input[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/MUX_A_OUT/d_in_a">
+      <obj_property name="ElementShortName">d_in_a[11:0]</obj_property>
+      <obj_property name="ObjectShortName">d_in_a[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/MUX_A_OUT/d_in_b">
+      <obj_property name="ElementShortName">d_in_b[11:0]</obj_property>
+      <obj_property name="ObjectShortName">d_in_b[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/MUX_A_OUT/d_in_c">
+      <obj_property name="ElementShortName">d_in_c[11:0]</obj_property>
+      <obj_property name="ObjectShortName">d_in_c[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/MUX_A_OUT/d_in_d">
+      <obj_property name="ElementShortName">d_in_d[11:0]</obj_property>
+      <obj_property name="ObjectShortName">d_in_d[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/MUX_A_OUT/d_out">
+      <obj_property name="ElementShortName">d_out[11:0]</obj_property>
+      <obj_property name="ObjectShortName">d_out[11:0]</obj_property>
+   </wvobject>
+</wave_config>

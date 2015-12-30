@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="System_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="System" />
+            <top_module name="bootloader_program_pack" />
+            <top_module name="cpu_defs_pack" />
+            <top_module name="cpu_in_out_pack" />
+            <top_module name="cpu_subprogram_pack" />
+            <top_module name="cpu_textio_pack" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="170770000fs"></ZoomStartTime>
+      <ZoomEndTime time="303570001fs"></ZoomEndTime>
+      <Cursor1Time time="98360000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="7" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/CLK">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/RST">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/ACTIVE">
+      <obj_property name="ElementShortName">ACTIVE</obj_property>
+      <obj_property name="ObjectShortName">ACTIVE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/MEM/addr">
+      <obj_property name="ElementShortName">addr[0:11]</obj_property>
+      <obj_property name="ObjectShortName">addr[0:11]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/MEM/data_in">
+      <obj_property name="ElementShortName">data_in[11:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/MEM/w_en">
+      <obj_property name="ElementShortName">w_en</obj_property>
+      <obj_property name="ObjectShortName">w_en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/MEM/data_out">
+      <obj_property name="ElementShortName">data_out[11:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[11:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>

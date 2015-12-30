@@ -3,7 +3,7 @@ entity alu is
 	port(	OP1, OP2	: in bit_vector(11 downto 0);
 		C_IN		: in bit;
 		OP		: in bit_vector(5 downto 0);
-		FLAGS		: out bit_vector(2 downto 0);
+		FLAGS		: out bit_vector(2 downto 0); --C,N,O
 		RES		: out bit_vector(11 downto 0) );
 
 end alu;

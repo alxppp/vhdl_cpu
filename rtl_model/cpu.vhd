@@ -22,7 +22,7 @@ architecture struct of CPU is
 	--signals between datapath and controller
 	signal DAT_TO_DATPATH, DAT_1_TO_CONTR, DAT_2_TO_CONTR : bit_vector(11 downto 0);
 	signal OP_TO_DATPATH : bit_vector(5 downto 0);
-	signal FLAGS_TO_CONTR : bit_vector(3 downto 0);
+	signal FLAGS_TO_CONTR : bit_vector(3 downto 0); --Z,C,N,O
 	signal SEL_IN_TO_DATPATH, SEL_A_TO_DATPATH, SEL_B_TO_DATPATH, SEL_C_TO_DATPATH : bit_vector(1 downto 0);
 	signal FC_SEL_TO_DATPATH, REG_EN_TO_DATPATH : bit;
 

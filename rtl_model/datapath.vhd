@@ -12,7 +12,7 @@ entity datapath is
 		D_IN : in bit_vector(11 downto 0);
 		--data output, flags
 		D_OUT_1, D_OUT_2 : out bit_vector(11 downto 0);
-		FLAGS : out bit_vector(3 downto 0);
+		FLAGS : out bit_vector(3 downto 0); --Z,C,N,O
 		--control signals
 		SEL_IN, SEL_OUT_A, SEL_OUT_B, SEL_OUT_C : in bit_vector(1 downto 0);
 		FC_SEL, REG_EN : in bit;
@@ -32,7 +32,13 @@ architecture mixed of datapath is
 begin 
 
     ALU:    entity WORK.ALU(struct)
-            port map(ALU_IN, D_OUT_2_TMP, FLAGS_TMP(2), OP, ALU_FLAGS, ALU_RES);
+    --        port map(ALU_IN, D_OUT_2_TMP, FLAGS_TMP(2), OP, ALU_FLAGS, ALU_RES);
+             port map ( OP1  => D_OUT_2_TMP, --bugfix
+                        OP2  => ALU_IN,
+                        C_IN => FLAGS_TMP(2),
+                        OP   => OP,
+                        FLAGS => ALU_FLAGS,
+                        RES => ALU_RES );
             
 	process(CLK, RST)
 
@@ -52,12 +58,12 @@ begin
 				FLAGS_IN(2 downto 0) := ALU_FLAGS;
 			else
 				RF_IN := D_IN;
-				FLAGS_IN(2) := FLAGS_TMP(2);
-				FLAGS_IN(1) := D_IN(11);
-				FLAGS_IN(0) := '0';
+				FLAGS_IN(2) := FLAGS_TMP(2); --C
+				FLAGS_IN(1) := D_IN(11); --N
+				FLAGS_IN(0) := '0'; --O
 			end if;
 			
-			FLAGS_IN(3) := not reduce_or(RF_IN);
+			FLAGS_IN(3) := not reduce_or(RF_IN); --Z
 
 			if REG_EN = '1' then
 				REG(TO_INTEGER(UNSIGNED(SEL_IN))) <= RF_IN;

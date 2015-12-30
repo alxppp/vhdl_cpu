@@ -22,10 +22,20 @@ signal COUT_tmp : bit;
 signal SUB_tmp : bit_vector(11 downto 0);
 begin
     --prepare calculation
-    SUB_TMP <=  (0 => '1', others => '0') when ((OP=code_sub) or (OP=code_subc))
-                 else (others => '0');
-    CIN_tmp <=  CIN xor SUB_tmp(0) when OP=code_addc or OP=code_subc
-                else '0';
+--    SUB_TMP <=  (0 => '1', others => '0') when ((OP=code_sub) or (OP=code_subc))
+--                 else (others => '0');
+--    CIN_tmp <=  CIN xor SUB_tmp(0) when OP=code_addc or OP=code_subc
+--                else '0';
+--    B_tmp <= B xor SUB_tmp;
+    SUB_TMP <=  (others => '1') when ((OP=code_sub) or (OP=code_subc)) else
+                (others => '0');
+    
+    
+    CIN_tmp <=  CIN     when OP=code_addc else
+                not CIN when OP=code_subc else
+                '1'     when OP=code_sub  else
+                '0'; --      OP=code_add
+                
     B_tmp <= B xor SUB_tmp;
     
     --summation for the first 11 bits            

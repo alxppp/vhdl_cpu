@@ -33,7 +33,7 @@ end mux12_4x1;
 
 architecture RTL of mux12_4x1 is
 begin
-	process (d_in_a, d_in_b, d_in_c, d_in_d)
+	process (d_in_a, d_in_b, d_in_c, d_in_d, select_input)
 	begin
 		if    select_input = "11" then d_out <= d_in_d;
 		elsif select_input = "10" then d_out <= d_in_c;

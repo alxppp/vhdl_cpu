@@ -2,7 +2,7 @@ library IEEE;
 use ieee.numeric_bit.all;
 use WORK.cpu_defs_pack.all;
 
-entity Memory is
+entity Memory is --Alex
 
 	port (
 		clk : in bit;
@@ -14,7 +14,7 @@ entity Memory is
 	);
 end Memory;
 
-architecture rtl of Memory is
+architecture rtl of Memory is --Alex
 
 begin
 	process (w_en, addr, data_in, clk )
@@ -56,7 +56,8 @@ end rtl_bootloader;
 
 use WORK.cpu_memory_pack.all;
 use STD.textio.all;
-architecture hex_load of Memory is --for simulation only
+--for simulation only
+architecture hex_load of Memory is --Max
 
     signal Mem : RAM;
 

@@ -1,5 +1,18 @@
 # VHDL CPU
 
+## How to run/test the rtl model
+There are two possibilities to run testbench hex programs on the rtl-model.
+### Fast&Simple way (By Max)
+Simulate the system_behavioural architecure, it loads the Memory.hex file in the same directory and works just like 
+in functional model
+
+### Using the Bootloader (By Robert)
+Simulate the system_bootloader architecture.
+This System uses a bootloader to load the program/testbench hex-file into the memory
+Use the python3 script memory_generate.py [path-to-testbench.hex] in the rtl_model directory 
+to generate the Memory.hex file which is then loaded using the IO-Device.
+The bootloader needs 530,045ns to load, when it's done it jumps to Mem(0) and starts the loaded program.
+
 ## Spec
 [Link](https://github.com/alxppp/vhdl_cpu/blob/master/spec.pdf)
 

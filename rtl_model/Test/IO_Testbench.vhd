@@ -7,7 +7,7 @@ use WORK.cpu_IN_OUT_pack.all;
 
 
 entity IO_Testbench is
-    generic( UseBootloader : boolean := False);
+    generic( UseBootloader : boolean := False); --Bootloader modification (Robert)
 	port(	--Reset and Clock signals
 		CLK : in bit;
 		RST : in bit;
@@ -34,14 +34,16 @@ begin
 		file OutDevice  : Text is out "OutDevice.txt";
 		file BootloaderDev  : Text is in "Memory.hex";
 		
-        variable IN_READY_TMP : bit := '0';
+        variable IN_READY_TMP : bit := '0'; --bugfix Robert
+        variable OUT_REQ_TMP : bit := '1'; --bugfix Robert
         variable BOOTLOADER_ACTIVE : bit;
 	begin
 		if(RST = '0') then
 			--IN_READY <= '0';
 			IN_READY_TMP := '0';
 			IN_DATA <= (others => '0');
-			OUT_REQ <= '1';
+			--OUT_REQ <= '1';
+			OUT_REQ_TMP := '1'; --bugfix Robert
 			if UseBootloader then
 			     BOOTLOADER_ACTIVE := '1';
 			else
@@ -72,12 +74,16 @@ begin
                 end if;
             end if;
 
-			if OUT_READY = '1' then
-				OUT_REQ <= '0';
-				TMP := TO_INTEGER(UNSIGNED(OUT_DATA));
-				EXEC_OUT(TMP, OutDevice);
+			if OUT_READY = '1' and OUT_REQ_TMP = '1' then --bugfix Robert
+			     --OUT_REQ <= '0';
+			     OUT_REQ_TMP := '0'; --bugfix Robert
+			     TMP := TO_INTEGER(UNSIGNED(OUT_DATA));
+			     EXEC_OUT(TMP, OutDevice);
+			else
+			     OUT_REQ_TMP := '1';
 			end if;
-
+			    
+            OUT_REQ <= OUT_REQ_TMP;
 		end if;
 		IN_READY <= IN_READY_TMP;
 	end process;

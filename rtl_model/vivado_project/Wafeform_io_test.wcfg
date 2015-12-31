@@ -6,50 +6,62 @@
       <db_ref path="System_behav.wdb" id="1">
          <top_modules>
             <top_module name="System" />
-            <top_module name="bootloader_program_pack" />
             <top_module name="cpu_defs_pack" />
             <top_module name="cpu_in_out_pack" />
+            <top_module name="cpu_memory_pack" />
             <top_module name="cpu_subprogram_pack" />
             <top_module name="cpu_textio_pack" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1000000001fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="111946950fs"></ZoomStartTime>
+      <ZoomEndTime time="244746951fs"></ZoomEndTime>
+      <Cursor1Time time="195000000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="8" />
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/CLK">
+   <WVObjectSize size="11" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/OUT_DEV/CLK">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/RST">
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/OUT_DEV/RST">
       <obj_property name="ElementShortName">RST</obj_property>
       <obj_property name="ObjectShortName">RST</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/IN_REQ">
-      <obj_property name="ElementShortName">IN_REQ</obj_property>
-      <obj_property name="ObjectShortName">IN_REQ</obj_property>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/OUT_DEV/ACC_EN">
+      <obj_property name="ElementShortName">ACC_EN</obj_property>
+      <obj_property name="ObjectShortName">ACC_EN</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/IN_READY">
-      <obj_property name="ElementShortName">IN_READY</obj_property>
-      <obj_property name="ObjectShortName">IN_READY</obj_property>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/OUT_DEV/ACC_TYPE">
+      <obj_property name="ElementShortName">ACC_TYPE</obj_property>
+      <obj_property name="ObjectShortName">ACC_TYPE</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/IO_TEST/IN_DATA">
-      <obj_property name="ElementShortName">IN_DATA[11:0]</obj_property>
-      <obj_property name="ObjectShortName">IN_DATA[11:0]</obj_property>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/OUT_DEV/DATA_RDY">
+      <obj_property name="ElementShortName">DATA_RDY</obj_property>
+      <obj_property name="ObjectShortName">DATA_RDY</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/OUT_READY">
-      <obj_property name="ElementShortName">OUT_READY</obj_property>
-      <obj_property name="ObjectShortName">OUT_READY</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/OUT_DEV/DATA_IN">
+      <obj_property name="ElementShortName">DATA_IN[11:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_IN[11:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/IO_TEST/OUT_REQ">
-      <obj_property name="ElementShortName">OUT_REQ</obj_property>
-      <obj_property name="ObjectShortName">OUT_REQ</obj_property>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/OUT_DEV/DEV_RDY">
+      <obj_property name="ElementShortName">DEV_RDY</obj_property>
+      <obj_property name="ObjectShortName">DEV_RDY</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/IO_TEST/OUT_DATA">
-      <obj_property name="ElementShortName">OUT_DATA[11:0]</obj_property>
-      <obj_property name="ObjectShortName">OUT_DATA[11:0]</obj_property>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/OUT_DEV/DATA_REQ">
+      <obj_property name="ElementShortName">DATA_REQ</obj_property>
+      <obj_property name="ObjectShortName">DATA_REQ</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/OUT_DEV/DATA_OUT">
+      <obj_property name="ElementShortName">DATA_OUT[11:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_OUT[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/System/OUT_DEV/D_REG">
+      <obj_property name="ElementShortName">D_REG[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D_REG[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/System/OUT_DEV/D_EMPTY">
+      <obj_property name="ElementShortName">D_EMPTY</obj_property>
+      <obj_property name="ObjectShortName">D_EMPTY</obj_property>
    </wvobject>
 </wave_config>

@@ -59,7 +59,7 @@ begin
                             w_en => MEM_EN,
                             data_out => MEM_OUT );
 
-    IN_DEV:     entity WORK.InDevice(behavioral)
+    IN_DEV:     entity WORK.InDevice(RTL)
                 port map(   CLK => CLK,
                             RST => RST,
                             ACC_EN => IO_EN,
@@ -70,7 +70,7 @@ begin
                             DATA_REQ => IN_REQ,
                             DATA_OUT => IN_DATA_TO_CPU );
                             
-    OUT_DEV:    entity WORK.OutDevice(behavioral)
+    OUT_DEV:    entity WORK.OutDevice(RTL)
                 port map(   CLK => CLK,
                             RST => RST,
                             ACC_EN => IO_EN,

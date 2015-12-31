@@ -17,7 +17,7 @@
     <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
     <Option Name="BoardPart" Val=""/>
     <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
-    <Option Name="ActiveSimSet" Val="sim_bootloader"/>
+    <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
@@ -204,14 +204,19 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/Wafeform_io_test.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="System"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopArchitecture" Val="behavioral"/>
-        <Option Name="SimMode" Val="post-implementation"/>
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/Wafeform_controller.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/Wafeform_io_test.wcfg"/>
       </Config>
     </FileSet>
     <FileSet Name="sim_2" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_2">

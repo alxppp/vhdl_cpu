@@ -45,9 +45,9 @@ begin
 		case INSTR(11 downto 6) is
 
 		when code_stop => CMD_STOP <= '1';
-		when 	code_add | code_addc | code_sub |  code_subc | code_not | code_and | code_or |
-			code_xor | code_rea | code_reo | code_rex | code_sll | code_srl | code_sra |
-			code_rol  | code_rolc | code_ror | code_rorc => CMD_CALC <= '1';
+		when code_add | code_addc | code_sub |  code_subc | code_not | code_and | code_or |
+			 code_xor | code_rea | code_reo | code_rex | code_sll | code_srl | code_sra |
+			 code_rol | code_rolc | code_ror | code_rorc => CMD_CALC <= '1';
 		when code_ldc => CMD_CONST <= '1';
 		when code_ldd => CMD_DIR <= '1';
 		when code_ldr => CMD_REG <= '1';

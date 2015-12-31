@@ -199,6 +199,11 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/Waveform_trace.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="System"/>
@@ -225,6 +230,11 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/Waveform_trace.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="System"/>
@@ -245,12 +255,18 @@
       <File Path="$PPRDIR/../Memory.hex"/>
       <File Path="$PPRDIR/../OutDevice.txt"/>
       <File Path="$PPRDIR/../bootloader_program.hex"/>
+      <File Path="$PPRDIR/Waveform_trace.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="System"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopArchitecture" Val="BOOTLOADER"/>
         <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/Waveform_trace.wcfg"/>
       </Config>
     </FileSet>
   </FileSets>

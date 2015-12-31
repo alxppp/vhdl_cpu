@@ -4,14 +4,14 @@
 #First it writes the program hex code into Memory.hex
 #Then it fills up the remaining space with 000 which is required by the bootloader
 #USAGE: memory_generate.py
-#           [program.hex] [Memory.hex] [--Size 4075]
+#           [program.hex] [Memory.hex] [--Size 4076]
 
 import os.path
 import sys
 
 path_program = "program.hex"
 path_memory = "Memory.hex"
-memory_size = 4075
+memory_size = 4076
 
 if len(sys.argv) > 1:
 	path_program = sys.argv[1]
@@ -44,11 +44,19 @@ try:
     
     with open(path_program) as file_program:
         i = 0
+        linenr = 0
         for line in file_program:
-            file_memory.write(line)
-            i = i+1
-        print(i)
-        for j in range(i, memory_size):
+                linenr = linenr +1
+                if len(line) != 4:
+                        print("Skipping line {0}: wrong length".format(linenr))
+                        continue
+                file_memory.write(line)
+                i = i+1
+                if i > memory_size:
+                        print("Program must not be larger than {0} words!".format(memory_size))
+                        sys.exit(1)
+    print("Program size = {0} words".format(i))
+    for j in range(i, memory_size):
             file_memory.write("000\n")
             
     file_memory.close()

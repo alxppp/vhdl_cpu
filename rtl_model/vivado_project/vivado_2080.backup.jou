@@ -1,0 +1,48 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Wed Dec 30 19:59:14 2015
+# Process ID: 2080
+# Current directory: C:/vhdl_cpu/rtl_model/vivado_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9796 C:\vhdl_cpu\rtl_model\vivado_project\cpu_rtl.xpr
+# Log file: C:/vhdl_cpu/rtl_model/vivado_project/vivado.log
+# Journal file: C:/vhdl_cpu/rtl_model/vivado_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.xpr
+launch_simulation
+source System.tcl
+close_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+create_fileset -simset sim_2
+set_property SOURCE_SET sources_1 [get_filesets sim_2]
+current_fileset -simset [ get_filesets sim_2 ]
+set_property top System [get_filesets sim_2]
+set_property top_lib xil_defaultlib [get_filesets sim_2]
+launch_simulation -simset sim_2
+current_fileset -simset [ get_filesets sim_1 ]
+delete_fileset sim_2
+file delete -force C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.srcs/sim_2
+create_fileset -simset sim_2
+set_property SOURCE_SET sources_1 [get_filesets sim_2]
+current_fileset -simset [ get_filesets sim_2 ]
+set_property top System [get_filesets sim_2]
+set_property top_lib xil_defaultlib [get_filesets sim_2]
+set_property SOURCE_SET sources_1 [get_filesets sim_2]
+set_property SOURCE_SET sources_1 [get_filesets sim_2]
+add_files -fileset sim_2 -norecurse {C:/vhdl_cpu/rtl_model/Memory.hex C:/vhdl_cpu/rtl_model/OutDevice.txt C:/vhdl_cpu/rtl_model/InDevice.txt}
+set_property SOURCE_SET sources_1 [get_filesets sim_2]
+add_files -fileset sim_2 -norecurse C:/vhdl_cpu/rtl_model/system.vhd
+launch_simulation -simset sim_2
+source System.tcl
+add_wave {{/System/CPU1/DATPATH/REG}} {{/System/CPU1/DATPATH/FLAGS_TMP}} 
+restart
+run 1800 ns
+save_wave_config {C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_2/System_behav.wcfg}
+add_files -fileset sim_2 -norecurse C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_2/System_behav.wcfg
+set_property xsim.view C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_2/System_behav.wcfg [get_filesets sim_2]
+close_sim

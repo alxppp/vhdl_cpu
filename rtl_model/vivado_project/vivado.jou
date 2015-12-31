@@ -2,47 +2,72 @@
 # Vivado v2015.4 (64-bit)
 # SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
 # IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
-# Start of session at: Wed Dec 30 19:59:14 2015
-# Process ID: 2080
+# Start of session at: Thu Dec 31 14:48:44 2015
+# Process ID: 3464
 # Current directory: C:/vhdl_cpu/rtl_model/vivado_project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9796 C:\vhdl_cpu\rtl_model\vivado_project\cpu_rtl.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10804 C:\vhdl_cpu\rtl_model\vivado_project\cpu_rtl.xpr
 # Log file: C:/vhdl_cpu/rtl_model/vivado_project/vivado.log
 # Journal file: C:/vhdl_cpu/rtl_model/vivado_project\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.xpr
-launch_simulation
+launch_simulation -simset sim_2
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_2/System_behav.wcfg
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
+source System.tcl
+restart
+run 1800 ns
+add_bp {C:/vhdl_cpu/rtl_model/memory.vhd} 71
+remove_bps -file {C:/vhdl_cpu/rtl_model/memory.vhd} -line 71
+close_sim
+remove_files -fileset sim_2 C:/vhdl_cpu/rtl_model/Memory.hex
+set_property SOURCE_SET sources_1 [get_filesets sim_2]
+add_files -fileset sim_2 -norecurse C:/vhdl_cpu/rtl_model/Memory.hex
+launch_simulation -simset sim_2
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_2/System_behav.wcfg
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
 source System.tcl
 close_sim
-reset_run synth_1
+current_fileset -simset [ get_filesets sim_1 ]
+launch_simulation
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Wafeform_controller.wcfg
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
+source System.tcl
+close_sim
+launch_simulation
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Wafeform_controller.wcfg
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
+source System.tcl
+close_sim
+launch_simulation
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Wafeform_controller.wcfg
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
+source System.tcl
+add_bp {C:/vhdl_cpu/rtl_model/Test/IO_Testbench.vhd} 78
+restart
+run 1800 ns
+step
+remove_bps -file {C:/vhdl_cpu/rtl_model/Test/IO_Testbench.vhd} -line 78
+add_bp {C:/vhdl_cpu/rtl_model/Test/IO_Testbench.vhd} 78
+remove_bps -file {C:/vhdl_cpu/rtl_model/Test/IO_Testbench.vhd} -line 78
 launch_runs synth_1 -jobs 4
 wait_on_run synth_1
 reset_run synth_1
-create_fileset -simset sim_2
-set_property SOURCE_SET sources_1 [get_filesets sim_2]
-current_fileset -simset [ get_filesets sim_2 ]
-set_property top System [get_filesets sim_2]
-set_property top_lib xil_defaultlib [get_filesets sim_2]
-launch_simulation -simset sim_2
-current_fileset -simset [ get_filesets sim_1 ]
-delete_fileset sim_2
-file delete -force C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.srcs/sim_2
-create_fileset -simset sim_2
-set_property SOURCE_SET sources_1 [get_filesets sim_2]
-current_fileset -simset [ get_filesets sim_2 ]
-set_property top System [get_filesets sim_2]
-set_property top_lib xil_defaultlib [get_filesets sim_2]
-set_property SOURCE_SET sources_1 [get_filesets sim_2]
-set_property SOURCE_SET sources_1 [get_filesets sim_2]
-add_files -fileset sim_2 -norecurse {C:/vhdl_cpu/rtl_model/Memory.hex C:/vhdl_cpu/rtl_model/OutDevice.txt C:/vhdl_cpu/rtl_model/InDevice.txt}
-set_property SOURCE_SET sources_1 [get_filesets sim_2]
-add_files -fileset sim_2 -norecurse C:/vhdl_cpu/rtl_model/system.vhd
-launch_simulation -simset sim_2
-source System.tcl
-add_wave {{/System/CPU1/DATPATH/REG}} {{/System/CPU1/DATPATH/FLAGS_TMP}} 
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+run 1800 ns
+restart
 restart
 run 1800 ns
-save_wave_config {C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_2/System_behav.wcfg}
-add_files -fileset sim_2 -norecurse C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_2/System_behav.wcfg
-set_property xsim.view C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_2/System_behav.wcfg [get_filesets sim_2]
+restart
+run 280 ns
 close_sim

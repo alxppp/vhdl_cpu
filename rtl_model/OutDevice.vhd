@@ -20,8 +20,9 @@ architecture RTL of OutDevice is
 
 begin
     
+
     --DEV_RDY <= not D_EMPTY; 
-    DEV_RDY <= D_EMPTY; --bugfix Robert
+    DEV_RDY <= D_EMPTY; --bugfix Max/Robert
                  
     DATA_RDY <= '1' when DATA_REQ = '1' and D_EMPTY = '0'
 		   else '0';
@@ -49,4 +50,4 @@ begin
     end process;
     
 
-end Behavioral;
+end RTL;

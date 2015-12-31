@@ -20,7 +20,7 @@ architecture Behavioral of OutDevice is
 
 begin
     
-    DEV_RDY <= not D_EMPTY;
+    DEV_RDY <= D_EMPTY;
                  
     DATA_RDY <= '1' when DATA_REQ = '1' and D_EMPTY = '0'
 		   else '0';

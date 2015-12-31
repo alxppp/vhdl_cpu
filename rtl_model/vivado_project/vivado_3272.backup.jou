@@ -2,13 +2,18 @@
 # Vivado v2015.4 (64-bit)
 # SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
 # IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
-# Start of session at: Mon Dec 28 19:30:19 2015
-# Process ID: 2548
+# Start of session at: Thu Dec 31 14:46:07 2015
+# Process ID: 3272
 # Current directory: C:/vhdl_cpu/rtl_model/vivado_project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5096 C:\vhdl_cpu\rtl_model\vivado_project\cpu_rtl.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11080 C:\vhdl_cpu\rtl_model\vivado_project\cpu_rtl.xpr
 # Log file: C:/vhdl_cpu/rtl_model/vivado_project/vivado.log
 # Journal file: C:/vhdl_cpu/rtl_model/vivado_project\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.xpr
-add_files -norecurse C:/vhdl_cpu/rtl_model/system.vhd
+current_fileset -simset [ get_filesets sim_2 ]
+launch_simulation -simset sim_2
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_2/System_behav.wcfg
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
+source System.tcl
+close_sim

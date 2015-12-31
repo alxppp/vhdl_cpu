@@ -1,0 +1,59 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Thu Dec 31 15:08:11 2015
+# Process ID: 588
+# Current directory: C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.runs/synth_1
+# Command line: vivado.exe -log System.vds -mode batch -messageDb vivado.pb -notrace -source System.tcl
+# Log file: C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.runs/synth_1/System.vds
+# Journal file: C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source System.tcl -notrace
+Command: synth_design -top System -part xc7k70tfbv676-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 268.520 ; gain = 95.160
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-2704] subprogram read does not conform with its declaration [C:/vhdl_cpu/rtl_model/Test/cpu_textio_pack.vhd:45]
+INFO: [Synth 8-994] read is declared here [C:/vhdl_cpu/rtl_model/Test/cpu_textio_pack.vhd:12]
+INFO: [Synth 8-638] synthesizing module 'System' [C:/vhdl_cpu/rtl_model/system.vhd:4]
+INFO: [Synth 8-638] synthesizing module 'CPU' [C:/vhdl_cpu/rtl_model/cpu.vhd:21]
+INFO: [Synth 8-638] synthesizing module 'datapath' [C:/vhdl_cpu/rtl_model/datapath.vhd:24]
+INFO: [Synth 8-638] synthesizing module 'alu' [C:/vhdl_cpu/rtl_model/alu.vhd:11]
+INFO: [Synth 8-638] synthesizing module 'logic_unit' [C:/vhdl_cpu/rtl_model/logic_unit.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'logic_unit' (1#1) [C:/vhdl_cpu/rtl_model/logic_unit.vhd:14]
+INFO: [Synth 8-638] synthesizing module 'ADDER_UNIT' [C:/vhdl_cpu/rtl_model/adder_unit.vhd:12]
+INFO: [Synth 8-638] synthesizing module 'RippleCarryAdder' [C:/vhdl_cpu/rtl_model/adder_subcomponents.vhd:56]
+	Parameter N bound to: 11 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'FULLADDER_rtl' [C:/vhdl_cpu/rtl_model/adder_subcomponents.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'FULLADDER_rtl' (2#1) [C:/vhdl_cpu/rtl_model/adder_subcomponents.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'RippleCarryAdder' (3#1) [C:/vhdl_cpu/rtl_model/adder_subcomponents.vhd:56]
+INFO: [Synth 8-638] synthesizing module 'HALFADDER' [C:/vhdl_cpu/rtl_model/adder_subcomponents.vhd:6]
+INFO: [Synth 8-256] done synthesizing module 'HALFADDER' (4#1) [C:/vhdl_cpu/rtl_model/adder_subcomponents.vhd:6]
+INFO: [Synth 8-256] done synthesizing module 'ADDER_UNIT' (5#1) [C:/vhdl_cpu/rtl_model/adder_unit.vhd:12]
+INFO: [Synth 8-638] synthesizing module 'SHIFTER_UNIT' [C:/vhdl_cpu/rtl_model/shifter_unit.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'SHIFTER_UNIT' (6#1) [C:/vhdl_cpu/rtl_model/shifter_unit.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'alu' (7#1) [C:/vhdl_cpu/rtl_model/alu.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'datapath' (8#1) [C:/vhdl_cpu/rtl_model/datapath.vhd:24]
+INFO: [Synth 8-638] synthesizing module 'CONTROLLER' [C:/vhdl_cpu/rtl_model/controller.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'instruction_decoder' [C:/vhdl_cpu/rtl_model/instruction_decoder.vhd:29]
+INFO: [Synth 8-256] done synthesizing module 'instruction_decoder' (9#1) [C:/vhdl_cpu/rtl_model/instruction_decoder.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'FSM' [C:/vhdl_cpu/rtl_model/fsm.vhd:31]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: assertion statement [C:/vhdl_cpu/rtl_model/fsm.vhd:76]
+INFO: [Synth 8-256] done synthesizing module 'FSM' (10#1) [C:/vhdl_cpu/rtl_model/fsm.vhd:31]
+INFO: [Synth 8-638] synthesizing module 'D_REG12RE' [C:/vhdl_cpu/rtl_model/register.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'D_REG12RE' (11#1) [C:/vhdl_cpu/rtl_model/register.vhd:11]
+INFO: [Synth 8-638] synthesizing module 'INC' [C:/vhdl_cpu/rtl_model/inc.vhd:7]
+INFO: [Synth 8-256] done synthesizing module 'INC' (12#1) [C:/vhdl_cpu/rtl_model/inc.vhd:7]
+INFO: [Synth 8-638] synthesizing module 'mux12_2x1' [C:/vhdl_cpu/rtl_model/multiplexer.vhd:10]
+INFO: [Synth 8-256] done synthesizing module 'mux12_2x1' (13#1) [C:/vhdl_cpu/rtl_model/multiplexer.vhd:10]
+INFO: [Synth 8-638] synthesizing module 'mux12_4x1' [C:/vhdl_cpu/rtl_model/multiplexer.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'mux12_4x1' (14#1) [C:/vhdl_cpu/rtl_model/multiplexer.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'CONTROLLER' (15#1) [C:/vhdl_cpu/rtl_model/controller.vhd:29]
+INFO: [Synth 8-256] done synthesizing module 'CPU' (16#1) [C:/vhdl_cpu/rtl_model/cpu.vhd:21]
+INFO: [Synth 8-638] synthesizing module 'mux_2x1' [C:/vhdl_cpu/rtl_model/multiplexer.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'mux_2x1' (17#1) [C:/vhdl_cpu/rtl_model/multiplexer.vhd:53]
+INFO: [Synth 8-638] synthesizing module 'Memory_hex_load' [C:/vhdl_cpu/rtl_model/memory.vhd:59]

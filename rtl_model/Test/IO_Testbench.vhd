@@ -76,6 +76,7 @@ begin
 				OUT_REQ <= '0';
 				TMP := TO_INTEGER(UNSIGNED(OUT_DATA));
 				EXEC_OUT(TMP, OutDevice);
+				OUT_REQ <= '1';
 			end if;
 
 		end if;

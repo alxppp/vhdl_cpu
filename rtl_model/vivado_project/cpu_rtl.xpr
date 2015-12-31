@@ -186,6 +186,7 @@
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
       <Filter Type="Srcs"/>
       <File Path="$PPRDIR/../Memory.hex"/>
+      <File Path="$PPRDIR/../OutDevice.txt"/>
       <File Path="$PPRDIR/../InDevice.txt"/>
       <File Path="$PPRDIR/../system_behavioural.vhd">
         <FileInfo>
@@ -203,15 +204,11 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-<<<<<<< HEAD
       <File Path="$PPRDIR/Wafeform_io_test.wcfg">
         <FileInfo>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-=======
-      <File Path="$PPRDIR/../OutDevice.txt"/>
->>>>>>> 6e5a2b916134cc9bcd1435abc67b4734cdb7f217
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="System"/>

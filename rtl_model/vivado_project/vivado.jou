@@ -39,3 +39,17 @@ open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Wafeform_controller.wcfg
 open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
 source System.tcl
 close_sim
+launch_simulation
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Wafeform_controller.wcfg
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
+source System.tcl
+run 1800 ns
+close_sim
+launch_simulation
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Wafeform_controller.wcfg
+open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
+source System.tcl
+run 310 ns
+restart
+run 310 ns
+close_sim

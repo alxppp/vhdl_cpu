@@ -2,15 +2,18 @@
 # Vivado v2015.4 (64-bit)
 # SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
 # IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
-# Start of session at: Thu Dec 31 15:33:43 2015
-# Process ID: 10872
+# Start of session at: Thu Dec 31 15:13:45 2015
+# Process ID: 3436
 # Current directory: C:/vhdl_cpu/rtl_model/vivado_project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10472 C:\vhdl_cpu\rtl_model\vivado_project\cpu_rtl.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10008 C:\vhdl_cpu\rtl_model\vivado_project\cpu_rtl.xpr
 # Log file: C:/vhdl_cpu/rtl_model/vivado_project/vivado.log
 # Journal file: C:/vhdl_cpu/rtl_model/vivado_project\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.xpr
+remove_files -fileset sim_1 C:/vhdl_cpu/rtl_model/OutDevice.txt
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/vhdl_cpu/rtl_model/OutDevice.txt
 launch_simulation
 open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Wafeform_controller.wcfg
 open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
@@ -20,22 +23,22 @@ launch_simulation
 open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Wafeform_controller.wcfg
 open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
 source System.tcl
-add_wave {{/System/CPU1/DATPATH/ALU/FLAGS}} 
+add_bp {C:/vhdl_cpu/rtl_model/Test/IO_Testbench.vhd} 78
 restart
-run 1200 ns
-add_wave {{/System/CPU1/DATPATH/ALU/FLAGS_LU}} {{/System/CPU1/DATPATH/ALU/FLAGS_AU}} {{/System/CPU1/DATPATH/ALU/FLAGS_SU}} 
-restart
-run 1200 ns
-add_wave {{/System/CPU1/DATPATH/ALU/OP1}} 
-add_wave {{/System/CPU1/DATPATH/ALU/RES}} 
-restart
-run 1200 ns
-add_wave {{/System/CPU1/DATPATH/ALU/SU/A}} {{/System/CPU1/DATPATH/ALU/SU/B}} 
-restart
-run 1200 ns
+run 280 ns
+step
+run 280 ns
+step
+step
 close_sim
 launch_simulation
 open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Wafeform_controller.wcfg
 open_wave_config C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg
 source System.tcl
+restart
+run 1800 ns
+run 1700 ns
+restart
+run 1700 ns
+save_wave_config {C:/vhdl_cpu/rtl_model/vivado_project/Waveform_trace.wcfg}
 close_sim

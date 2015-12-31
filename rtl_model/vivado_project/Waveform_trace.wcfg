@@ -6,111 +6,114 @@
       <db_ref path="System_behav.wdb" id="1">
          <top_modules>
             <top_module name="System" />
-            <top_module name="bootloader_program_pack" />
             <top_module name="cpu_defs_pack" />
             <top_module name="cpu_in_out_pack" />
+            <top_module name="cpu_memory_pack" />
             <top_module name="cpu_subprogram_pack" />
             <top_module name="cpu_textio_pack" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="530124333331fs"></ZoomStartTime>
-      <ZoomEndTime time="530257133334fs"></ZoomEndTime>
-      <Cursor1Time time="530175000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="231600001fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <WVObjectSize size="18" />
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/CLK">
+   <wvobject db_ref_id="1" fp_name="/System/CLK" type="logic">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/RST">
+   <wvobject db_ref_id="1" fp_name="/System/RST" type="logic">
       <obj_property name="ElementShortName">RST</obj_property>
       <obj_property name="ObjectShortName">RST</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/ACTIVE">
+   <wvobject db_ref_id="1" fp_name="/System/ACTIVE" type="logic">
       <obj_property name="ElementShortName">ACTIVE</obj_property>
       <obj_property name="ObjectShortName">ACTIVE</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/PC">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/CONTR/PC" type="array">
       <obj_property name="ElementShortName">PC[11:0]</obj_property>
       <obj_property name="ObjectShortName">PC[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/OP">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/CONTR/OP" type="array">
       <obj_property name="ElementShortName">OP[5:0]</obj_property>
       <obj_property name="ObjectShortName">OP[5:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/A_OUT">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/CONTR/A_OUT" type="array">
       <obj_property name="ElementShortName">A_OUT[11:0]</obj_property>
       <obj_property name="ObjectShortName">A_OUT[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/SEL_OUT_C">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/SEL_OUT_C" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">SEL_OUT_C[1:0]</obj_property>
       <obj_property name="ObjectShortName">SEL_OUT_C[1:0]</obj_property>
       <obj_property name="label">X=SEL_OUT_C[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/SEL_OUT_B">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/SEL_OUT_B" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">SEL_OUT_B[1:0]</obj_property>
       <obj_property name="ObjectShortName">SEL_OUT_B[1:0]</obj_property>
       <obj_property name="label">Y=SEL_OUT_B[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/SEL_OUT_A">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/SEL_OUT_A" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">SEL_OUT_A[1:0]</obj_property>
       <obj_property name="ObjectShortName">SEL_OUT_A[1:0]</obj_property>
       <obj_property name="label">Z=SEL_OUT_A[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/D_IN">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/D_IN" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">D_IN[11:0]</obj_property>
       <obj_property name="ObjectShortName">D_IN[11:0]</obj_property>
       <obj_property name="label">Parameter=D_IN[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/REG[0]">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/REG[0]" type="array">
       <obj_property name="ElementShortName">[0][11:0]</obj_property>
       <obj_property name="ObjectShortName">REG[0][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/REG[1]">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/REG[1]" type="array">
       <obj_property name="ElementShortName">[1][11:0]</obj_property>
       <obj_property name="ObjectShortName">REG[1][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/REG[2]">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/REG[2]" type="array">
       <obj_property name="ElementShortName">[2][11:0]</obj_property>
       <obj_property name="ObjectShortName">REG[2][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/DATPATH/REG[3]">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/REG[3]" type="array">
       <obj_property name="ElementShortName">[3][11:0]</obj_property>
       <obj_property name="ObjectShortName">REG[3][11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/DATPATH/FLAGS[3]">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/FLAGS[3]" type="logic">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[3]</obj_property>
       <obj_property name="ObjectShortName">FLAGS[3]</obj_property>
       <obj_property name="label">Z=FLAGS[3]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/DATPATH/FLAGS[2]">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/FLAGS[2]" type="logic">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[2]</obj_property>
       <obj_property name="ObjectShortName">FLAGS[2]</obj_property>
       <obj_property name="label">C=FLAGS[2]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/DATPATH/FLAGS[1]">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/FLAGS[1]" type="logic">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[1]</obj_property>
       <obj_property name="ObjectShortName">FLAGS[1]</obj_property>
       <obj_property name="label">N=FLAGS[1]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/System/CPU1/DATPATH/FLAGS[0]">
+   <wvobject db_ref_id="1" fp_name="/System/CPU1/DATPATH/FLAGS[0]" type="logic">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[0]</obj_property>
       <obj_property name="ObjectShortName">FLAGS[0]</obj_property>

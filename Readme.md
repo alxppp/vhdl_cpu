@@ -77,8 +77,8 @@ The bootloader needs 530,045ns to load, when it's done it jumps to Mem(0) and st
 |-------|--------|
 | NOP	| @RobMa [x]|
 | STOP	| @RobMa [x]|
-| ADD	| @maxcpu |
-| ADDC	| @maxcpu |
+| ADD	| @maxcpu [x]|
+| ADDC	| @maxcpu [x]|
 | SUB	| @OrestisAlpos [x]|
 | SUBC	| @OrestisAlpos [x]|
 | NOT	| @alxppp |
@@ -88,9 +88,9 @@ The bootloader needs 530,045ns to load, when it's done it jumps to Mem(0) and st
 | REA	| @RobMa [x]|
 | REO	| @RobMa [x]|
 | REX	| @RobMa [x]|
-| SLL	| @maxcpu |
-| SRL	| @maxcpu |
-| SRA	| @maxcpu |
+| SLL	| @maxcpu [x]|
+| SRL	| @maxcpu [x]|
+| SRA	| @maxcpu [x]|
 | ROL	| @RobMa [x]|
 | ROLC	| @RobMa [x]|
 | ROR	| @RobMa [x]|
@@ -100,8 +100,8 @@ The bootloader needs 530,045ns to load, when it's done it jumps to Mem(0) and st
 | LDR	| @OrestisAlpos [x]|
 | STD	| @OrestisAlpos [x]|
 | STR	| @OrestisAlpos [x]|
-| IN	| @maxcpu |
-| OUT	| @maxcpu |
+| IN	| @maxcpu [x]|
+| OUT	| @maxcpu [x]|
 | LDPC	| @alxppp |
 | STPC	| @alxppp |
 | JMP	| @alxppp |
@@ -109,9 +109,9 @@ The bootloader needs 530,045ns to load, when it's done it jumps to Mem(0) and st
 | JC	| @alxppp |
 | JN	| @OrestisAlpos [x]|
 | JO	| @OrestisAlpos [x]|
-| JNZ	| @maxcpu |
-| JNC	| @maxcpu |
-| JNN	| @maxcpu |
+| JNZ	| @maxcpu [x]|
+| JNC	| @maxcpu [x]|
+| JNN	| @maxcpu [x]|
 | JNO	| @RobMa [x]|
 
 ## Assembler documentation

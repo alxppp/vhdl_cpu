@@ -12,7 +12,7 @@ entity InDevice is
             
 end InDevice;
 
-architecture Behavioral of InDevice is
+architecture RTL of InDevice is
 
     signal D_REG : bit_vector(11 downto 0);
     signal D_EMPTY : bit;
@@ -39,22 +39,9 @@ begin
             if ACC_EN = '1' and ACC_TYPE = '0' and D_EMPTY = '0' then
                 D_EMPTY <= '1';
             end if;
---            if ACC_EN = '1' and ACC_TYPE = '0' and D_EMPTY = '0' then
---                DATA_OUT <= D_REG;
---            else
---                DATA_OUT <= (others => '0');                
---            end if;
-            
---            DATA_REQ <= D_EMPTY;
---            DEV_RDY <= not D_EMPTY;
-            
---            if DATA_RDY = '1' and D_EMPTY = '1' then
---                D_REG <= DATA_IN;
---                D_EMPTY <= '0';
---            end if;
                 
         end if;
     end process;
     
 
-end Behavioral;
+end RTL;

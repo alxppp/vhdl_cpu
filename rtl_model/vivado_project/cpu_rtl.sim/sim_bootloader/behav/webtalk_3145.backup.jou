@@ -2,8 +2,8 @@
 # Webtalk v2015.4 (64-bit)
 # SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
 # IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
-# Start of session at: Thu Dec 31 15:19:37 2015
-# Process ID: 3289
+# Start of session at: Thu Dec 31 15:17:27 2015
+# Process ID: 3145
 # Current directory: /home/robert/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_bootloader/behav
 # Command line: wbtcv -mode batch -source /home/robert/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_bootloader/behav/xsim.dir/System_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /home/robert/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.sim/sim_bootloader/behav/webtalk.log

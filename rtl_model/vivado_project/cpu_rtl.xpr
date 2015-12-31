@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="10" Path="C:/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.xpr">
+<Project Version="7" Minor="10" Path="/home/robert/vhdl_cpu/rtl_model/vivado_project/cpu_rtl.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="b0bbb8d418f54a46b8c417e82af41bf4"/>
@@ -203,7 +203,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
+      <File Path="$PPRDIR/Wafeform_io_test.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+=======
       <File Path="$PPRDIR/../OutDevice.txt"/>
+>>>>>>> 6e5a2b916134cc9bcd1435abc67b4734cdb7f217
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="System"/>
@@ -211,10 +219,12 @@
         <Option Name="TopArchitecture" Val="behavioral"/>
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/Wafeform_controller.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/Wafeform_io_test.wcfg"/>
       </Config>
     </FileSet>
     <FileSet Name="sim_2" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_2">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../Memory.hex"/>
       <File Path="$PPRDIR/../OutDevice.txt"/>
       <File Path="$PPRDIR/../InDevice.txt"/>
       <File Path="$PPRDIR/../system.vhd">
@@ -233,7 +243,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../Memory.hex"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="System"/>
@@ -288,9 +297,6 @@
     </Simulator>
     <Simulator Name="Riviera">
       <Option Name="Description" Val="Riviera-PRO Simulator"/>
-    </Simulator>
-    <Simulator Name="ActiveHDL">
-      <Option Name="Description" Val="Active-HDL Simulator"/>
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="10">

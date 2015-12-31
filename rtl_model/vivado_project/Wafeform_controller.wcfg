@@ -15,9 +15,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="320200000fs"></ZoomStartTime>
-      <ZoomEndTime time="453000002fs"></ZoomEndTime>
-      <Cursor1Time time="92000000fs"></Cursor1Time>
+      <ZoomStartTime time="147900000fs"></ZoomStartTime>
+      <ZoomEndTime time="280700001fs"></ZoomEndTime>
+      <Cursor1Time time="195000000fs"></Cursor1Time>
    </zoom_setting>
    <WVObjectSize size="67" />
    <wvobject db_ref_id="1" type="logic" fp_name="/System/CLK">
@@ -164,6 +164,7 @@
    <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/OP">
       <obj_property name="ElementShortName">OP[5:0]</obj_property>
       <obj_property name="ObjectShortName">OP[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/System/CPU1/CONTR/D_OUT">
       <obj_property name="ElementShortName">D_OUT[11:0]</obj_property>

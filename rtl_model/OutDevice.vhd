@@ -13,14 +13,16 @@ entity OutDevice is
             
 end OutDevice;
 
-architecture Behavioral of OutDevice is
+architecture RTL of OutDevice is
 
     signal D_REG : bit_vector(11 downto 0);
     signal D_EMPTY : bit;
 
 begin
     
-    DEV_RDY <= D_EMPTY;
+
+    --DEV_RDY <= not D_EMPTY; 
+    DEV_RDY <= D_EMPTY; --bugfix Max/Robert
                  
     DATA_RDY <= '1' when DATA_REQ = '1' and D_EMPTY = '0'
 		   else '0';
@@ -48,4 +50,4 @@ begin
     end process;
     
 
-end Behavioral;
+end RTL;
